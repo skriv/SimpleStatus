@@ -1,3 +1,6 @@
+https://www.figma.com/file/cKrtjUhrt0mYubUtLHjFf2/Simple-Status-2.0?node-id=0%3A1
+
+
 This plugin template uses Typescript. If you are familiar with Javascript, Typescript will
 look very familiar. In fact, valid Javascript code is already valid Typescript code.
 
