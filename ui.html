@@ -59,36 +59,48 @@
   }
 </style>
 
-<div class="status-container">
-  <button class="button status-button">🔴 Progress</button>
-  <button class="button status-button">🟡 Review</button>
-  <button class="button status-button">🟢 Done</button>
+<div class='status-container' id='status-container'>
+  <button class='button status-button'>🔴 Progress</button>
+  <button class='button status-button'>🟡 Review</button>
+  <button class='button status-button'>🟢 Done</button>
 </div>
 
-<div class="action-menu">
-  <button class="button action-button" id="clear">Clear status</button>
-  <button class="button action-button" id="add">+ Add New</button>
+<div class='action-menu'>
+  <button class='button action-button' id='clear'>Clear status</button>
+  <button class='button action-button' id='add'>+ Add New</button>
 </div>
 </div>
 
 
 <script>
-  var buttons = document.querySelectorAll(".status-button");
-
-  var changeStatus = function(e) {
+  const changeStatus = function(e) {
     const buttonName = e.target.innerText;
     parent.postMessage({ pluginMessage: { type: 'change-status', buttonName} }, '*')
   };
 
-  for (var i = 0, len = buttons.length; i < len; i++) {
-    buttons[i].addEventListener("click", changeStatus);
-  };
+  function addListeners() {
+    let buttons = document.querySelectorAll('.status-button');
+    for (let i = 0, len = buttons.length; i < len; i++) {
+      buttons[i].addEventListener('click', changeStatus);
+    };
+  }
+
+  addListeners();
 
   document.getElementById('clear').onclick = clearStatus;
 
-  function clearStatus(){
+  function clearStatus() {
     parent.postMessage({ pluginMessage: { type: 'clearStatus' } }, '*')
-}
+  };
 
+  document.getElementById('add').onclick = addNewStatus;
+
+  function addNewStatus() {
+    const newStatus = document.createElement('button');
+    newStatus.className = 'button status-button';
+    newStatus.innerHTML = '🟢 New status';
+    document.getElementById('status-container').appendChild(newStatus);
+    addListeners();
+  };
 
 </script>

@@ -14,7 +14,7 @@ figma.ui.onmessage = msg => {
             }
             else {
                 node.name = node.name.split(special_symbols)[1];
-                localStorage.getItem("object");
+                // localStorage.getItem("object");
             }
             node.setRelaunchData({ relaunch: '' });
         }
