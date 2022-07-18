@@ -1,7 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { watchProperty } from 'rpct/browser';
 import { isEqualNodeArray } from './utils/utils';
-import { testHttp } from './utils/http';
 
 export const selectionWatcher = watchProperty(() => figma.currentPage.selection, {
   isEqual: isEqualNodeArray,
@@ -38,10 +37,6 @@ export class PluginMethods {
     selectionWatcher.on('change', (selection) => {
       onSelectionChange(selection.map(x => x.id));
     });
-  }
-
-  testHttp(index: number) {
-    return testHttp(index);
   }
 
   addBlock(parentId?: string) {
