@@ -10,19 +10,20 @@ import {
     height: WINDOW_HEIGHT,
   });
 
-  // figma.ui.onmessage = msg => {
-  //   figma.currentPage.selection.forEach(node => {
-  //     if (node.type == 'FRAME') {
-  //       if (msg.type === 'change-status') {
-  //         if (node.name.indexOf(SEPARATOR) != -1) {
-  //           node.name = node.name.split(SEPARATOR)[1];
-  //         }
-  //         node.name = msg.buttonName + SEPARATOR + node.name;
-  //       } else {
-  //         node.name = node.name.split(SEPARATOR)[1];
-  //       }
-  //       node.setRelaunchData({ relaunch: '' })
-  //     }
-  //   });
-  // };
+  figma.ui.onmessage = msg => {
+    figma.currentPage.selection.forEach(node => {
+      if (node.type == 'FRAME') {
+        const originalName = node.name.split(SEPARATOR)[1]?.trim() || '';
+        if (msg.type === 'change-status') {
+          if (node.name.indexOf(SEPARATOR) != -1) {
+            node.name = originalName;
+          }
+          node.name = `${msg.buttonName} ${SEPARATOR} ${node.name}`;
+        } else {
+          node.name = originalName;
+        }
+        node.setRelaunchData({ relaunch: '' })
+      }
+    });
+  };
 }());

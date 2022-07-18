@@ -3,10 +3,10 @@
     <div
       v-for="(status, i) of STATUSES"
       :key="i"
-      class="button"
+      class="simple-status_button"
       @click="changeStatus"
     >
-      <span>{{ status.text }}</span>
+      {{ status.icon }} &nbsp; {{ status.text }}
     </div>
   </div>
 </template>
@@ -14,19 +14,21 @@
 <script setup lang="ts">
   const STATUSES = [
     {
-      text: '🔴  Progress'
+      icon: '🔴',
+      text: 'Progress'
     },
     {
-      text: '🟡  Review'
+      icon: '🟡',
+      text: 'Review'
     },
     {
-      text: '🟢  Done'
+      icon: '🟢',
+      text: 'Done'
     }
   ]
 
   function changeStatus(e: any) {
     const buttonName = e.target.innerText;
-    console.log(buttonName);
     parent.postMessage({ pluginMessage: { type: 'change-status', buttonName } }, '*')
   }
 </script>
@@ -42,19 +44,22 @@
     overflow-y: overlay; // removes the black line near scrollbar when Chrome browser is scaled > 100%
   }
 
-  .button {
-    display: flex;
-    align-items: center;
-    width: 100%;
-    height: 32px;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 11px;
-    line-height: 16px;
-
-    &:hover {
-      background-color: #F0F0F0;
-      cursor: pointer;
+  .simple-status {
+    &_button {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      font-style: normal;
+      font-weight: normal;
+      font-size: 11px;
+      line-height: 16px;
+      padding: 8px;
+      box-sizing: border-box;
+  
+      &:hover {
+        background-color: #F0F0F0;
+        cursor: pointer;
+      }
     }
   }
 </style>
