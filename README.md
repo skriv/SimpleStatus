@@ -1,25 +1,19 @@
-https://www.figma.com/file/cKrtjUhrt0mYubUtLHjFf2/Simple-Status-2.0?node-id=0%3A1
+# Simple Status
 
+## Run for development
 
-This plugin template uses Typescript. If you are familiar with Javascript, Typescript will
-look very familiar. In fact, valid Javascript code is already valid Typescript code.
+```
+npm install
+npm run dev
+```
 
-Typescript adds type annotations to variables. This allows code editors such as Visual Studio Code
-to provide information about the Figma API while you are writing code, as well as help catch bugs
-you previously didn't notice.
+Open `Figma Desktop App`, right click anywhere on the canvas to open the menu, `Plugins`->`Development`->`Import plugin from manifest...`, select the path of the `dist/manifest.json` file created earlier, you can successfully import the plugin.
 
-For more information, visit https://www.typescriptlang.org/
+Then by right-clicking, `Plugins`->`Development`->(plugin name), you can open the plugin.
 
-Using Typescript requires a compiler to convert Typescript (code.ts) into Javascript (code.js)
-for the browser to run.
+## Build to production
+```
+npm run build
+```
 
-To get the TypeScript compiler working:
-
-1. Download Visual Studio Code if you haven't already: https://code.visualstudio.com/.
-2. Install the TypeScript compiler globally: `sudo npm install -g typescript`.
-3. Open this directory in Visual Studio Code.
-4. Compile TypeScript to JavaScript: Run the "Terminal > Run Build Task..." menu item,
-    then select "tsc: watch - tsconfig.json". You will have to do this again every time
-    you reopen Visual Studio Code.
-
-That's it! Visual Studio Code will regenerate the JavaScript file every time you save.
+The project uses this boilerplate `https://github.com/BigLiao/figma-plugin-vue3`
