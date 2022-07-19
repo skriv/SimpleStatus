@@ -1,58 +1,19 @@
 <template>
   <div class="simple-status">
-    <div
-      v-for="(status, i) of STATUSES"
-      :key="i"
-      class="simple-status_button"
-      @click="changeStatus"
-    >
-      <span @click="opened = true">{{ status.icon }}</span>&nbsp;{{ status.text }}
-    </div>
-    <EmojiPicker
-      v-if="opened"
-      disable-skin-tones
-      @select="selectedEmoji"
-    />
+    <Statuses />
   </div>
 </template>
 
-<script setup lang="ts">
-  import EmojiPicker from 'vue3-emoji-picker';
-  import '../node_modules/vue3-emoji-picker/dist/style.css';
-  import { ref } from 'vue';
+<script lang="ts">
+  import { defineComponent } from 'vue';
+  import Statuses from './components/Statuses.vue';
 
-  const STATUSES = [
-    {
-      icon: '🔴',
-      text: 'Progress'
+  export default defineComponent({
+    name: 'App',
+    components: {
+      Statuses,
     },
-    {
-      icon: '🟡',
-      text: 'Review'
-    },
-    {
-      icon: '🟢',
-      text: 'Done'
-    }
-  ]
-  const disabledGroups = [
-    'travel_places',
-    'objects',
-    'symbols',
-    'flags'
-  ]
-
-  const opened = ref(false)
-
-  function changeStatus(e: any) {
-    const buttonName = e.target.innerText;
-    parent.postMessage({ pluginMessage: { type: 'change-status', buttonName } }, '*')
-  }
-
-  function selectedEmoji(emoji: any) {
-    console.log(emoji)
-    opened.value = false
-  }
+  })
 </script>
 
 <style lang="scss">
@@ -78,36 +39,5 @@
     position: absolute;
     left: 0;
     top: 0;
-  }
-
-  .simple-status {
-    &_button {
-      width: 100%;
-      display: inline-block;
-      align-items: center;
-      font-style: normal;
-      font-weight: 700;
-      font-size: 12px;
-      line-height: 16px;
-      padding: 10px 12px 10px 8px;
-      box-sizing: border-box;
-  
-      &:hover {
-        background-color: rgba(208, 232, 252, 0.3);
-        cursor: pointer;
-      }
-
-      span {
-        display: inline-block;
-        font-size: 13px;
-        padding-right: 10px;
-        padding-left: 4px;
-        transition: all 0.2s ease;
-
-        &:hover {
-          transform: scale(1.2);
-        }
-      }
-    }
   }
 </style>
