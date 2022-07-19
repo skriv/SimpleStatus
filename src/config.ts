@@ -1,3 +1,3 @@
-export const WINDOW_WIDTH = 180
-export const WINDOW_HEIGHT = 200
-export const SEPARATOR = "   ⟶  "
+export const WINDOW_WIDTH = 250
+export const WINDOW_HEIGHT = 284
+export const SEPARATOR = "   ⟶   "

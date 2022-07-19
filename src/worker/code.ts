@@ -2,7 +2,7 @@ import {
   WINDOW_WIDTH,
   WINDOW_HEIGHT,
   SEPARATOR
-} from '../config'
+} from '../config';
 
 (async function () {
   figma.showUI(__html__, {
