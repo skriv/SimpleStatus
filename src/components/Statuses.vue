@@ -1,12 +1,18 @@
 <template>
-  <div
-    v-for="(status, i) in statuses"
-    :key="i"
-    class="simple-status_button"
-    @click="changeStatus"
+  <draggable
+    v-if="statuses && statuses.length"
+    v-model="statuses"
+    @change="saveToStorage"
   >
-    <span @click="openEmoji(status)">{{ status.icon }}</span>&nbsp;&nbsp;{{ status.text }}
-  </div>
+    <template #item="{ element }">
+      <div
+        class="simple-status_button"
+        @click="changeStatus"
+      >
+        <span @click="openEmoji(element)">{{ element.icon }}</span>&nbsp;&nbsp;{{ element.text }}
+      </div>
+    </template>
+  </draggable>
   <EmojiPicker
     v-if="opened"
     disable-skin-tones
@@ -21,6 +27,7 @@
     ref
   } from 'vue';
   import { pluginApi } from '../api/connection';
+  import draggable from 'vuedraggable';
   import EmojiPicker from 'vue3-emoji-picker';
   import '../../node_modules/vue3-emoji-picker/dist/style.css';
   import {
@@ -39,6 +46,7 @@
     name: 'Statuses',
     components: {
       EmojiPicker,
+      draggable,
     },
     setup() {
       const opened = ref(false)
@@ -49,25 +57,27 @@
         const buttonName = e.target.innerText;
         await pluginApi.setStatus(buttonName)
       }
+
+      function saveToStorage() {
+        pluginApi.setItem(STATUSES_LIST_KEY, JSON.stringify(statuses.value))
+      }
     
       async function selecteEmoji(emoji: any) {
         const foundIndex = statuses.value.findIndex((x: any) => x.text == selectedStatus.value.text)
         statuses.value[foundIndex] = { ...selectedStatus.value, icon: emoji.i }
-        console.log(JSON.stringify(statuses.value));
-        
-        pluginApi.setItem(STATUSES_LIST_KEY, JSON.stringify(statuses.value))
+        saveToStorage()
         selectedStatus.value = null
         opened.value = false
       }
 
       function openEmoji(status: any) {
-        selectedStatus.value = status
         opened.value = true
+        selectedStatus.value = status
       }
 
       onMounted(async () => {
         const savedStatuses = await pluginApi.getItem(STATUSES_LIST_KEY)
-        statuses.value = !savedStatuses ? DEFAULT_STATUSES : JSON.parse(JSON.parse(savedStatuses))
+        statuses.value = !savedStatuses ? DEFAULT_STATUSES : JSON.parse(savedStatuses)
       })
 
       return {
@@ -76,7 +86,8 @@
         selecteEmoji,
         openEmoji,
         disabledGroups,
-        statuses
+        statuses,
+        saveToStorage
       }
     }
   })

@@ -1,7 +1,6 @@
 import {
   WINDOW_WIDTH,
-  WINDOW_HEIGHT,
-  SEPARATOR
+  WINDOW_HEIGHT
 } from '../config';
 import { initApi } from './connection';
 
