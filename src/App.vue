@@ -27,17 +27,4 @@
     font-feature-settings: 'zero' on, 'ordn' on, 'ss02' on, 'ss05' on;
     overflow-y: overlay; // removes the black line near scrollbar when Chrome browser is scaled > 100%
   }
-
-  .v3-emoji-picker .v3-body .v3-body-inner .v3-group .v3-emojis button {
-    flex-basis: 15%;
-    max-width: 20%;
-  }
-
-  .v3-emoji-picker {
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    left: 0;
-    top: 0;
-  }
 </style>

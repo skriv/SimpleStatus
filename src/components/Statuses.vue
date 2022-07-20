@@ -13,10 +13,10 @@
       </div>
     </template>
   </draggable>
-  <EmojiPicker
+  <Emoji
     v-if="opened"
-    disable-skin-tones
-    @select="selecteEmoji"
+    @on-close="closeEmoji"
+    @on-select="selecteEmoji"
   />
 </template>
 
@@ -28,24 +28,17 @@
   } from 'vue';
   import { pluginApi } from '../api/connection';
   import draggable from 'vuedraggable';
-  import EmojiPicker from 'vue3-emoji-picker';
-  import '../../node_modules/vue3-emoji-picker/dist/style.css';
+  import Emoji from './Emoji.vue';
   import {
     STATUSES_LIST_KEY,
-    DEFAULT_STATUSES
+    DEFAULT_STATUSES,
+    EMOJI
   } from '../config'
-
-  const disabledGroups = [
-    'travel_places',
-    'objects',
-    'symbols',
-    'flags'
-  ]
 
   export default defineComponent({
     name: 'Statuses',
     components: {
-      EmojiPicker,
+      Emoji,
       draggable,
     },
     setup() {
@@ -58,21 +51,25 @@
         await pluginApi.setStatus(buttonName)
       }
 
-      function saveToStorage() {
-        pluginApi.setItem(STATUSES_LIST_KEY, JSON.stringify(statuses.value))
+      function openEmoji(status: any) {
+        opened.value = true
+        selectedStatus.value = status
       }
-    
-      async function selecteEmoji(emoji: any) {
-        const foundIndex = statuses.value.findIndex((x: any) => x.text == selectedStatus.value.text)
-        statuses.value[foundIndex] = { ...selectedStatus.value, icon: emoji.i }
-        saveToStorage()
+
+      function closeEmoji() {
         selectedStatus.value = null
         opened.value = false
       }
 
-      function openEmoji(status: any) {
-        opened.value = true
-        selectedStatus.value = status
+      function saveToStorage() {
+        pluginApi.setItem(STATUSES_LIST_KEY, JSON.stringify(statuses.value))
+      }
+    
+      async function selecteEmoji(emoji: string) {
+        const foundIndex = statuses.value.findIndex((x: any) => x.text == selectedStatus.value.text)
+        statuses.value[foundIndex] = { ...selectedStatus.value, icon: emoji }
+        saveToStorage()
+        closeEmoji()
       }
 
       onMounted(async () => {
@@ -85,9 +82,10 @@
         changeStatus,
         selecteEmoji,
         openEmoji,
-        disabledGroups,
         statuses,
-        saveToStorage
+        saveToStorage,
+        EMOJI,
+        closeEmoji
       }
     }
   })
@@ -105,10 +103,10 @@
       line-height: 16px;
       padding: 10px 12px 10px 8px;
       box-sizing: border-box;
+      cursor: pointer;
   
       &:hover {
-        background-color: rgba(208, 232, 252, 0.3);
-        cursor: pointer;
+        background-color: #f1f8fe;
       }
 
       span {
