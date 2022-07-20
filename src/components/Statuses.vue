@@ -10,7 +10,9 @@
         @click="setStatus"
       >
         <span @click="openEmoji(element, $event)">{{ element.icon }}</span>&nbsp;&nbsp;{{ element.text }}
-        <div class="simple-status_button-opt">⋮</div>
+        <div class="simple-status_button-opt">
+          {{ OPTION_BTN_ICON }}
+        </div>
       </div>
     </template>
   </draggable>
@@ -42,7 +44,8 @@
   import {
     STATUSES_LIST_KEY,
     DEFAULT_STATUSES,
-    EMOJI
+    EMOJI,
+    OPTION_BTN_ICON
   } from '../config'
 
   export default defineComponent({
@@ -57,7 +60,7 @@
       const selectedStatus = ref()
     
       async function setStatus(e: any) {
-        const buttonName = e.target.innerText;
+        const buttonName = e.target.innerText.replace(OPTION_BTN_ICON, '');
         await pluginApi.setStatus(buttonName)
       }
 
@@ -101,7 +104,8 @@
         statuses,
         saveToStorage,
         EMOJI,
-        closeEmoji
+        closeEmoji,
+        OPTION_BTN_ICON
       }
     }
   })
