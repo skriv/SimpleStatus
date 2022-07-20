@@ -21,12 +21,21 @@ export class PluginMethods {
   setStatus(status: string) {
     figma.currentPage.selection.forEach(node => {
       if (node.type == 'FRAME') {
-        const originalName = node.name.split(SEPARATOR)[1]?.trim() || '';
         if (node.name.indexOf(SEPARATOR) != -1) {
-          node.name = originalName;
+          node.name = node.name.split(SEPARATOR)[1]?.trim() || '';
         }
         node.name = `${status} ${SEPARATOR} ${node.name}`;
         node.setRelaunchData({ relaunch: '' })
+      }
+    });
+  }
+
+  removeStatus() {
+    figma.currentPage.selection.forEach(node => {
+      if (node.type == 'FRAME') {
+        if (node.name.indexOf(SEPARATOR) != -1) {
+          node.name = node.name.split(SEPARATOR)[1]?.trim() || '';
+        }
       }
     });
   }

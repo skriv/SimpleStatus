@@ -7,12 +7,22 @@
     <template #item="{ element }">
       <div
         class="simple-status_button"
-        @click="changeStatus"
+        @click="setStatus"
       >
-        <span @click="openEmoji(element)">{{ element.icon }}</span>&nbsp;&nbsp;{{ element.text }}
+        <span @click="openEmoji(element, $event)">{{ element.icon }}</span>&nbsp;&nbsp;{{ element.text }}
+        <div class="simple-status_button-opt">⋮</div>
       </div>
     </template>
   </draggable>
+  <div class="simple-status_button simple-status_button-new">
+    + Add New
+  </div>
+  <div
+    class="simple-status_button simple-status_button-clear"
+    @click="removeStatus"
+  >
+    Clear status
+  </div>
   <Emoji
     v-if="opened"
     @on-close="closeEmoji"
@@ -46,12 +56,17 @@
       const statuses = ref()
       const selectedStatus = ref()
     
-      async function changeStatus(e: any) {
+      async function setStatus(e: any) {
         const buttonName = e.target.innerText;
         await pluginApi.setStatus(buttonName)
       }
 
-      function openEmoji(status: any) {
+      function removeStatus() {
+        pluginApi.removeStatus()
+      }
+
+      function openEmoji(status: any, e: any) {
+        e.stopPropagation()
         opened.value = true
         selectedStatus.value = status
       }
@@ -79,7 +94,8 @@
 
       return {
         opened,
-        changeStatus,
+        setStatus,
+        removeStatus,
         selecteEmoji,
         openEmoji,
         statuses,
@@ -93,6 +109,11 @@
 
 <style lang="scss">
   .simple-status {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+
     &_button {
       width: 100%;
       display: inline-block;
@@ -104,20 +125,47 @@
       padding: 10px 12px 10px 8px;
       box-sizing: border-box;
       cursor: pointer;
-  
-      &:hover {
-        background-color: #f1f8fe;
-      }
 
       span {
         display: inline-block;
-        font-size: 13px;
+        font-size: 15px;
         padding-right: 5px;
         padding-left: 4px;
         transition: all 0.1s ease;
+        cursor: pointer;
 
         &:hover {
           transform: scale(1.2);
+        }
+      }
+
+      &-opt {
+        float: right;
+        font-size: 16px;
+        display: none;
+
+        &:hover {
+          transform: scale(1.2);
+        }
+      }
+
+      &-new {
+        padding-left: 16px;
+        color: #18A0FB;
+      }
+
+      &-clear {
+        padding-left: 16px;
+        color: #E93940;
+        margin-top: auto;
+        border-top: 1px solid rgba(0, 0, 0, 0.1);
+      }
+
+      &:hover {
+        background-color: #f1f8fe;
+
+        .simple-status_button-opt {
+          display: inline;
         }
       }
     }
