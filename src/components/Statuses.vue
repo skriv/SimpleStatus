@@ -5,15 +5,29 @@
       v-model="statuses"
       @change="saveToStorage"
     >
-      <template #item="{ element }">
+      <template #item="{ element, index }">
         <div
           class="simple-status_button"
           @click="setStatus"
         >
           <span @click="openEmoji(element, $event)">{{ element.icon }}</span>&nbsp;&nbsp;{{ element.name }}
-          <div class="simple-status_button-opt">
+
+          <!-- Options -->
+          <div
+            class="simple-status_button-opt"
+          >
             {{ OPTION_BTN_ICON }}
+            <div
+              class="simple-status_button-opts"
+            >
+              <div
+                class="color-red simple-status_button-opts-remove"
+                @click="removeStatus(index)"
+              >❌</div>
+              <div>✎</div>
+            </div>
           </div>
+
         </div>
       </template>
     </draggable>
@@ -25,7 +39,6 @@
     </div>
     <div
       class="simple-status_button simple-status_button-clear"
-      @click="removeStatus"
     >
       Clear status
     </div>
@@ -81,8 +94,13 @@
         await pluginApi.setStatus(buttonName)
       }
 
-      function removeStatus() {
-        pluginApi.removeStatus()
+      function saveToStorage() {
+        pluginApi.setItem(STATUSES_LIST_KEY, JSON.stringify(statuses.value))
+      }
+
+      function removeStatus(index: any) {
+        statuses.value.splice(index, 1)
+        saveToStorage()
       }
 
       function openEmoji(status: any, e: any) {
@@ -94,10 +112,6 @@
       function closeEmoji() {
         selectedStatus.value = null
         openedEmojiModal.value = false
-      }
-
-      function saveToStorage() {
-        pluginApi.setItem(STATUSES_LIST_KEY, JSON.stringify(statuses.value))
       }
     
       async function selecteEmoji(emoji: string) {
@@ -111,7 +125,7 @@
         statuses.value = [...statuses.value, status]
         saveToStorage()
         openedStatusModal.value = false
-      } 
+      }
 
       onMounted(async () => {
         const savedStatuses = await pluginApi.getItem(STATUSES_LIST_KEY)
@@ -130,7 +144,7 @@
         EMOJI,
         closeEmoji,
         OPTION_BTN_ICON,
-        addNewStatus
+        addNewStatus,
       }
     }
   })
@@ -145,6 +159,7 @@
 
     &_button {
       width: 100%;
+      position: relative;
       display: inline-block;
       align-items: center;
       font-style: normal;
@@ -172,15 +187,45 @@
         float: right;
         font-size: 16px;
         display: none;
+        padding: 0 6px;
 
         &:hover {
           transform: scale(1.2);
+          color: #18A0FB;
+
+          .simple-status_button-opts {
+            display: flex !important;
+          }
         }
       }
 
       &-new {
         padding-left: 16px;
         color: #18A0FB;
+      }
+
+      &-opts {
+        height: 100%;
+        position: absolute;
+        top: 0;
+        right: 0;
+        background-color: #f1f8fe;
+        display: none;
+        box-shadow: 0 0 11px rgb(0 0 0 / 5%);
+        z-index: 2;
+
+        > div {
+          padding: 0 6px;
+          cursor: pointer;
+
+          &:hover {
+            transform: scale(1.2);
+          }
+        }
+
+        &-remove {
+          font-size: 8px;
+        }
       }
 
       &-clear {
@@ -203,5 +248,9 @@
         }
       }
     }
+  }
+
+  .color-red {
+    color: #E93940;
   }
 </style>
