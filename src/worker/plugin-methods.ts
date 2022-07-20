@@ -30,7 +30,7 @@ export class PluginMethods {
     });
   }
 
-  removeStatus() {
+  clearStatusFromFrame() {
     figma.currentPage.selection.forEach(node => {
       if (node.type == 'FRAME') {
         if (node.name.indexOf(SEPARATOR) != -1) {

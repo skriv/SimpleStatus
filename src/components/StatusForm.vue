@@ -52,7 +52,8 @@
 <script lang="ts">
   import {
     defineComponent,
-    ref
+    ref,
+    toRefs
   } from 'vue'
     import {
     DEFAULT_ICON_FOR_NEW_STATUS
@@ -64,10 +65,20 @@
     components: {
       Emoji,
     },
+    props: {
+      status: {
+        type: Object,
+        default: null
+      }
+    },
     emits: ['on-close', 'on-save'],
     setup(props, { emit }) {
-      const emoji = ref(DEFAULT_ICON_FOR_NEW_STATUS)
-      const name = ref(null)
+      const {
+        status,
+      } = toRefs(props)
+
+      const emoji = ref(status.value?.icon || DEFAULT_ICON_FOR_NEW_STATUS)
+      const name = ref(status.value?.name)
       const openedEmojiModal = ref(false)
 
       function close() {
@@ -100,7 +111,7 @@
   .status-form {
     width: 100%;
     height: 100%;
-    position: fixed;
+    position: absolute;
     left: 0;
     top: 0;
     display: flex;

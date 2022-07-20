@@ -24,7 +24,9 @@
                 class="color-red simple-status_button-opts-remove"
                 @click="removeStatus(index)"
               >❌</div>
-              <div>✎</div>
+              <div
+                @click="editStatus(element)"
+              >✎</div>
             </div>
           </div>
 
@@ -39,6 +41,7 @@
     </div>
     <div
       class="simple-status_button simple-status_button-clear"
+      @click="clearStatus"
     >
       Clear status
     </div>
@@ -47,8 +50,9 @@
   <!-- Form for create or update status-->
   <StatusForm
     v-if="openedStatusModal"
-    @on-close="openedStatusModal = false"
+    @on-close="closeStatusModal"
     @on-save="addNewStatus"
+    :status="selectedStatus"
   />
 
   <!-- Emoji list -->
@@ -121,10 +125,29 @@
         closeEmoji()
       }
 
-      function addNewStatus(status: any) {
-        statuses.value = [...statuses.value, status]
-        saveToStorage()
+      function closeStatusModal() {
+        selectedStatus.value = null
         openedStatusModal.value = false
+      }
+
+      function addNewStatus(status: any) {
+        if (selectedStatus.value) {
+          const foundIndex = statuses.value.findIndex((x: any) => x.name == selectedStatus.value.name)
+          statuses.value[foundIndex] = status
+        } else {
+          statuses.value = [...statuses.value, status]
+        }
+        saveToStorage()
+        closeStatusModal()
+      }
+
+      function editStatus(status: any) {
+        selectedStatus.value = status
+        openedStatusModal.value = true
+      }
+
+      function clearStatus() {
+        pluginApi.clearStatusFromFrame()
       }
 
       onMounted(async () => {
@@ -145,6 +168,10 @@
         closeEmoji,
         OPTION_BTN_ICON,
         addNewStatus,
+        editStatus,
+        selectedStatus,
+        closeStatusModal,
+        clearStatus
       }
     }
   })
