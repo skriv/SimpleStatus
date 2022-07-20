@@ -1,32 +1,46 @@
 <template>
-  <draggable
-    v-if="statuses && statuses.length"
-    v-model="statuses"
-    @change="saveToStorage"
-  >
-    <template #item="{ element }">
-      <div
-        class="simple-status_button"
-        @click="setStatus"
-      >
-        <span @click="openEmoji(element, $event)">{{ element.icon }}</span>&nbsp;&nbsp;{{ element.text }}
-        <div class="simple-status_button-opt">
-          {{ OPTION_BTN_ICON }}
+  <template v-if="!openedStatusModal && !openedEmojiModal">
+    <draggable
+      v-if="statuses && statuses.length"
+      v-model="statuses"
+      @change="saveToStorage"
+    >
+      <template #item="{ element }">
+        <div
+          class="simple-status_button"
+          @click="setStatus"
+        >
+          <span @click="openEmoji(element, $event)">{{ element.icon }}</span>&nbsp;&nbsp;{{ element.name }}
+          <div class="simple-status_button-opt">
+            {{ OPTION_BTN_ICON }}
+          </div>
         </div>
-      </div>
-    </template>
-  </draggable>
-  <div class="simple-status_button simple-status_button-new">
-    + Add New
-  </div>
-  <div
-    class="simple-status_button simple-status_button-clear"
-    @click="removeStatus"
-  >
-    Clear status
-  </div>
+      </template>
+    </draggable>
+    <div
+      class="simple-status_button simple-status_button-new"
+      @click="openedStatusModal = true"
+    >
+      + Add New
+    </div>
+    <div
+      class="simple-status_button simple-status_button-clear"
+      @click="removeStatus"
+    >
+      Clear status
+    </div>
+  </template>
+
+  <!-- Form for create or update status-->
+  <StatusForm
+    v-if="openedStatusModal"
+    @on-close="openedStatusModal = false"
+    @on-save="addNewStatus"
+  />
+
+  <!-- Emoji list -->
   <Emoji
-    v-if="opened"
+    v-if="openedEmojiModal"
     @on-close="closeEmoji"
     @on-select="selecteEmoji"
   />
@@ -41,6 +55,7 @@
   import { pluginApi } from '../api/connection';
   import draggable from 'vuedraggable';
   import Emoji from './Emoji.vue';
+  import StatusForm from './StatusForm.vue';
   import {
     STATUSES_LIST_KEY,
     DEFAULT_STATUSES,
@@ -53,9 +68,11 @@
     components: {
       Emoji,
       draggable,
+      StatusForm,
     },
     setup() {
-      const opened = ref(false)
+      const openedEmojiModal = ref(false)
+      const openedStatusModal = ref(false)
       const statuses = ref()
       const selectedStatus = ref()
     
@@ -70,13 +87,13 @@
 
       function openEmoji(status: any, e: any) {
         e.stopPropagation()
-        opened.value = true
+        openedEmojiModal.value = true
         selectedStatus.value = status
       }
 
       function closeEmoji() {
         selectedStatus.value = null
-        opened.value = false
+        openedEmojiModal.value = false
       }
 
       function saveToStorage() {
@@ -84,11 +101,17 @@
       }
     
       async function selecteEmoji(emoji: string) {
-        const foundIndex = statuses.value.findIndex((x: any) => x.text == selectedStatus.value.text)
+        const foundIndex = statuses.value.findIndex((x: any) => x.name == selectedStatus.value.name)
         statuses.value[foundIndex] = { ...selectedStatus.value, icon: emoji }
         saveToStorage()
         closeEmoji()
       }
+
+      function addNewStatus(status: any) {
+        statuses.value = [...statuses.value, status]
+        saveToStorage()
+        openedStatusModal.value = false
+      } 
 
       onMounted(async () => {
         const savedStatuses = await pluginApi.getItem(STATUSES_LIST_KEY)
@@ -96,7 +119,8 @@
       })
 
       return {
-        opened,
+        openedEmojiModal,
+        openedStatusModal,
         setStatus,
         removeStatus,
         selecteEmoji,
@@ -105,7 +129,8 @@
         saveToStorage,
         EMOJI,
         closeEmoji,
-        OPTION_BTN_ICON
+        OPTION_BTN_ICON,
+        addNewStatus
       }
     }
   })
@@ -163,6 +188,11 @@
         color: #E93940;
         margin-top: auto;
         border-top: 1px solid rgba(0, 0, 0, 0.1);
+        position: sticky;
+        bottom: 0;
+        left: 0;
+        background-color: #fff;
+        margin-top: auto;
       }
 
       &:hover {

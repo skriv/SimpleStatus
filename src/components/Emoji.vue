@@ -91,6 +91,7 @@
       grid-template-columns: repeat(7, 1fr);
       z-index: 1;
       overflow: auto;
+      background-color: #fff;
 
       span {
         display: flex;
