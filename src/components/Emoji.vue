@@ -2,17 +2,28 @@
   <div class="emoji">
     <div
       class="emoji-header"
-      @click="close"
     >
-      <span>←</span> Go back
+      <!-- Back btn -->
+      <div
+        class="emoji-header_back"
+        @click="close"
+      >
+        <span>←</span> Go back
+      </div>
+      <!-- Search field -->
+      <input
+        v-model="search"
+        type="text"
+        placeholder="Search"
+      >
     </div>
     <div class="emoji-list">
       <span
-        v-for="(e, i) of EMOJI"
+        v-for="(e, i) of listEmoji"
         :key="i"
         @click="select(e)"
       >
-        {{ e }}
+        {{ e.char }}
       </span>
     </div>
   </div>
@@ -20,16 +31,22 @@
 
 <script lang="ts">
   import {
+    computed,
     defineComponent,
+    ref,
   } from 'vue';
-  import {
-    EMOJI
-  } from '../config'
+  import emoji from '../emoji' 
 
   export default defineComponent({
     name: 'Emoji',
     emits: ['on-close', 'on-select'],
     setup(props, { emit }) {
+      const search = ref(null)
+      const listEmoji = computed(() => {
+        if (!search.value) return emoji
+        return emoji.filter(e => e.name.includes(search.value as any))
+      })
+
       function close() {
         emit('on-close')
       }
@@ -40,9 +57,10 @@
       }
 
       return {
-        EMOJI,
+        listEmoji,
         close,
-        select
+        select,
+        search
       }
     }
   })
@@ -66,7 +84,7 @@
       top: 0;
       display: flex;
       align-items: center;
-      padding: 4px 8px;
+      padding: 4px 22px 4px 8px;
       background-color: #fff;
       z-index: 2;
       box-sizing: border-box;
@@ -74,9 +92,20 @@
       font-size: 12px;
       box-shadow: 0 0 11px rgb(0 0 0 / 5%);
 
-      span {
-        font-size: 16px;
-        margin-right: 6px;
+      &_back {
+        span {
+          font-size: 15px;
+          margin-right: 2px;
+        }
+      }
+
+      input {
+        width: 130px;
+        margin-left: auto;
+        border-color: rgb(0 0 0 / 20%);
+        border-width: 1px;
+        border-radius: 3px;
+        padding: 4px 6px;
       }
 
       &:hover {

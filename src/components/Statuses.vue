@@ -10,7 +10,7 @@
           class="simple-status_button"
           @click="setStatus"
         >
-          <span @click="openEmoji(element, $event)">{{ element.icon }}</span>&nbsp;&nbsp;{{ element.name }}
+          <span @click="openEmoji(element, $event)">{{ element.char }}</span>&nbsp;&nbsp;{{ element.name }}
 
           <!-- Options -->
           <div
@@ -76,7 +76,6 @@
   import {
     STATUSES_LIST_KEY,
     DEFAULT_STATUSES,
-    EMOJI,
     OPTION_BTN_ICON
   } from '../config'
 
@@ -118,9 +117,9 @@
         openedEmojiModal.value = false
       }
     
-      async function selecteEmoji(emoji: string) {
+      async function selecteEmoji(emoji: any) {
         const foundIndex = statuses.value.findIndex((x: any) => x.name == selectedStatus.value.name)
-        statuses.value[foundIndex] = { ...selectedStatus.value, icon: emoji }
+        statuses.value[foundIndex] = { ...selectedStatus.value, char: emoji.char }
         saveToStorage()
         closeEmoji()
       }
@@ -164,7 +163,6 @@
         openEmoji,
         statuses,
         saveToStorage,
-        EMOJI,
         closeEmoji,
         OPTION_BTN_ICON,
         addNewStatus,

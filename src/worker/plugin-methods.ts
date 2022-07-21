@@ -39,4 +39,8 @@ export class PluginMethods {
       }
     });
   }
+
+  updatedStatusesFroAllFrames() {
+    console.log(figma.currentPage);
+  }
 }

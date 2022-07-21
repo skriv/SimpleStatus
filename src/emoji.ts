@@ -1,4 +1,16 @@
-const emojis = [
+const emoji = [
+  {
+    char: '🔴',
+    name: 'Progress'
+  },
+  {
+    char: '🟡',
+    name: 'Review'
+  },
+  {
+    char: '🟢',
+    name: 'Done'
+  },
   {
     char: '😀',
     name: 'grinning face'
@@ -5808,4 +5820,4 @@ const emojis = [
     name: 'flag: Wales'
   }
 ]
-export default emojis
+export default emoji

@@ -9,16 +9,10 @@
     <div class="status-form_content">
       <div class="status-form_content-emoji">
         <div
-          class="status-form_content-emoji-upload"
+          class="status-form_content-emoji-selected"
           @click="openedEmojiModal = true"
         >
-          <span>✎</span>
-        </div>
-        <div class="status-form_content-emoji-label">
-          Selected Emoji:
-        </div>
-        <div class="status-form_content-emoji-selected">
-          {{ emoji }}
+          <span>{{ emoji?.char }}</span> click to change
         </div>
       </div>
       <div class="status-form_content-name">
@@ -77,7 +71,7 @@
         status,
       } = toRefs(props)
 
-      const emoji = ref(status.value?.icon || DEFAULT_ICON_FOR_NEW_STATUS)
+      const emoji = ref(status.value || DEFAULT_ICON_FOR_NEW_STATUS)
       const name = ref(status.value?.name)
       const openedEmojiModal = ref(false)
 
@@ -85,13 +79,13 @@
         emit('on-close')
       }
 
-      function selecteEmoji(e: string) {
+      function selecteEmoji(e: any) {
         emoji.value = e
       }
 
       function save() {
         if (name.value && emoji.value) {
-          emit('on-save', { icon: emoji.value, name: name.value })
+          emit('on-save', { char: emoji.value.char, name: name.value })
         }
       }
 
@@ -102,6 +96,7 @@
         openedEmojiModal,
         selecteEmoji,
         save,
+        status,
       }
     }
   })
@@ -155,36 +150,26 @@
         margin-bottom: 12px;
         font-size: 32px;
 
-        &-upload {
-          width: 35px;
-          height: 35px;
-          border: 2px dashed rgba(0, 0, 0, 0.1);
-          border-radius: 4px;
-          font-size: 25px;
+        &-selected {
           display: flex;
           align-items: center;
-          justify-content: center;
-          color: rgba(0, 0, 0, 0.2);
-          cursor: pointer;
-          line-height: normal;
-          margin-right: 8px;
-
-          &:hover {
-            border-color: #18A0FB;
-
-            span {
-              color: #18A0FB;
-            }
-          }
-        }
-
-        &-label {
           font-style: normal;
           font-weight: normal;
           font-size: 12px;
           line-height: 16px;
           color: rgb(0 0 0 / 50%);
-          margin-right: 8px;
+          margin-bottom: 8px;
+          cursor: pointer;
+
+          span {
+            color: initial !important;
+            font-size: 32px;
+            margin-right: 8px;
+          }
+
+          &:hover {
+            color: #18A0FB;
+          }
         }
       }
 
