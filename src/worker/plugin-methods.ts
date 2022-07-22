@@ -30,7 +30,7 @@ export class PluginMethods {
     });
   }
 
-  clearStatusFromFrame() {
+  clearStatusForSelectedFrame() {
     figma.currentPage.selection.forEach(node => {
       if (node.type == 'FRAME') {
         if (node.name.indexOf(SEPARATOR) != -1) {
@@ -40,7 +40,21 @@ export class PluginMethods {
     });
   }
 
-  updatedStatusesFroAllFrames() {
-    console.log(figma.currentPage);
+  updatedEmojiForAllFrames(oldEmoji: string, newEmoji: string) {
+    figma.currentPage.children.forEach(node => {
+      if (node.name.includes(oldEmoji)) {
+        node.name = node.name.replace(oldEmoji, newEmoji);
+        node.setRelaunchData({ relaunch: '' })
+      }
+    });
+  }
+
+  clearStatusForRemovedStatus(emoji: string) {
+    figma.currentPage.children.forEach(node => {
+      if (node.name.includes(emoji)) {
+        node.name = node.name.split(SEPARATOR)[1]?.trim() || '';
+        node.setRelaunchData({ relaunch: '' })
+      }
+    });
   }
 }

@@ -22,10 +22,10 @@
             >
               <div
                 class="color-red simple-status_button-opts-remove"
-                @click="removeStatus(index)"
+                @click="removeStatus(index, element, $event)"
               >❌</div>
               <div
-                @click="editStatus(element)"
+                @click="editStatus(element, $event)"
               >✎</div>
             </div>
           </div>
@@ -101,8 +101,10 @@
         pluginApi.setItem(STATUSES_LIST_KEY, JSON.stringify(statuses.value))
       }
 
-      function removeStatus(index: any) {
+      function removeStatus(index: any, status: any, e: any) {
+        e.stopPropagation()
         statuses.value.splice(index, 1)
+        pluginApi.clearStatusForRemovedStatus(status.char)
         saveToStorage()
       }
 
@@ -120,6 +122,7 @@
       async function selecteEmoji(emoji: any) {
         const foundIndex = statuses.value.findIndex((x: any) => x.name == selectedStatus.value.name)
         statuses.value[foundIndex] = { ...selectedStatus.value, char: emoji.char }
+        pluginApi.updatedEmojiForAllFrames(selectedStatus.value.char, emoji.char)
         saveToStorage()
         closeEmoji()
       }
@@ -140,13 +143,14 @@
         closeStatusModal()
       }
 
-      function editStatus(status: any) {
+      function editStatus(status: any, e: any) {
+        e.stopPropagation()
         selectedStatus.value = status
         openedStatusModal.value = true
       }
 
       function clearStatus() {
-        pluginApi.clearStatusFromFrame()
+        pluginApi.clearStatusForSelectedFrame()
       }
 
       onMounted(async () => {

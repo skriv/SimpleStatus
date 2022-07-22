@@ -22,6 +22,7 @@
         v-for="(e, i) of listEmoji"
         :key="i"
         @click="select(e)"
+        :title="e.name"
       >
         {{ e.char }}
       </span>
@@ -127,10 +128,6 @@
         justify-content: center;
         align-items: center;
         cursor: pointer;
-  
-        &:hover {
-          transform: scale(1.2);
-        }
       }
     }
   }
