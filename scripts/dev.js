@@ -44,7 +44,7 @@ async function buildMainCode() {
     build: {
       emptyOutDir: false, // Do not empty the dist directory
       lib: { // Build with library schema
-        entry: path.resolve(rootDir, 'src/worker/code.ts'),
+        entry: path.resolve(rootDir, 'src/figma/code.ts'),
         name: 'code',
         formats: ['es'],
         fileName: () => 'code.js',

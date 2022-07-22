@@ -10,7 +10,7 @@ export default defineConfig({
     rollupOptions: {
       input: {
         main: resolve(__dirname, 'index.html'),
-        code: resolve(__dirname, 'src/worker/code.ts'),
+        code: resolve(__dirname, 'src/figma/code.ts'),
       },
       output: {
         entryFileNames: '[name].js',

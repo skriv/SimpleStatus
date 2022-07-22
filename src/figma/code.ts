@@ -2,7 +2,7 @@ import {
   WINDOW_WIDTH,
   WINDOW_HEIGHT
 } from '../config';
-import { initApi } from './connection';
+import { initApi } from './connectToUI';
 
 (async function () {
   figma.showUI(__html__, {

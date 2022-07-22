@@ -1,6 +1,6 @@
 import { connectToUI, ProxyMapRemoteApi, proxyMapRemote } from 'rpct/browser';
 import { PluginMethods } from './plugin-methods';
-import { UIMethods } from '../api/ui-methods';
+import { UIMethods } from './ui-methods';
 
 // eslint-disable-next-line import/no-mutable-exports
 export let uiApi: ProxyMapRemoteApi<UIMethods>;

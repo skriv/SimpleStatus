@@ -1,6 +1,6 @@
 import { createApp } from 'vue';
 import App from './App.vue';
-import { initApi } from './api/connection';
+import { initApi } from './figma/connectToPlugin';
 
 (async () => {
   await initApi();

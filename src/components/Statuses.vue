@@ -73,7 +73,7 @@
     onMounted,
     ref
   } from 'vue';
-  import { pluginApi } from '../api/connection';
+  import { pluginApi } from '../figma/connectToPlugin';
   import draggable from 'vuedraggable';
   import Emoji from './Emoji.vue';
   import StatusForm from './StatusForm.vue';
