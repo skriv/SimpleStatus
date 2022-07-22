@@ -23,10 +23,14 @@
               <div
                 class="color-red simple-status_button-opts-remove"
                 @click="removeStatus(index, element, $event)"
-              >❌</div>
+              >
+                {{ REMOVE_BTN_ICON }}
+              </div>
               <div
                 @click="editStatus(element, $event)"
-              >✎</div>
+              >
+                {{ EDIT_BTN_ICON }}
+              </div>
             </div>
           </div>
 
@@ -76,7 +80,9 @@
   import {
     STATUSES_LIST_KEY,
     DEFAULT_STATUSES,
-    OPTION_BTN_ICON
+    OPTION_BTN_ICON,
+    REMOVE_BTN_ICON,
+    EDIT_BTN_ICON
   } from '../config'
 
   export default defineComponent({
@@ -173,7 +179,9 @@
         editStatus,
         selectedStatus,
         closeStatusModal,
-        clearStatus
+        clearStatus,
+        REMOVE_BTN_ICON,
+        EDIT_BTN_ICON
       }
     }
   })

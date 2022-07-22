@@ -4,7 +4,7 @@
       class="status-form_header"
       @click="close"
     >
-      <span>←</span> Go back
+      <span>{{ BACK_BTN_ICON }}</span> Go back
     </div>
     <div class="status-form_content">
       <div class="status-form_content-emoji">
@@ -50,7 +50,8 @@
     toRefs
   } from 'vue'
     import {
-    DEFAULT_ICON_FOR_NEW_STATUS
+    DEFAULT_ICON_FOR_NEW_STATUS,
+    BACK_BTN_ICON
   } from '../config'
   import Emoji from './Emoji.vue'
 
@@ -97,6 +98,7 @@
         selecteEmoji,
         save,
         status,
+        BACK_BTN_ICON,
       }
     }
   })

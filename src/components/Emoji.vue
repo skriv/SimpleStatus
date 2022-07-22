@@ -8,7 +8,7 @@
         class="emoji-header_back"
         @click="close"
       >
-        <span>←</span> Go back
+        <span>{{ BACK_BTN_ICON }}</span> Go back
       </div>
       <!-- Search field -->
       <input
@@ -35,7 +35,10 @@
     computed,
     defineComponent,
     ref,
-  } from 'vue';
+  } from 'vue'
+  import {
+    BACK_BTN_ICON
+  } from '../config'
   import emoji from '../emoji' 
 
   export default defineComponent({
@@ -61,7 +64,8 @@
         listEmoji,
         close,
         select,
-        search
+        search,
+        BACK_BTN_ICON
       }
     }
   })
