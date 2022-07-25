@@ -1,9 +1,4 @@
-import { createApp } from 'vue';
-import App from './App.vue';
-import { initApi } from './figma/connectToPlugin';
+import { createApp } from 'vue'
+import App from './App.vue'
 
-(async () => {
-  await initApi();
-  createApp(App).mount('#app');
-})();
-
+createApp(App).mount('#app')

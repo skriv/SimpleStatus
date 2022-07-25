@@ -55,7 +55,7 @@
         emit('on-close')
       }
 
-      function select(emoji: string) {
+      function select(emoji: any) {
         emit('on-select', emoji)
         close()
       }
@@ -71,7 +71,7 @@
   })
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
   .emoji {
     width: 100%;
     height: 100%;

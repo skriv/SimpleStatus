@@ -1,23 +1,23 @@
-import { defineConfig } from 'vite';
-import vue from '@vitejs/plugin-vue';
-import { resolve } from 'path';
+import { defineConfig } from 'vite'
+import vue from '@vitejs/plugin-vue'
+import { viteSingleFile } from 'vite-plugin-singlefile'
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [vue()],
-  build: {
-    sourcemap: 'inline',
-    rollupOptions: {
-      input: {
-        main: resolve(__dirname, 'index.html'),
-        code: resolve(__dirname, 'src/figma/code.ts'),
-      },
-      output: {
-        entryFileNames: '[name].js',
-      },
-    },
-  },
-  preview: {
-    port: 3101,
-  },
-});
+    plugins: [vue(), viteSingleFile()],
+    build: {
+        // https://vitejs.cn/config/#build-csscodesplit
+        cssCodeSplit: false,
+        // https://vitejs.cn/config/#build-assetsinlinelimit
+        assetsInlineLimit: 100000000,
+        rollupOptions: {
+            input: {
+                index: 'index.html',
+                code: 'figma/code.ts'
+            },
+            output: {
+                entryFileNames: '[name].js'
+            }
+        }
+    }
+})

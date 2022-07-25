@@ -73,7 +73,6 @@
     onMounted,
     ref
   } from 'vue';
-  import { pluginApi } from '../figma/connectToPlugin';
   import draggable from 'vuedraggable';
   import Emoji from './Emoji.vue';
   import StatusForm from './StatusForm.vue';
@@ -100,17 +99,17 @@
     
       async function setStatus(e: any) {
         const buttonName = e.target.innerText.replace(OPTION_BTN_ICON, '');
-        await pluginApi.setStatus(buttonName)
+        parent.postMessage({ pluginMessage: { type: 'set-status', status: buttonName } }, '*')
       }
 
       function saveToStorage() {
-        pluginApi.setItem(STATUSES_LIST_KEY, JSON.stringify(statuses.value))
+        parent.postMessage({ pluginMessage: { type: 'set-data', key: STATUSES_LIST_KEY, value: JSON.stringify(statuses.value) } }, '*')
       }
 
       function removeStatus(index: any, status: any, e: any) {
         e.stopPropagation()
         statuses.value.splice(index, 1)
-        pluginApi.clearStatusForRemovedStatus(status.char)
+        parent.postMessage({ pluginMessage: { type: 'clear-status-for-removed-status', char: status.char } }, '*')
         saveToStorage()
       }
 
@@ -128,7 +127,7 @@
       async function selecteEmoji(emoji: any) {
         const foundIndex = statuses.value.findIndex((x: any) => x.name == selectedStatus.value.name)
         statuses.value[foundIndex] = { ...selectedStatus.value, char: emoji.char }
-        pluginApi.updatedEmojiForAllFrames(selectedStatus.value.char, emoji.char)
+        parent.postMessage({ pluginMessage: { type: 'update-emoji-for-all-frames', selectedChar: selectedStatus.value.char, char: emoji.char } }, '*')
         saveToStorage()
         closeEmoji()
       }
@@ -156,12 +155,15 @@
       }
 
       function clearStatus() {
-        pluginApi.clearStatusForSelectedFrame()
+        parent.postMessage({ pluginMessage: { type: 'clear-status-for-selected-frames' } }, '*')
       }
 
       onMounted(async () => {
-        const savedStatuses = await pluginApi.getItem(STATUSES_LIST_KEY)
-        statuses.value = !savedStatuses ? DEFAULT_STATUSES : JSON.parse(savedStatuses)
+        parent.postMessage({ pluginMessage: { type: 'get-data', key: STATUSES_LIST_KEY } }, '*')
+        window.addEventListener('message', event => {
+          const savedStatuses = event.data.pluginMessage.value
+          statuses.value = !savedStatuses ? DEFAULT_STATUSES : JSON.parse(savedStatuses)
+        });
       })
 
       return {
