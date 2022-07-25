@@ -3,8 +3,8 @@ import {
   setData,
   setStatus,
   clearStatusForRemovedStatus,
-  updatedEmojiForAllFrames,
-  clearStatusForSelectedFrame
+  clearStatusForSelectedFrame,
+  updateStatuses
 } from './methods';
 import {
   WINDOW_HEIGHT,
@@ -34,8 +34,8 @@ figma.ui.onmessage = async msg => {
     case 'clear-status-for-removed-status':
       clearStatusForRemovedStatus(msg.char)
       break;
-    case 'update-emoji-for-all-frames':
-      updatedEmojiForAllFrames(msg.selectedChar ,msg.char)
+    case 'update-statuses':
+      updateStatuses(msg.oldValue, msg.newValue)
       break;
     case 'clear-status-for-selected-frames':
       clearStatusForSelectedFrame()

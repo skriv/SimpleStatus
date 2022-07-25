@@ -17,7 +17,7 @@
         placeholder="Search"
       >
     </div>
-    <div class="emoji-list">
+    <div v-if="listEmoji && listEmoji.length" class="emoji-list">
       <span
         v-for="(e, i) of listEmoji"
         :key="i"
@@ -26,6 +26,9 @@
       >
         {{ e.char }}
       </span>
+    </div>
+    <div v-else class="emoji-list_empty">
+      Not found
     </div>
   </div>
 </template>
@@ -121,6 +124,7 @@
     &-list {
       width: 100%;
       height: auto;
+      position: relative;
       display: grid;
       grid-template-columns: repeat(7, 1fr);
       z-index: 1;
@@ -132,6 +136,14 @@
         justify-content: center;
         align-items: center;
         cursor: pointer;
+      }
+
+      &_empty {
+        position: absolute;
+        top: 100px;
+        left: 50%;
+        transform: translateX(-50%);
+        font-size: 14px;
       }
     }
   }

@@ -55,7 +55,7 @@
   <StatusForm
     v-if="openedStatusModal"
     @on-close="closeStatusModal"
-    @on-save="addNewStatus"
+    @on-save="onSaveStatus"
     :status="selectedStatus"
   />
 
@@ -127,7 +127,7 @@
       async function selecteEmoji(emoji: any) {
         const foundIndex = statuses.value.findIndex((x: any) => x.name == selectedStatus.value.name)
         statuses.value[foundIndex] = { ...selectedStatus.value, char: emoji.char }
-        parent.postMessage({ pluginMessage: { type: 'update-emoji-for-all-frames', selectedChar: selectedStatus.value.char, char: emoji.char } }, '*')
+        parent.postMessage({ pluginMessage: { type: 'update-statuses', oldValue: selectedStatus.value.char, newValue: emoji.char } }, '*')
         saveToStorage()
         closeEmoji()
       }
@@ -137,10 +137,13 @@
         openedStatusModal.value = false
       }
 
-      function addNewStatus(status: any) {
+      function onSaveStatus(status: any) {
         if (selectedStatus.value) {
           const foundIndex = statuses.value.findIndex((x: any) => x.name == selectedStatus.value.name)
-          statuses.value[foundIndex] = status
+          if (foundIndex !== -1) {
+            parent.postMessage({ pluginMessage: { type: 'update-statuses', oldValue: statuses.value[foundIndex].name, newValue: status.name } }, '*')
+            statuses.value[foundIndex] = status
+          }
         } else {
           statuses.value = [...statuses.value, status]
         }
@@ -177,7 +180,7 @@
         saveToStorage,
         closeEmoji,
         OPTION_BTN_ICON,
-        addNewStatus,
+        onSaveStatus,
         editStatus,
         selectedStatus,
         closeStatusModal,

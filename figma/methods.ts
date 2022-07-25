@@ -36,10 +36,10 @@ export function clearStatusForSelectedFrame() {
   });
 }
 
-export function updatedEmojiForAllFrames(oldEmoji: string, newEmoji: string) {
+export function updateStatuses(oldValue: string, newValue: string) {
   figma.currentPage.children.forEach(node => {
-    if (node.name.includes(oldEmoji)) {
-      node.name = node.name.replace(oldEmoji, newEmoji);
+    if (node.name.includes(oldValue)) {
+      node.name = node.name.replace(oldValue, newValue);
       node.setRelaunchData({ relaunch: '' })
     }
   });
