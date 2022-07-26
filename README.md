@@ -1,10 +1,21 @@
 # Simple Status
 
-## Run for development
+#  Install
 
 ```
-npm install
-npm run dev
+yarn
+```
+
+## Run for development in browser
+
+```
+yarn dev
+```
+
+## Run for development in Figma
+
+```
+yarn watch
 ```
 
 Open `Figma Desktop App`, right click anywhere on the canvas to open the menu, `Plugins`->`Development`->`Import plugin from manifest...`, select the path of the `dist/manifest.json` file created earlier, you can successfully import the plugin.

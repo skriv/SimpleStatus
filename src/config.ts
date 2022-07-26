@@ -1,18 +1,4 @@
 export const STATUSES_LIST_KEY = 'figma-simple-status-list'
-export const DEFAULT_STATUSES = [
-  {
-    char: '🔴',
-    name: 'Progress'
-  },
-  {
-    char: '🟡',
-    name: 'Review'
-  },
-  {
-    char: '🟢',
-    name: 'Done'
-  }
-]
 export const OPTION_BTN_ICON = '⋮'
 export const REMOVE_BTN_ICON = '❌'
 export const EDIT_BTN_ICON = '✎'

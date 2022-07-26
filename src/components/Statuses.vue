@@ -76,9 +76,9 @@
   import draggable from 'vuedraggable';
   import Emoji from './Emoji.vue';
   import StatusForm from './StatusForm.vue';
+  import emoji from '../emoji' 
   import {
     STATUSES_LIST_KEY,
-    DEFAULT_STATUSES,
     OPTION_BTN_ICON,
     REMOVE_BTN_ICON,
     EDIT_BTN_ICON
@@ -165,7 +165,7 @@
         parent.postMessage({ pluginMessage: { type: 'get-data', key: STATUSES_LIST_KEY } }, '*')
         window.addEventListener('message', event => {
           const savedStatuses = event.data.pluginMessage.value
-          statuses.value = !savedStatuses ? DEFAULT_STATUSES : JSON.parse(savedStatuses)
+          statuses.value = !savedStatuses ? emoji.slice(0, 3) : JSON.parse(savedStatuses)
         });
       })
 
