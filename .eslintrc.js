@@ -31,12 +31,8 @@ module.exports = {
       files: ['**/*.js'],
       parser: '@babel/eslint-parser',
       parserOptions: {},
-      extends: [
-        'eslint:recommended',
-        'eslint-config-tencent',
-      ],
+      extends: ['eslint:recommended', 'eslint-config-tencent'],
     },
   ],
-  globals: {
-  },
+  globals: {},
 };

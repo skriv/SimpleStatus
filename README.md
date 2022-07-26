@@ -1,6 +1,6 @@
 # Simple Status
 
-#  Install
+# Install
 
 ```
 yarn
@@ -23,6 +23,7 @@ Open `Figma Desktop App`, right click anywhere on the canvas to open the menu, `
 Then by right-clicking, `Plugins`->`Development`->(plugin name), you can open the plugin.
 
 ## Build to production
+
 ```
 npm run build
 ```

@@ -1,5823 +1,5823 @@
-const emoji = [
+const EMOJI = [
   {
     char: '🔴',
-    name: 'Progress'
+    name: 'Progress',
   },
   {
     char: '🟡',
-    name: 'Review'
+    name: 'Review',
   },
   {
     char: '🟢',
-    name: 'Done'
+    name: 'Done',
   },
   {
     char: '😀',
-    name: 'grinning face'
+    name: 'grinning face',
   },
   {
     char: '😃',
-    name: 'grinning face with big eyes'
+    name: 'grinning face with big eyes',
   },
   {
     char: '😄',
-    name: 'grinning face with smiling eyes'
+    name: 'grinning face with smiling eyes',
   },
   {
     char: '😁',
-    name: 'beaming face with smiling eyes'
+    name: 'beaming face with smiling eyes',
   },
   {
     char: '😆',
-    name: 'grinning squinting face'
+    name: 'grinning squinting face',
   },
   {
     char: '😅',
-    name: 'grinning face with sweat'
+    name: 'grinning face with sweat',
   },
   {
     char: '🤣',
-    name: 'rolling on the floor laughing'
+    name: 'rolling on the floor laughing',
   },
   {
     char: '😂',
-    name: 'face with tears of joy'
+    name: 'face with tears of joy',
   },
   {
     char: '🙂',
-    name: 'slightly smiling face'
+    name: 'slightly smiling face',
   },
   {
     char: '🙃',
-    name: 'upside-down face'
+    name: 'upside-down face',
   },
   {
     char: '😉',
-    name: 'winking face'
+    name: 'winking face',
   },
   {
     char: '😊',
-    name: 'smiling face with smiling eyes'
+    name: 'smiling face with smiling eyes',
   },
   {
     char: '😇',
-    name: 'smiling face with halo'
+    name: 'smiling face with halo',
   },
   {
     char: '🥰',
-    name: 'smiling face with hearts'
+    name: 'smiling face with hearts',
   },
   {
     char: '😍',
-    name: 'smiling face with heart-eyes'
+    name: 'smiling face with heart-eyes',
   },
   {
     char: '🤩',
-    name: 'star-struck'
+    name: 'star-struck',
   },
   {
     char: '😘',
-    name: 'face blowing a kiss'
+    name: 'face blowing a kiss',
   },
   {
     char: '😗',
-    name: 'kissing face'
+    name: 'kissing face',
   },
   {
     char: '😚',
-    name: 'kissing face with closed eyes'
+    name: 'kissing face with closed eyes',
   },
   {
     char: '😙',
-    name: 'kissing face with smiling eyes'
+    name: 'kissing face with smiling eyes',
   },
   {
     char: '😋',
-    name: 'face savoring food'
+    name: 'face savoring food',
   },
   {
     char: '😛',
-    name: 'face with tongue'
+    name: 'face with tongue',
   },
   {
     char: '😜',
-    name: 'winking face with tongue'
+    name: 'winking face with tongue',
   },
   {
     char: '🤪',
-    name: 'zany face'
+    name: 'zany face',
   },
   {
     char: '😝',
-    name: 'squinting face with tongue'
+    name: 'squinting face with tongue',
   },
   {
     char: '🤑',
-    name: 'money-mouth face'
+    name: 'money-mouth face',
   },
   {
     char: '🤗',
-    name: 'hugging face'
+    name: 'hugging face',
   },
   {
     char: '🤭',
-    name: 'face with hand over mouth'
+    name: 'face with hand over mouth',
   },
   {
     char: '🤫',
-    name: 'shushing face'
+    name: 'shushing face',
   },
   {
     char: '🤔',
-    name: 'thinking face'
+    name: 'thinking face',
   },
   {
     char: '🤐',
-    name: 'zipper-mouth face'
+    name: 'zipper-mouth face',
   },
   {
     char: '🤨',
-    name: 'face with raised eyebrow'
+    name: 'face with raised eyebrow',
   },
   {
     char: '😐',
-    name: 'neutral face'
+    name: 'neutral face',
   },
   {
     char: '😑',
-    name: 'expressionless face'
+    name: 'expressionless face',
   },
   {
     char: '😶',
-    name: 'face without mouth'
+    name: 'face without mouth',
   },
   {
     char: '😏',
-    name: 'smirking face'
+    name: 'smirking face',
   },
   {
     char: '😒',
-    name: 'unamused face'
+    name: 'unamused face',
   },
   {
     char: '🙄',
-    name: 'face with rolling eyes'
+    name: 'face with rolling eyes',
   },
   {
     char: '😬',
-    name: 'grimacing face'
+    name: 'grimacing face',
   },
   {
     char: '😮',
-    name: 'face exhaling'
+    name: 'face exhaling',
   },
   {
     char: '🤥',
-    name: 'lying face'
+    name: 'lying face',
   },
   {
     char: '😌',
-    name: 'relieved face'
+    name: 'relieved face',
   },
   {
     char: '😔',
-    name: 'pensive face'
+    name: 'pensive face',
   },
   {
     char: '😪',
-    name: 'sleepy face'
+    name: 'sleepy face',
   },
   {
     char: '🤤',
-    name: 'drooling face'
+    name: 'drooling face',
   },
   {
     char: '😴',
-    name: 'sleeping face'
+    name: 'sleeping face',
   },
   {
     char: '😷',
-    name: 'face with medical mask'
+    name: 'face with medical mask',
   },
   {
     char: '🤒',
-    name: 'face with thermometer'
+    name: 'face with thermometer',
   },
   {
     char: '🤕',
-    name: 'face with head-bandage'
+    name: 'face with head-bandage',
   },
   {
     char: '🤢',
-    name: 'nauseated face'
+    name: 'nauseated face',
   },
   {
     char: '🤮',
-    name: 'face vomiting'
+    name: 'face vomiting',
   },
   {
     char: '🤧',
-    name: 'sneezing face'
+    name: 'sneezing face',
   },
   {
     char: '🥵',
-    name: 'hot face'
+    name: 'hot face',
   },
   {
     char: '🥶',
-    name: 'cold face'
+    name: 'cold face',
   },
   {
     char: '🥴',
-    name: 'woozy face'
+    name: 'woozy face',
   },
   {
     char: '😵',
-    name: 'knocked-out face'
+    name: 'knocked-out face',
   },
   {
     char: '🤯',
-    name: 'exploding head'
+    name: 'exploding head',
   },
   {
     char: '🤠',
-    name: 'cowboy hat face'
+    name: 'cowboy hat face',
   },
   {
     char: '🥳',
-    name: 'partying face'
+    name: 'partying face',
   },
   {
     char: '😎',
-    name: 'smiling face with sunglasses'
+    name: 'smiling face with sunglasses',
   },
   {
     char: '🤓',
-    name: 'nerd face'
+    name: 'nerd face',
   },
   {
     char: '🧐',
-    name: 'face with monocle'
+    name: 'face with monocle',
   },
   {
     char: '😕',
-    name: 'confused face'
+    name: 'confused face',
   },
   {
     char: '😟',
-    name: 'worried face'
+    name: 'worried face',
   },
   {
     char: '🙁',
-    name: 'slightly frowning face'
+    name: 'slightly frowning face',
   },
   {
     char: '☹️',
-    name: 'frowning face'
+    name: 'frowning face',
   },
   {
     char: '😯',
-    name: 'hushed face'
+    name: 'hushed face',
   },
   {
     char: '😲',
-    name: 'astonished face'
+    name: 'astonished face',
   },
   {
     char: '😳',
-    name: 'flushed face'
+    name: 'flushed face',
   },
   {
     char: '🥺',
-    name: 'pleading face'
+    name: 'pleading face',
   },
   {
     char: '😦',
-    name: 'frowning face with open mouth'
+    name: 'frowning face with open mouth',
   },
   {
     char: '😧',
-    name: 'anguished face'
+    name: 'anguished face',
   },
   {
     char: '😨',
-    name: 'fearful face'
+    name: 'fearful face',
   },
   {
     char: '😰',
-    name: 'anxious face with sweat'
+    name: 'anxious face with sweat',
   },
   {
     char: '😥',
-    name: 'sad but relieved face'
+    name: 'sad but relieved face',
   },
   {
     char: '😢',
-    name: 'crying face'
+    name: 'crying face',
   },
   {
     char: '😭',
-    name: 'loudly crying face'
+    name: 'loudly crying face',
   },
   {
     char: '😱',
-    name: 'face screaming in fear'
+    name: 'face screaming in fear',
   },
   {
     char: '😖',
-    name: 'confounded face'
+    name: 'confounded face',
   },
   {
     char: '😣',
-    name: 'persevering face'
+    name: 'persevering face',
   },
   {
     char: '😞',
-    name: 'disappointed face'
+    name: 'disappointed face',
   },
   {
     char: '😓',
-    name: 'downcast face with sweat'
+    name: 'downcast face with sweat',
   },
   {
     char: '😩',
-    name: 'weary face'
+    name: 'weary face',
   },
   {
     char: '😫',
-    name: 'tired face'
+    name: 'tired face',
   },
   {
     char: '🥱',
-    name: 'yawning face'
+    name: 'yawning face',
   },
   {
     char: '😤',
-    name: 'face with steam from nose'
+    name: 'face with steam from nose',
   },
   {
     char: '😡',
-    name: 'pouting face'
+    name: 'pouting face',
   },
   {
     char: '😠',
-    name: 'angry face'
+    name: 'angry face',
   },
   {
     char: '🤬',
-    name: 'face with symbols on mouth'
+    name: 'face with symbols on mouth',
   },
   {
     char: '😈',
-    name: 'smiling face with horns'
+    name: 'smiling face with horns',
   },
   {
     char: '👿',
-    name: 'angry face with horns'
+    name: 'angry face with horns',
   },
   {
     char: '💀',
-    name: 'skull'
+    name: 'skull',
   },
   {
     char: '💩',
-    name: 'pile of poo'
+    name: 'pile of poo',
   },
   {
     char: '🤡',
-    name: 'clown face'
+    name: 'clown face',
   },
   {
     char: '👹',
-    name: 'ogre'
+    name: 'ogre',
   },
   {
     char: '👺',
-    name: 'goblin'
+    name: 'goblin',
   },
   {
     char: '👻',
-    name: 'ghost'
+    name: 'ghost',
   },
   {
     char: '👽',
-    name: 'alien'
+    name: 'alien',
   },
   {
     char: '👾',
-    name: 'alien monster'
+    name: 'alien monster',
   },
   {
     char: '🤖',
-    name: 'robot'
+    name: 'robot',
   },
   {
     char: '😺',
-    name: 'grinning cat'
+    name: 'grinning cat',
   },
   {
     char: '😸',
-    name: 'grinning cat with smiling eyes'
+    name: 'grinning cat with smiling eyes',
   },
   {
     char: '😹',
-    name: 'cat with tears of joy'
+    name: 'cat with tears of joy',
   },
   {
     char: '😻',
-    name: 'smiling cat with heart-eyes'
+    name: 'smiling cat with heart-eyes',
   },
   {
     char: '😼',
-    name: 'cat with wry smile'
+    name: 'cat with wry smile',
   },
   {
     char: '😽',
-    name: 'kissing cat'
+    name: 'kissing cat',
   },
   {
     char: '🙀',
-    name: 'weary cat'
+    name: 'weary cat',
   },
   {
     char: '😿',
-    name: 'crying cat'
+    name: 'crying cat',
   },
   {
     char: '😾',
-    name: 'pouting cat'
+    name: 'pouting cat',
   },
   {
     char: '🙈',
-    name: 'see-no-evil monkey'
+    name: 'see-no-evil monkey',
   },
   {
     char: '🙉',
-    name: 'hear-no-evil monkey'
+    name: 'hear-no-evil monkey',
   },
   {
     char: '🙊',
-    name: 'speak-no-evil monkey'
+    name: 'speak-no-evil monkey',
   },
   {
     char: '💋',
-    name: 'kiss mark'
+    name: 'kiss mark',
   },
   {
     char: '💌',
-    name: 'love letter'
+    name: 'love letter',
   },
   {
     char: '💘',
-    name: 'heart with arrow'
+    name: 'heart with arrow',
   },
   {
     char: '💝',
-    name: 'heart with ribbon'
+    name: 'heart with ribbon',
   },
   {
     char: '💖',
-    name: 'sparkling heart'
+    name: 'sparkling heart',
   },
   {
     char: '💗',
-    name: 'growing heart'
+    name: 'growing heart',
   },
   {
     char: '💓',
-    name: 'beating heart'
+    name: 'beating heart',
   },
   {
     char: '💞',
-    name: 'revolving hearts'
+    name: 'revolving hearts',
   },
   {
     char: '💕',
-    name: 'two hearts'
+    name: 'two hearts',
   },
   {
     char: '💟',
-    name: 'heart decoration'
+    name: 'heart decoration',
   },
   {
     char: '💔',
-    name: 'broken heart'
+    name: 'broken heart',
   },
   {
     char: '🧡',
-    name: 'orange heart'
+    name: 'orange heart',
   },
   {
     char: '💛',
-    name: 'yellow heart'
+    name: 'yellow heart',
   },
   {
     char: '💚',
-    name: 'green heart'
+    name: 'green heart',
   },
   {
     char: '💙',
-    name: 'blue heart'
+    name: 'blue heart',
   },
   {
     char: '💜',
-    name: 'purple heart'
+    name: 'purple heart',
   },
   {
     char: '🤎',
-    name: 'brown heart'
+    name: 'brown heart',
   },
   {
     char: '🖤',
-    name: 'black heart'
+    name: 'black heart',
   },
   {
     char: '🤍',
-    name: 'white heart'
+    name: 'white heart',
   },
   {
     char: '💯',
-    name: 'hundred points'
+    name: 'hundred points',
   },
   {
     char: '💢',
-    name: 'anger symbol'
+    name: 'anger symbol',
   },
   {
     char: '💥',
-    name: 'collision'
+    name: 'collision',
   },
   {
     char: '💫',
-    name: 'dizzy'
+    name: 'dizzy',
   },
   {
     char: '💦',
-    name: 'sweat droplets'
+    name: 'sweat droplets',
   },
   {
     char: '💣',
-    name: 'bomb'
+    name: 'bomb',
   },
   {
     char: '💬',
-    name: 'speech balloon'
+    name: 'speech balloon',
   },
   {
     char: '👁️',
-    name: 'eye in speech bubble'
+    name: 'eye in speech bubble',
   },
   {
     char: '🗨',
-    name: 'left speech bubble'
+    name: 'left speech bubble',
   },
   {
     char: '🗯️',
-    name: 'right anger bubble'
+    name: 'right anger bubble',
   },
   {
     char: '💭',
-    name: 'thought balloon'
+    name: 'thought balloon',
   },
   {
     char: '💤',
-    name: 'zzz'
+    name: 'zzz',
   },
   {
     char: '👋',
-    name: 'waving hand'
+    name: 'waving hand',
   },
   {
     char: '🤚',
-    name: 'raised back of hand'
+    name: 'raised back of hand',
   },
   {
     char: '🖐️',
-    name: 'hand with fingers splayed'
+    name: 'hand with fingers splayed',
   },
   {
     char: '✋',
-    name: 'raised hand'
+    name: 'raised hand',
   },
   {
     char: '🖖',
-    name: 'vulcan salute'
+    name: 'vulcan salute',
   },
   {
     char: '👌',
-    name: 'OK hand'
+    name: 'OK hand',
   },
   {
     char: '🤌',
-    name: 'pinched fingers'
+    name: 'pinched fingers',
   },
   {
     char: '🤏',
-    name: 'pinching hand'
+    name: 'pinching hand',
   },
   {
     char: '🤞',
-    name: 'crossed fingers'
+    name: 'crossed fingers',
   },
   {
     char: '🤟',
-    name: 'love-you gesture'
+    name: 'love-you gesture',
   },
   {
     char: '🤘',
-    name: 'sign of the horns'
+    name: 'sign of the horns',
   },
   {
     char: '🤙',
-    name: 'call me hand'
+    name: 'call me hand',
   },
   {
     char: '👈',
-    name: 'backhand index pointing left'
+    name: 'backhand index pointing left',
   },
   {
     char: '👉',
-    name: 'backhand index pointing right'
+    name: 'backhand index pointing right',
   },
   {
     char: '👆',
-    name: 'backhand index pointing up'
+    name: 'backhand index pointing up',
   },
   {
     char: '🖕',
-    name: 'middle finger'
+    name: 'middle finger',
   },
   {
     char: '👇',
-    name: 'backhand index pointing down'
+    name: 'backhand index pointing down',
   },
   {
     char: '👍',
-    name: 'thumbs up'
+    name: 'thumbs up',
   },
   {
     char: '👎',
-    name: 'thumbs down'
+    name: 'thumbs down',
   },
   {
     char: '✊',
-    name: 'raised fist'
+    name: 'raised fist',
   },
   {
     char: '👊',
-    name: 'oncoming fist'
+    name: 'oncoming fist',
   },
   {
     char: '🤛',
-    name: 'left-facing fist'
+    name: 'left-facing fist',
   },
   {
     char: '🤜',
-    name: 'right-facing fist'
+    name: 'right-facing fist',
   },
   {
     char: '👏',
-    name: 'clapping hands'
+    name: 'clapping hands',
   },
   {
     char: '🙌',
-    name: 'raising hands'
+    name: 'raising hands',
   },
   {
     char: '👐',
-    name: 'open hands'
+    name: 'open hands',
   },
   {
     char: '🤲',
-    name: 'palms up together'
+    name: 'palms up together',
   },
   {
     char: '🤝',
-    name: 'handshake'
+    name: 'handshake',
   },
   {
     char: '🙏',
-    name: 'folded hands'
+    name: 'folded hands',
   },
   {
     char: '💅',
-    name: 'nail polish'
+    name: 'nail polish',
   },
   {
     char: '🤳',
-    name: 'selfie'
+    name: 'selfie',
   },
   {
     char: '💪',
-    name: 'flexed biceps'
+    name: 'flexed biceps',
   },
   {
     char: '🦾',
-    name: 'mechanical arm'
+    name: 'mechanical arm',
   },
   {
     char: '🦿',
-    name: 'mechanical leg'
+    name: 'mechanical leg',
   },
   {
     char: '🦵',
-    name: 'leg'
+    name: 'leg',
   },
   {
     char: '🦶',
-    name: 'foot'
+    name: 'foot',
   },
   {
     char: '👂',
-    name: 'ear'
+    name: 'ear',
   },
   {
     char: '🦻',
-    name: 'ear with hearing aid'
+    name: 'ear with hearing aid',
   },
   {
     char: '👃',
-    name: 'nose'
+    name: 'nose',
   },
   {
     char: '🧠',
-    name: 'brain'
+    name: 'brain',
   },
   {
     char: '🦷',
-    name: 'tooth'
+    name: 'tooth',
   },
   {
     char: '🦴',
-    name: 'bone'
+    name: 'bone',
   },
   {
     char: '👀',
-    name: 'eyes'
+    name: 'eyes',
   },
   {
     char: '👅',
-    name: 'tongue'
+    name: 'tongue',
   },
   {
     char: '👄',
-    name: 'mouth'
+    name: 'mouth',
   },
   {
     char: '👶',
-    name: 'baby'
+    name: 'baby',
   },
   {
     char: '🧒',
-    name: 'child'
+    name: 'child',
   },
   {
     char: '👦',
-    name: 'boy'
+    name: 'boy',
   },
   {
     char: '👧',
-    name: 'girl'
+    name: 'girl',
   },
   {
     char: '🧑',
-    name: 'person'
+    name: 'person',
   },
   {
     char: '👱',
-    name: 'person: blond hair'
+    name: 'person: blond hair',
   },
   {
     char: '👨',
-    name: 'man'
+    name: 'man',
   },
   {
     char: '🧔',
-    name: 'person: beard'
+    name: 'person: beard',
   },
   {
     char: '👩',
-    name: 'woman'
+    name: 'woman',
   },
   {
     char: '🧓',
-    name: 'older person'
+    name: 'older person',
   },
   {
     char: '👴',
-    name: 'old man'
+    name: 'old man',
   },
   {
     char: '👵',
-    name: 'old woman'
+    name: 'old woman',
   },
   {
     char: '🙍',
-    name: 'person frowning'
+    name: 'person frowning',
   },
   {
     char: '🙎',
-    name: 'person pouting'
+    name: 'person pouting',
   },
   {
     char: '🙅',
-    name: 'person gesturing NO'
+    name: 'person gesturing NO',
   },
   {
     char: '🙆',
-    name: 'person gesturing OK'
+    name: 'person gesturing OK',
   },
   {
     char: '💁',
-    name: 'person tipping hand'
+    name: 'person tipping hand',
   },
   {
     char: '🙋',
-    name: 'person raising hand'
+    name: 'person raising hand',
   },
   {
     char: '🧏',
-    name: 'deaf person'
+    name: 'deaf person',
   },
   {
     char: '🙇',
-    name: 'person bowing'
+    name: 'person bowing',
   },
   {
     char: '🤦',
-    name: 'person facepalming'
+    name: 'person facepalming',
   },
   {
     char: '🤷',
-    name: 'person shrugging'
+    name: 'person shrugging',
   },
   {
     char: '👮',
-    name: 'police officer'
+    name: 'police officer',
   },
   {
     char: '🕵️',
-    name: 'detective'
+    name: 'detective',
   },
   {
     char: '🕵',
-    name: 'man detective'
+    name: 'man detective',
   },
   {
     char: '💂',
-    name: 'guard'
+    name: 'guard',
   },
   {
     char: '👷',
-    name: 'construction worker'
+    name: 'construction worker',
   },
   {
     char: '🤴',
-    name: 'prince'
+    name: 'prince',
   },
   {
     char: '👸',
-    name: 'princess'
+    name: 'princess',
   },
   {
     char: '👳',
-    name: 'person wearing turban'
+    name: 'person wearing turban',
   },
   {
     char: '👲',
-    name: 'person with skullcap'
+    name: 'person with skullcap',
   },
   {
     char: '🧕',
-    name: 'woman with headscarf'
+    name: 'woman with headscarf',
   },
   {
     char: '🤵',
-    name: 'person in tuxedo'
+    name: 'person in tuxedo',
   },
   {
     char: '👰',
-    name: 'person with veil'
+    name: 'person with veil',
   },
   {
     char: '🤰',
-    name: 'pregnant woman'
+    name: 'pregnant woman',
   },
   {
     char: '🤱',
-    name: 'breast-feeding'
+    name: 'breast-feeding',
   },
   {
     char: '👼',
-    name: 'baby angel'
+    name: 'baby angel',
   },
   {
     char: '🎅',
-    name: 'Santa Claus'
+    name: 'Santa Claus',
   },
   {
     char: '🤶',
-    name: 'Mrs. Claus'
+    name: 'Mrs. Claus',
   },
   {
     char: '🦸',
-    name: 'superhero'
+    name: 'superhero',
   },
   {
     char: '🦹',
-    name: 'supervillain'
+    name: 'supervillain',
   },
   {
     char: '🧙',
-    name: 'mage'
+    name: 'mage',
   },
   {
     char: '🧚',
-    name: 'fairy'
+    name: 'fairy',
   },
   {
     char: '🧛',
-    name: 'vampire'
+    name: 'vampire',
   },
   {
     char: '🧜',
-    name: 'merperson'
+    name: 'merperson',
   },
   {
     char: '🧝',
-    name: 'elf'
+    name: 'elf',
   },
   {
     char: '🧞',
-    name: 'genie'
+    name: 'genie',
   },
   {
     char: '🧟',
-    name: 'zombie'
+    name: 'zombie',
   },
   {
     char: '💆',
-    name: 'person getting massage'
+    name: 'person getting massage',
   },
   {
     char: '💇',
-    name: 'person getting haircut'
+    name: 'person getting haircut',
   },
   {
     char: '🚶',
-    name: 'person walking'
+    name: 'person walking',
   },
   {
     char: '🧍',
-    name: 'person standing'
+    name: 'person standing',
   },
   {
     char: '🧎',
-    name: 'person kneeling'
+    name: 'person kneeling',
   },
   {
     char: '🏃',
-    name: 'person running'
+    name: 'person running',
   },
   {
     char: '💃',
-    name: 'woman dancing'
+    name: 'woman dancing',
   },
   {
     char: '🕺',
-    name: 'man dancing'
+    name: 'man dancing',
   },
   {
     char: '🕴️',
-    name: 'person in suit levitating'
+    name: 'person in suit levitating',
   },
   {
     char: '👯',
-    name: 'people with bunny ears'
+    name: 'people with bunny ears',
   },
   {
     char: '🧖',
-    name: 'person in steamy room'
+    name: 'person in steamy room',
   },
   {
     char: '🧗',
-    name: 'person climbing'
+    name: 'person climbing',
   },
   {
     char: '🤺',
-    name: 'person fencing'
+    name: 'person fencing',
   },
   {
     char: '🏇',
-    name: 'horse racing'
+    name: 'horse racing',
   },
   {
     char: '⛷️',
-    name: 'skier'
+    name: 'skier',
   },
   {
     char: '🏂',
-    name: 'snowboarder'
+    name: 'snowboarder',
   },
   {
     char: '🏌️',
-    name: 'person golfing'
+    name: 'person golfing',
   },
   {
     char: '🏌',
-    name: 'man golfing'
+    name: 'man golfing',
   },
   {
     char: '🏄',
-    name: 'person surfing'
+    name: 'person surfing',
   },
   {
     char: '🚣',
-    name: 'person rowing boat'
+    name: 'person rowing boat',
   },
   {
     char: '🏊',
-    name: 'person swimming'
+    name: 'person swimming',
   },
   {
     char: '⛹️',
-    name: 'person bouncing ball'
+    name: 'person bouncing ball',
   },
   {
     char: '⛹',
-    name: 'man bouncing ball'
+    name: 'man bouncing ball',
   },
   {
     char: '🏋️',
-    name: 'person lifting weights'
+    name: 'person lifting weights',
   },
   {
     char: '🚴',
-    name: 'person biking'
+    name: 'person biking',
   },
   {
     char: '🚵',
-    name: 'person mountain biking'
+    name: 'person mountain biking',
   },
   {
     char: '🤸',
-    name: 'person cartwheeling'
+    name: 'person cartwheeling',
   },
   {
     char: '🤼',
-    name: 'people wrestling'
+    name: 'people wrestling',
   },
   {
     char: '🤽',
-    name: 'person playing water polo'
+    name: 'person playing water polo',
   },
   {
     char: '🤾',
-    name: 'person playing handball'
+    name: 'person playing handball',
   },
   {
     char: '🤹',
-    name: 'person juggling'
+    name: 'person juggling',
   },
   {
     char: '🧘',
-    name: 'person in lotus position'
+    name: 'person in lotus position',
   },
   {
     char: '🛀',
-    name: 'person taking bath'
+    name: 'person taking bath',
   },
   {
     char: '🛌',
-    name: 'person in bed'
+    name: 'person in bed',
   },
   {
     char: '👪',
-    name: 'family'
+    name: 'family',
   },
   {
     char: '🗣️',
-    name: 'speaking head'
+    name: 'speaking head',
   },
   {
     char: '👤',
-    name: 'bust in silhouette'
+    name: 'bust in silhouette',
   },
   {
     char: '👥',
-    name: 'busts in silhouette'
+    name: 'busts in silhouette',
   },
   {
     char: '👣',
-    name: 'footprints'
+    name: 'footprints',
   },
   {
     char: '🦰',
-    name: 'red hair'
+    name: 'red hair',
   },
   {
     char: '🦱',
-    name: 'curly hair'
+    name: 'curly hair',
   },
   {
     char: '🦳',
-    name: 'white hair'
+    name: 'white hair',
   },
   {
     char: '🦲',
-    name: 'bald'
+    name: 'bald',
   },
   {
     char: '🐵',
-    name: 'monkey face'
+    name: 'monkey face',
   },
   {
     char: '🐒',
-    name: 'monkey'
+    name: 'monkey',
   },
   {
     char: '🦍',
-    name: 'gorilla'
+    name: 'gorilla',
   },
   {
     char: '🦧',
-    name: 'orangutan'
+    name: 'orangutan',
   },
   {
     char: '🐶',
-    name: 'dog face'
+    name: 'dog face',
   },
   {
     char: '🐕',
-    name: 'dog'
+    name: 'dog',
   },
   {
     char: '🦮',
-    name: 'guide dog'
+    name: 'guide dog',
   },
   {
     char: '🐩',
-    name: 'poodle'
+    name: 'poodle',
   },
   {
     char: '🐺',
-    name: 'wolf'
+    name: 'wolf',
   },
   {
     char: '🦊',
-    name: 'fox'
+    name: 'fox',
   },
   {
     char: '🦝',
-    name: 'raccoon'
+    name: 'raccoon',
   },
   {
     char: '🐱',
-    name: 'cat face'
+    name: 'cat face',
   },
   {
     char: '🐈',
-    name: 'cat'
+    name: 'cat',
   },
   {
     char: '🦁',
-    name: 'lion'
+    name: 'lion',
   },
   {
     char: '🐯',
-    name: 'tiger face'
+    name: 'tiger face',
   },
   {
     char: '🐅',
-    name: 'tiger'
+    name: 'tiger',
   },
   {
     char: '🐆',
-    name: 'leopard'
+    name: 'leopard',
   },
   {
     char: '🐴',
-    name: 'horse face'
+    name: 'horse face',
   },
   {
     char: '🐎',
-    name: 'horse'
+    name: 'horse',
   },
   {
     char: '🦄',
-    name: 'unicorn'
+    name: 'unicorn',
   },
   {
     char: '🦓',
-    name: 'zebra'
+    name: 'zebra',
   },
   {
     char: '🦌',
-    name: 'deer'
+    name: 'deer',
   },
   {
     char: '🦬',
-    name: 'bison'
+    name: 'bison',
   },
   {
     char: '🐮',
-    name: 'cow face'
+    name: 'cow face',
   },
   {
     char: '🐂',
-    name: 'ox'
+    name: 'ox',
   },
   {
     char: '🐃',
-    name: 'water buffalo'
+    name: 'water buffalo',
   },
   {
     char: '🐄',
-    name: 'cow'
+    name: 'cow',
   },
   {
     char: '🐷',
-    name: 'pig face'
+    name: 'pig face',
   },
   {
     char: '🐖',
-    name: 'pig'
+    name: 'pig',
   },
   {
     char: '🐗',
-    name: 'boar'
+    name: 'boar',
   },
   {
     char: '🐽',
-    name: 'pig nose'
+    name: 'pig nose',
   },
   {
     char: '🐏',
-    name: 'ram'
+    name: 'ram',
   },
   {
     char: '🐑',
-    name: 'ewe'
+    name: 'ewe',
   },
   {
     char: '🐐',
-    name: 'goat'
+    name: 'goat',
   },
   {
     char: '🐪',
-    name: 'camel'
+    name: 'camel',
   },
   {
     char: '🐫',
-    name: 'two-hump camel'
+    name: 'two-hump camel',
   },
   {
     char: '🦙',
-    name: 'llama'
+    name: 'llama',
   },
   {
     char: '🦒',
-    name: 'giraffe'
+    name: 'giraffe',
   },
   {
     char: '🐘',
-    name: 'elephant'
+    name: 'elephant',
   },
   {
     char: '🦣',
-    name: 'mammoth'
+    name: 'mammoth',
   },
   {
     char: '🦏',
-    name: 'rhinoceros'
+    name: 'rhinoceros',
   },
   {
     char: '🦛',
-    name: 'hippopotamus'
+    name: 'hippopotamus',
   },
   {
     char: '🐭',
-    name: 'mouse face'
+    name: 'mouse face',
   },
   {
     char: '🐁',
-    name: 'mouse'
+    name: 'mouse',
   },
   {
     char: '🐀',
-    name: 'rat'
+    name: 'rat',
   },
   {
     char: '🐹',
-    name: 'hamster'
+    name: 'hamster',
   },
   {
     char: '🐰',
-    name: 'rabbit face'
+    name: 'rabbit face',
   },
   {
     char: '🐇',
-    name: 'rabbit'
+    name: 'rabbit',
   },
   {
     char: '🐿️',
-    name: 'chipmunk'
+    name: 'chipmunk',
   },
   {
     char: '🦫',
-    name: 'beaver'
+    name: 'beaver',
   },
   {
     char: '🦔',
-    name: 'hedgehog'
+    name: 'hedgehog',
   },
   {
     char: '🦇',
-    name: 'bat'
+    name: 'bat',
   },
   {
     char: '🐻',
-    name: 'bear'
+    name: 'bear',
   },
   {
     char: '🐨',
-    name: 'koala'
+    name: 'koala',
   },
   {
     char: '🐼',
-    name: 'panda'
+    name: 'panda',
   },
   {
     char: '🦥',
-    name: 'sloth'
+    name: 'sloth',
   },
   {
     char: '🦦',
-    name: 'otter'
+    name: 'otter',
   },
   {
     char: '🦨',
-    name: 'skunk'
+    name: 'skunk',
   },
   {
     char: '🦘',
-    name: 'kangaroo'
+    name: 'kangaroo',
   },
   {
     char: '🦡',
-    name: 'badger'
+    name: 'badger',
   },
   {
     char: '🐾',
-    name: 'paw prints'
+    name: 'paw prints',
   },
   {
     char: '🦃',
-    name: 'turkey'
+    name: 'turkey',
   },
   {
     char: '🐔',
-    name: 'chicken'
+    name: 'chicken',
   },
   {
     char: '🐓',
-    name: 'rooster'
+    name: 'rooster',
   },
   {
     char: '🐣',
-    name: 'hatching chick'
+    name: 'hatching chick',
   },
   {
     char: '🐤',
-    name: 'baby chick'
+    name: 'baby chick',
   },
   {
     char: '🐥',
-    name: 'front-facing baby chick'
+    name: 'front-facing baby chick',
   },
   {
     char: '🐦',
-    name: 'bird'
+    name: 'bird',
   },
   {
     char: '🐧',
-    name: 'penguin'
+    name: 'penguin',
   },
   {
     char: '🕊️',
-    name: 'dove'
+    name: 'dove',
   },
   {
     char: '🦅',
-    name: 'eagle'
+    name: 'eagle',
   },
   {
     char: '🦆',
-    name: 'duck'
+    name: 'duck',
   },
   {
     char: '🦢',
-    name: 'swan'
+    name: 'swan',
   },
   {
     char: '🦉',
-    name: 'owl'
+    name: 'owl',
   },
   {
     char: '🦩',
-    name: 'flamingo'
+    name: 'flamingo',
   },
   {
     char: '🦚',
-    name: 'peacock'
+    name: 'peacock',
   },
   {
     char: '🦜',
-    name: 'parrot'
+    name: 'parrot',
   },
   {
     char: '🐸',
-    name: 'frog'
+    name: 'frog',
   },
   {
     char: '🐊',
-    name: 'crocodile'
+    name: 'crocodile',
   },
   {
     char: '🐢',
-    name: 'turtle'
+    name: 'turtle',
   },
   {
     char: '🦎',
-    name: 'lizard'
+    name: 'lizard',
   },
   {
     char: '🐍',
-    name: 'snake'
+    name: 'snake',
   },
   {
     char: '🐲',
-    name: 'dragon face'
+    name: 'dragon face',
   },
   {
     char: '🐉',
-    name: 'dragon'
+    name: 'dragon',
   },
   {
     char: '🦕',
-    name: 'sauropod'
+    name: 'sauropod',
   },
   {
     char: '🦖',
-    name: 'T-Rex'
+    name: 'T-Rex',
   },
   {
     char: '🐳',
-    name: 'spouting whale'
+    name: 'spouting whale',
   },
   {
     char: '🐋',
-    name: 'whale'
+    name: 'whale',
   },
   {
     char: '🐬',
-    name: 'dolphin'
+    name: 'dolphin',
   },
   {
     char: '🐟',
-    name: 'fish'
+    name: 'fish',
   },
   {
     char: '🐠',
-    name: 'tropical fish'
+    name: 'tropical fish',
   },
   {
     char: '🐡',
-    name: 'blowfish'
+    name: 'blowfish',
   },
   {
     char: '🦈',
-    name: 'shark'
+    name: 'shark',
   },
   {
     char: '🐙',
-    name: 'octopus'
+    name: 'octopus',
   },
   {
     char: '🐚',
-    name: 'spiral shell'
+    name: 'spiral shell',
   },
   {
     char: '🐌',
-    name: 'snail'
+    name: 'snail',
   },
   {
     char: '🦋',
-    name: 'butterfly'
+    name: 'butterfly',
   },
   {
     char: '🐛',
-    name: 'bug'
+    name: 'bug',
   },
   {
     char: '🐜',
-    name: 'ant'
+    name: 'ant',
   },
   {
     char: '🐝',
-    name: 'honeybee'
+    name: 'honeybee',
   },
   {
     char: '🐞',
-    name: 'lady beetle'
+    name: 'lady beetle',
   },
   {
     char: '🦗',
-    name: 'cricket'
+    name: 'cricket',
   },
   {
     char: '🕷️',
-    name: 'spider'
+    name: 'spider',
   },
   {
     char: '🕸️',
-    name: 'spider web'
+    name: 'spider web',
   },
   {
     char: '🦂',
-    name: 'scorpion'
+    name: 'scorpion',
   },
   {
     char: '🦟',
-    name: 'mosquito'
+    name: 'mosquito',
   },
   {
     char: '🦠',
-    name: 'microbe'
+    name: 'microbe',
   },
   {
     char: '💐',
-    name: 'bouquet'
+    name: 'bouquet',
   },
   {
     char: '🌸',
-    name: 'cherry blossom'
+    name: 'cherry blossom',
   },
   {
     char: '💮',
-    name: 'white flower'
+    name: 'white flower',
   },
   {
     char: '🏵️',
-    name: 'rosette'
+    name: 'rosette',
   },
   {
     char: '🌹',
-    name: 'rose'
+    name: 'rose',
   },
   {
     char: '🥀',
-    name: 'wilted flower'
+    name: 'wilted flower',
   },
   {
     char: '🌺',
-    name: 'hibiscus'
+    name: 'hibiscus',
   },
   {
     char: '🌻',
-    name: 'sunflower'
+    name: 'sunflower',
   },
   {
     char: '🌼',
-    name: 'blossom'
+    name: 'blossom',
   },
   {
     char: '🌷',
-    name: 'tulip'
+    name: 'tulip',
   },
   {
     char: '🌱',
-    name: 'seedling'
+    name: 'seedling',
   },
   {
     char: '🌲',
-    name: 'evergreen tree'
+    name: 'evergreen tree',
   },
   {
     char: '🌳',
-    name: 'deciduous tree'
+    name: 'deciduous tree',
   },
   {
     char: '🌴',
-    name: 'palm tree'
+    name: 'palm tree',
   },
   {
     char: '🌵',
-    name: 'cactus'
+    name: 'cactus',
   },
   {
     char: '🌿',
-    name: 'herb'
+    name: 'herb',
   },
   {
     char: '☘️',
-    name: 'shamrock'
+    name: 'shamrock',
   },
   {
     char: '🍀',
-    name: 'four leaf clover'
+    name: 'four leaf clover',
   },
   {
     char: '🍁',
-    name: 'maple leaf'
+    name: 'maple leaf',
   },
   {
     char: '🍂',
-    name: 'fallen leaf'
+    name: 'fallen leaf',
   },
   {
     char: '🍃',
-    name: 'leaf fluttering in wind'
+    name: 'leaf fluttering in wind',
   },
   {
     char: '🍇',
-    name: 'grapes'
+    name: 'grapes',
   },
   {
     char: '🍈',
-    name: 'melon'
+    name: 'melon',
   },
   {
     char: '🍉',
-    name: 'watermelon'
+    name: 'watermelon',
   },
   {
     char: '🍊',
-    name: 'tangerine'
+    name: 'tangerine',
   },
   {
     char: '🍋',
-    name: 'lemon'
+    name: 'lemon',
   },
   {
     char: '🍌',
-    name: 'banana'
+    name: 'banana',
   },
   {
     char: '🍍',
-    name: 'pineapple'
+    name: 'pineapple',
   },
   {
     char: '🥭',
-    name: 'mango'
+    name: 'mango',
   },
   {
     char: '🍎',
-    name: 'red apple'
+    name: 'red apple',
   },
   {
     char: '🍏',
-    name: 'green apple'
+    name: 'green apple',
   },
   {
     char: '🍐',
-    name: 'pear'
+    name: 'pear',
   },
   {
     char: '🍑',
-    name: 'peach'
+    name: 'peach',
   },
   {
     char: '🍒',
-    name: 'cherries'
+    name: 'cherries',
   },
   {
     char: '🍓',
-    name: 'strawberry'
+    name: 'strawberry',
   },
   {
     char: '🫐',
-    name: 'blueberries'
+    name: 'blueberries',
   },
   {
     char: '🥝',
-    name: 'kiwi fruit'
+    name: 'kiwi fruit',
   },
   {
     char: '🍅',
-    name: 'tomato'
+    name: 'tomato',
   },
   {
     char: '🥥',
-    name: 'coconut'
+    name: 'coconut',
   },
   {
     char: '🥑',
-    name: 'avocado'
+    name: 'avocado',
   },
   {
     char: '🍆',
-    name: 'eggplant'
+    name: 'eggplant',
   },
   {
     char: '🥔',
-    name: 'potato'
+    name: 'potato',
   },
   {
     char: '🥕',
-    name: 'carrot'
+    name: 'carrot',
   },
   {
     char: '🌽',
-    name: 'ear of corn'
+    name: 'ear of corn',
   },
   {
     char: '🌶️',
-    name: 'hot pepper'
+    name: 'hot pepper',
   },
   {
     char: '🥒',
-    name: 'cucumber'
+    name: 'cucumber',
   },
   {
     char: '🥬',
-    name: 'leafy green'
+    name: 'leafy green',
   },
   {
     char: '🥦',
-    name: 'broccoli'
+    name: 'broccoli',
   },
   {
     char: '🧄',
-    name: 'garlic'
+    name: 'garlic',
   },
   {
     char: '🧅',
-    name: 'onion'
+    name: 'onion',
   },
   {
     char: '🍄',
-    name: 'mushroom'
+    name: 'mushroom',
   },
   {
     char: '🥜',
-    name: 'peanuts'
+    name: 'peanuts',
   },
   {
     char: '🌰',
-    name: 'chestnut'
+    name: 'chestnut',
   },
   {
     char: '🍞',
-    name: 'bread'
+    name: 'bread',
   },
   {
     char: '🥐',
-    name: 'croissant'
+    name: 'croissant',
   },
   {
     char: '🥖',
-    name: 'baguette bread'
+    name: 'baguette bread',
   },
   {
     char: '🥨',
-    name: 'pretzel'
+    name: 'pretzel',
   },
   {
     char: '🥯',
-    name: 'bagel'
+    name: 'bagel',
   },
   {
     char: '🥞',
-    name: 'pancakes'
+    name: 'pancakes',
   },
   {
     char: '🧇',
-    name: 'waffle'
+    name: 'waffle',
   },
   {
     char: '🧀',
-    name: 'cheese wedge'
+    name: 'cheese wedge',
   },
   {
     char: '🍖',
-    name: 'meat on bone'
+    name: 'meat on bone',
   },
   {
     char: '🍗',
-    name: 'poultry leg'
+    name: 'poultry leg',
   },
   {
     char: '🥩',
-    name: 'cut of meat'
+    name: 'cut of meat',
   },
   {
     char: '🥓',
-    name: 'bacon'
+    name: 'bacon',
   },
   {
     char: '🍔',
-    name: 'hamburger'
+    name: 'hamburger',
   },
   {
     char: '🍟',
-    name: 'french fries'
+    name: 'french fries',
   },
   {
     char: '🍕',
-    name: 'pizza'
+    name: 'pizza',
   },
   {
     char: '🌭',
-    name: 'hot dog'
+    name: 'hot dog',
   },
   {
     char: '🥪',
-    name: 'sandwich'
+    name: 'sandwich',
   },
   {
     char: '🌮',
-    name: 'taco'
+    name: 'taco',
   },
   {
     char: '🌯',
-    name: 'burrito'
+    name: 'burrito',
   },
   {
     char: '🥙',
-    name: 'stuffed flatbread'
+    name: 'stuffed flatbread',
   },
   {
     char: '🧆',
-    name: 'falafel'
+    name: 'falafel',
   },
   {
     char: '🥚',
-    name: 'egg'
+    name: 'egg',
   },
   {
     char: '🥘',
-    name: 'shallow pan of food'
+    name: 'shallow pan of food',
   },
   {
     char: '🍲',
-    name: 'pot of food'
+    name: 'pot of food',
   },
   {
     char: '🥣',
-    name: 'bowl with spoon'
+    name: 'bowl with spoon',
   },
   {
     char: '🥗',
-    name: 'green salad'
+    name: 'green salad',
   },
   {
     char: '🍿',
-    name: 'popcorn'
+    name: 'popcorn',
   },
   {
     char: '🧈',
-    name: 'butter'
+    name: 'butter',
   },
   {
     char: '🧂',
-    name: 'salt'
+    name: 'salt',
   },
   {
     char: '🥫',
-    name: 'canned food'
+    name: 'canned food',
   },
   {
     char: '🍱',
-    name: 'bento box'
+    name: 'bento box',
   },
   {
     char: '🍘',
-    name: 'rice cracker'
+    name: 'rice cracker',
   },
   {
     char: '🍙',
-    name: 'rice ball'
+    name: 'rice ball',
   },
   {
     char: '🍚',
-    name: 'cooked rice'
+    name: 'cooked rice',
   },
   {
     char: '🍛',
-    name: 'curry rice'
+    name: 'curry rice',
   },
   {
     char: '🍜',
-    name: 'steaming bowl'
+    name: 'steaming bowl',
   },
   {
     char: '🍝',
-    name: 'spaghetti'
+    name: 'spaghetti',
   },
   {
     char: '🍠',
-    name: 'roasted sweet potato'
+    name: 'roasted sweet potato',
   },
   {
     char: '🍢',
-    name: 'oden'
+    name: 'oden',
   },
   {
     char: '🍣',
-    name: 'sushi'
+    name: 'sushi',
   },
   {
     char: '🍤',
-    name: 'fried shrimp'
+    name: 'fried shrimp',
   },
   {
     char: '🍥',
-    name: 'fish cake with swirl'
+    name: 'fish cake with swirl',
   },
   {
     char: '🥮',
-    name: 'moon cake'
+    name: 'moon cake',
   },
   {
     char: '🍡',
-    name: 'dango'
+    name: 'dango',
   },
   {
     char: '🥟',
-    name: 'dumpling'
+    name: 'dumpling',
   },
   {
     char: '🥠',
-    name: 'fortune cookie'
+    name: 'fortune cookie',
   },
   {
     char: '🥡',
-    name: 'takeout box'
+    name: 'takeout box',
   },
   {
     char: '🦀',
-    name: 'crab'
+    name: 'crab',
   },
   {
     char: '🦞',
-    name: 'lobster'
+    name: 'lobster',
   },
   {
     char: '🦐',
-    name: 'shrimp'
+    name: 'shrimp',
   },
   {
     char: '🦑',
-    name: 'squid'
+    name: 'squid',
   },
   {
     char: '🦪',
-    name: 'oyster'
+    name: 'oyster',
   },
   {
     char: '🍦',
-    name: 'soft ice cream'
+    name: 'soft ice cream',
   },
   {
     char: '🍧',
-    name: 'shaved ice'
+    name: 'shaved ice',
   },
   {
     char: '🍨',
-    name: 'ice cream'
+    name: 'ice cream',
   },
   {
     char: '🍩',
-    name: 'doughnut'
+    name: 'doughnut',
   },
   {
     char: '🍪',
-    name: 'cookie'
+    name: 'cookie',
   },
   {
     char: '🎂',
-    name: 'birthday cake'
+    name: 'birthday cake',
   },
   {
     char: '🍰',
-    name: 'shortcake'
+    name: 'shortcake',
   },
   {
     char: '🧁',
-    name: 'cupcake'
+    name: 'cupcake',
   },
   {
     char: '🥧',
-    name: 'pie'
+    name: 'pie',
   },
   {
     char: '🍫',
-    name: 'chocolate bar'
+    name: 'chocolate bar',
   },
   {
     char: '🍬',
-    name: 'candy'
+    name: 'candy',
   },
   {
     char: '🍭',
-    name: 'lollipop'
+    name: 'lollipop',
   },
   {
     char: '🍮',
-    name: 'custard'
+    name: 'custard',
   },
   {
     char: '🍯',
-    name: 'honey pot'
+    name: 'honey pot',
   },
   {
     char: '🍼',
-    name: 'baby bottle'
+    name: 'baby bottle',
   },
   {
     char: '🥛',
-    name: 'glass of milk'
+    name: 'glass of milk',
   },
   {
     char: '🍵',
-    name: 'teacup without handle'
+    name: 'teacup without handle',
   },
   {
     char: '🍶',
-    name: 'sake'
+    name: 'sake',
   },
   {
     char: '🍾',
-    name: 'bottle with popping cork'
+    name: 'bottle with popping cork',
   },
   {
     char: '🍷',
-    name: 'wine glass'
+    name: 'wine glass',
   },
   {
     char: '🍸',
-    name: 'cocktail glass'
+    name: 'cocktail glass',
   },
   {
     char: '🍹',
-    name: 'tropical drink'
+    name: 'tropical drink',
   },
   {
     char: '🍺',
-    name: 'beer mug'
+    name: 'beer mug',
   },
   {
     char: '🍻',
-    name: 'clinking beer mugs'
+    name: 'clinking beer mugs',
   },
   {
     char: '🥂',
-    name: 'clinking glasses'
+    name: 'clinking glasses',
   },
   {
     char: '🥃',
-    name: 'tumbler glass'
+    name: 'tumbler glass',
   },
   {
     char: '🥤',
-    name: 'cup with straw'
+    name: 'cup with straw',
   },
   {
     char: '🧃',
-    name: 'beverage box'
+    name: 'beverage box',
   },
   {
     char: '🧉',
-    name: 'mate'
+    name: 'mate',
   },
   {
     char: '🧊',
-    name: 'ice'
+    name: 'ice',
   },
   {
     char: '🥢',
-    name: 'chopsticks'
+    name: 'chopsticks',
   },
   {
     char: '🍽️',
-    name: 'fork and knife with plate'
+    name: 'fork and knife with plate',
   },
   {
     char: '🍴',
-    name: 'fork and knife'
+    name: 'fork and knife',
   },
   {
     char: '🥄',
-    name: 'spoon'
+    name: 'spoon',
   },
   {
     char: '🔪',
-    name: 'kitchen knife'
+    name: 'kitchen knife',
   },
   {
     char: '🏺',
-    name: 'amphora'
+    name: 'amphora',
   },
   {
     char: '🌍',
-    name: 'globe showing Europe-Africa'
+    name: 'globe showing Europe-Africa',
   },
   {
     char: '🌎',
-    name: 'globe showing Americas'
+    name: 'globe showing Americas',
   },
   {
     char: '🌏',
-    name: 'globe showing Asia-Australia'
+    name: 'globe showing Asia-Australia',
   },
   {
     char: '🌐',
-    name: 'globe with meridians'
+    name: 'globe with meridians',
   },
   {
     char: '🗺️',
-    name: 'world map'
+    name: 'world map',
   },
   {
     char: '🗾',
-    name: 'map of Japan'
+    name: 'map of Japan',
   },
   {
     char: '🧭',
-    name: 'compass'
+    name: 'compass',
   },
   {
     char: '🏔️',
-    name: 'snow-capped mountain'
+    name: 'snow-capped mountain',
   },
   {
     char: '⛰️',
-    name: 'mountain'
+    name: 'mountain',
   },
   {
     char: '🌋',
-    name: 'volcano'
+    name: 'volcano',
   },
   {
     char: '🗻',
-    name: 'mount fuji'
+    name: 'mount fuji',
   },
   {
     char: '🏕️',
-    name: 'camping'
+    name: 'camping',
   },
   {
     char: '🏖️',
-    name: 'beach with umbrella'
+    name: 'beach with umbrella',
   },
   {
     char: '🏜️',
-    name: 'desert'
+    name: 'desert',
   },
   {
     char: '🏝️',
-    name: 'desert island'
+    name: 'desert island',
   },
   {
     char: '🏞️',
-    name: 'national park'
+    name: 'national park',
   },
   {
     char: '🏟️',
-    name: 'stadium'
+    name: 'stadium',
   },
   {
     char: '🏛️',
-    name: 'classical building'
+    name: 'classical building',
   },
   {
     char: '🏗️',
-    name: 'building construction'
+    name: 'building construction',
   },
   {
     char: '🧱',
-    name: 'brick'
+    name: 'brick',
   },
   {
     char: '🏘️',
-    name: 'houses'
+    name: 'houses',
   },
   {
     char: '🏚️',
-    name: 'derelict house'
+    name: 'derelict house',
   },
   {
     char: '🏠',
-    name: 'house'
+    name: 'house',
   },
   {
     char: '🏡',
-    name: 'house with garden'
+    name: 'house with garden',
   },
   {
     char: '🏢',
-    name: 'office building'
+    name: 'office building',
   },
   {
     char: '🏣',
-    name: 'Japanese post office'
+    name: 'Japanese post office',
   },
   {
     char: '🏤',
-    name: 'post office'
+    name: 'post office',
   },
   {
     char: '🏥',
-    name: 'hospital'
+    name: 'hospital',
   },
   {
     char: '🏦',
-    name: 'bank'
+    name: 'bank',
   },
   {
     char: '🏨',
-    name: 'hotel'
+    name: 'hotel',
   },
   {
     char: '🏩',
-    name: 'love hotel'
+    name: 'love hotel',
   },
   {
     char: '🏪',
-    name: 'convenience store'
+    name: 'convenience store',
   },
   {
     char: '🏬',
-    name: 'department store'
+    name: 'department store',
   },
   {
     char: '🏯',
-    name: 'Japanese castle'
+    name: 'Japanese castle',
   },
   {
     char: '🏰',
-    name: 'castle'
+    name: 'castle',
   },
   {
     char: '💒',
-    name: 'wedding'
+    name: 'wedding',
   },
   {
     char: '🗼',
-    name: 'Tokyo tower'
+    name: 'Tokyo tower',
   },
   {
     char: '🗽',
-    name: 'Statue of Liberty'
+    name: 'Statue of Liberty',
   },
   {
     char: '⛪',
-    name: 'church'
+    name: 'church',
   },
   {
     char: '🕌',
-    name: 'mosque'
+    name: 'mosque',
   },
   {
     char: '🛕',
-    name: 'hindu temple'
+    name: 'hindu temple',
   },
   {
     char: '🕍',
-    name: 'synagogue'
+    name: 'synagogue',
   },
   {
     char: '⛩️',
-    name: 'shinto shrine'
+    name: 'shinto shrine',
   },
   {
     char: '🕋',
-    name: 'kaaba'
+    name: 'kaaba',
   },
   {
     char: '⛲',
-    name: 'fountain'
+    name: 'fountain',
   },
   {
     char: '⛺',
-    name: 'tent'
+    name: 'tent',
   },
   {
     char: '🌁',
-    name: 'foggy'
+    name: 'foggy',
   },
   {
     char: '🌃',
-    name: 'night with stars'
+    name: 'night with stars',
   },
   {
     char: '🏙️',
-    name: 'cityscape'
+    name: 'cityscape',
   },
   {
     char: '🌄',
-    name: 'sunrise over mountains'
+    name: 'sunrise over mountains',
   },
   {
     char: '🌅',
-    name: 'sunrise'
+    name: 'sunrise',
   },
   {
     char: '🌆',
-    name: 'cityscape at dusk'
+    name: 'cityscape at dusk',
   },
   {
     char: '🌇',
-    name: 'sunset'
+    name: 'sunset',
   },
   {
     char: '🌉',
-    name: 'bridge at night'
+    name: 'bridge at night',
   },
   {
     char: '♨️',
-    name: 'hot springs'
+    name: 'hot springs',
   },
   {
     char: '🎠',
-    name: 'carousel horse'
+    name: 'carousel horse',
   },
   {
     char: '🎡',
-    name: 'ferris wheel'
+    name: 'ferris wheel',
   },
   {
     char: '🎢',
-    name: 'roller coaster'
+    name: 'roller coaster',
   },
   {
     char: '💈',
-    name: 'barber pole'
+    name: 'barber pole',
   },
   {
     char: '🎪',
-    name: 'circus tent'
+    name: 'circus tent',
   },
   {
     char: '🚂',
-    name: 'locomotive'
+    name: 'locomotive',
   },
   {
     char: '🚃',
-    name: 'railway car'
+    name: 'railway car',
   },
   {
     char: '🚄',
-    name: 'high-speed train'
+    name: 'high-speed train',
   },
   {
     char: '🚅',
-    name: 'bullet train'
+    name: 'bullet train',
   },
   {
     char: '🚆',
-    name: 'train'
+    name: 'train',
   },
   {
     char: '🚇',
-    name: 'metro'
+    name: 'metro',
   },
   {
     char: '🚈',
-    name: 'light rail'
+    name: 'light rail',
   },
   {
     char: '🚉',
-    name: 'station'
+    name: 'station',
   },
   {
     char: '🚊',
-    name: 'tram'
+    name: 'tram',
   },
   {
     char: '🚝',
-    name: 'monorail'
+    name: 'monorail',
   },
   {
     char: '🚞',
-    name: 'mountain railway'
+    name: 'mountain railway',
   },
   {
     char: '🚋',
-    name: 'tram car'
+    name: 'tram car',
   },
   {
     char: '🚌',
-    name: 'bus'
+    name: 'bus',
   },
   {
     char: '🚍',
-    name: 'oncoming bus'
+    name: 'oncoming bus',
   },
   {
     char: '🚎',
-    name: 'trolleybus'
+    name: 'trolleybus',
   },
   {
     char: '🚐',
-    name: 'minibus'
+    name: 'minibus',
   },
   {
     char: '🚑',
-    name: 'ambulance'
+    name: 'ambulance',
   },
   {
     char: '🚒',
-    name: 'fire engine'
+    name: 'fire engine',
   },
   {
     char: '🚓',
-    name: 'police car'
+    name: 'police car',
   },
   {
     char: '🚔',
-    name: 'oncoming police car'
+    name: 'oncoming police car',
   },
   {
     char: '🚕',
-    name: 'taxi'
+    name: 'taxi',
   },
   {
     char: '🚖',
-    name: 'oncoming taxi'
+    name: 'oncoming taxi',
   },
   {
     char: '🚗',
-    name: 'automobile'
+    name: 'automobile',
   },
   {
     char: '🚘',
-    name: 'oncoming automobile'
+    name: 'oncoming automobile',
   },
   {
     char: '🚙',
-    name: 'sport utility vehicle'
+    name: 'sport utility vehicle',
   },
   {
     char: '🛻',
-    name: 'pickup truck'
+    name: 'pickup truck',
   },
   {
     char: '🚚',
-    name: 'delivery truck'
+    name: 'delivery truck',
   },
   {
     char: '🚛',
-    name: 'articulated lorry'
+    name: 'articulated lorry',
   },
   {
     char: '🚜',
-    name: 'tractor'
+    name: 'tractor',
   },
   {
     char: '🏎️',
-    name: 'racing car'
+    name: 'racing car',
   },
   {
     char: '🏍️',
-    name: 'motorcycle'
+    name: 'motorcycle',
   },
   {
     char: '🛵',
-    name: 'motor scooter'
+    name: 'motor scooter',
   },
   {
     char: '🦽',
-    name: 'manual wheelchair'
+    name: 'manual wheelchair',
   },
   {
     char: '🦼',
-    name: 'motorized wheelchair'
+    name: 'motorized wheelchair',
   },
   {
     char: '🛺',
-    name: 'auto rickshaw'
+    name: 'auto rickshaw',
   },
   {
     char: '🚲',
-    name: 'bicycle'
+    name: 'bicycle',
   },
   {
     char: '🛴',
-    name: 'kick scooter'
+    name: 'kick scooter',
   },
   {
     char: '🛹',
-    name: 'skateboard'
+    name: 'skateboard',
   },
   {
     char: '🚏',
-    name: 'bus stop'
+    name: 'bus stop',
   },
   {
     char: '🛣️',
-    name: 'motorway'
+    name: 'motorway',
   },
   {
     char: '🛤️',
-    name: 'railway track'
+    name: 'railway track',
   },
   {
     char: '🛢️',
-    name: 'oil drum'
+    name: 'oil drum',
   },
   {
     char: '⛽',
-    name: 'fuel pump'
+    name: 'fuel pump',
   },
   {
     char: '🚨',
-    name: 'police car light'
+    name: 'police car light',
   },
   {
     char: '🚥',
-    name: 'horizontal traffic light'
+    name: 'horizontal traffic light',
   },
   {
     char: '🚦',
-    name: 'vertical traffic light'
+    name: 'vertical traffic light',
   },
   {
     char: '🛑',
-    name: 'stop sign'
+    name: 'stop sign',
   },
   {
     char: '🚧',
-    name: 'construction'
+    name: 'construction',
   },
   {
     char: '⛵',
-    name: 'sailboat'
+    name: 'sailboat',
   },
   {
     char: '🛶',
-    name: 'canoe'
+    name: 'canoe',
   },
   {
     char: '🚤',
-    name: 'speedboat'
+    name: 'speedboat',
   },
   {
     char: '🛳️',
-    name: 'passenger ship'
+    name: 'passenger ship',
   },
   {
     char: '⛴️',
-    name: 'ferry'
+    name: 'ferry',
   },
   {
     char: '🛥️',
-    name: 'motor boat'
+    name: 'motor boat',
   },
   {
     char: '🚢',
-    name: 'ship'
+    name: 'ship',
   },
   {
     char: '🛩️',
-    name: 'small airplane'
+    name: 'small airplane',
   },
   {
     char: '🛫',
-    name: 'airplane departure'
+    name: 'airplane departure',
   },
   {
     char: '🛬',
-    name: 'airplane arrival'
+    name: 'airplane arrival',
   },
   {
     char: '🪂',
-    name: 'parachute'
+    name: 'parachute',
   },
   {
     char: '💺',
-    name: 'seat'
+    name: 'seat',
   },
   {
     char: '🚁',
-    name: 'helicopter'
+    name: 'helicopter',
   },
   {
     char: '🚟',
-    name: 'suspension railway'
+    name: 'suspension railway',
   },
   {
     char: '🚠',
-    name: 'mountain cableway'
+    name: 'mountain cableway',
   },
   {
     char: '🚡',
-    name: 'aerial tramway'
+    name: 'aerial tramway',
   },
   {
     char: '🛰️',
-    name: 'satellite'
+    name: 'satellite',
   },
   {
     char: '🚀',
-    name: 'rocket'
+    name: 'rocket',
   },
   {
     char: '🛸',
-    name: 'flying saucer'
+    name: 'flying saucer',
   },
   {
     char: '🛎️',
-    name: 'bellhop bell'
+    name: 'bellhop bell',
   },
   {
     char: '🧳',
-    name: 'luggage'
+    name: 'luggage',
   },
   {
     char: '⌛',
-    name: 'hourglass done'
+    name: 'hourglass done',
   },
   {
     char: '⏳',
-    name: 'hourglass not done'
+    name: 'hourglass not done',
   },
   {
     char: '⌚',
-    name: 'watch'
+    name: 'watch',
   },
   {
     char: '⏰',
-    name: 'alarm clock'
+    name: 'alarm clock',
   },
   {
     char: '⏱️',
-    name: 'stopwatch'
+    name: 'stopwatch',
   },
   {
     char: '⏲️',
-    name: 'timer clock'
+    name: 'timer clock',
   },
   {
     char: '🕰️',
-    name: 'mantelpiece clock'
+    name: 'mantelpiece clock',
   },
   {
     char: '🕛',
-    name: 'twelve o’clock'
+    name: 'twelve o’clock',
   },
   {
     char: '🕧',
-    name: 'twelve-thirty'
+    name: 'twelve-thirty',
   },
   {
     char: '🕐',
-    name: 'one o’clock'
+    name: 'one o’clock',
   },
   {
     char: '🕜',
-    name: 'one-thirty'
+    name: 'one-thirty',
   },
   {
     char: '🕑',
-    name: 'two o’clock'
+    name: 'two o’clock',
   },
   {
     char: '🕝',
-    name: 'two-thirty'
+    name: 'two-thirty',
   },
   {
     char: '🕒',
-    name: 'three o’clock'
+    name: 'three o’clock',
   },
   {
     char: '🕞',
-    name: 'three-thirty'
+    name: 'three-thirty',
   },
   {
     char: '🕓',
-    name: 'four o’clock'
+    name: 'four o’clock',
   },
   {
     char: '🕟',
-    name: 'four-thirty'
+    name: 'four-thirty',
   },
   {
     char: '🕔',
-    name: 'five o’clock'
+    name: 'five o’clock',
   },
   {
     char: '🕠',
-    name: 'five-thirty'
+    name: 'five-thirty',
   },
   {
     char: '🕕',
-    name: 'six o’clock'
+    name: 'six o’clock',
   },
   {
     char: '🕡',
-    name: 'six-thirty'
+    name: 'six-thirty',
   },
   {
     char: '🕖',
-    name: 'seven o’clock'
+    name: 'seven o’clock',
   },
   {
     char: '🕢',
-    name: 'seven-thirty'
+    name: 'seven-thirty',
   },
   {
     char: '🕗',
-    name: 'eight o’clock'
+    name: 'eight o’clock',
   },
   {
     char: '🕣',
-    name: 'eight-thirty'
+    name: 'eight-thirty',
   },
   {
     char: '🕘',
-    name: 'nine o’clock'
+    name: 'nine o’clock',
   },
   {
     char: '🕤',
-    name: 'nine-thirty'
+    name: 'nine-thirty',
   },
   {
     char: '🕙',
-    name: 'ten o’clock'
+    name: 'ten o’clock',
   },
   {
     char: '🕥',
-    name: 'ten-thirty'
+    name: 'ten-thirty',
   },
   {
     char: '🕚',
-    name: 'eleven o’clock'
+    name: 'eleven o’clock',
   },
   {
     char: '🕦',
-    name: 'eleven-thirty'
+    name: 'eleven-thirty',
   },
   {
     char: '🌑',
-    name: 'new moon'
+    name: 'new moon',
   },
   {
     char: '🌒',
-    name: 'waxing crescent moon'
+    name: 'waxing crescent moon',
   },
   {
     char: '🌓',
-    name: 'first quarter moon'
+    name: 'first quarter moon',
   },
   {
     char: '🌔',
-    name: 'waxing gibbous moon'
+    name: 'waxing gibbous moon',
   },
   {
     char: '🌕',
-    name: 'full moon'
+    name: 'full moon',
   },
   {
     char: '🌖',
-    name: 'waning gibbous moon'
+    name: 'waning gibbous moon',
   },
   {
     char: '🌗',
-    name: 'last quarter moon'
+    name: 'last quarter moon',
   },
   {
     char: '🌘',
-    name: 'waning crescent moon'
+    name: 'waning crescent moon',
   },
   {
     char: '🌙',
-    name: 'crescent moon'
+    name: 'crescent moon',
   },
   {
     char: '🌚',
-    name: 'new moon face'
+    name: 'new moon face',
   },
   {
     char: '🌛',
-    name: 'first quarter moon face'
+    name: 'first quarter moon face',
   },
   {
     char: '🌜',
-    name: 'last quarter moon face'
+    name: 'last quarter moon face',
   },
   {
     char: '🌡️',
-    name: 'thermometer'
+    name: 'thermometer',
   },
   {
     char: '🌝',
-    name: 'full moon face'
+    name: 'full moon face',
   },
   {
     char: '🌞',
-    name: 'sun with face'
+    name: 'sun with face',
   },
   {
     char: '🪐',
-    name: 'ringed planet'
+    name: 'ringed planet',
   },
   {
     char: '⭐',
-    name: 'star'
+    name: 'star',
   },
   {
     char: '🌟',
-    name: 'glowing star'
+    name: 'glowing star',
   },
   {
     char: '🌠',
-    name: 'shooting star'
+    name: 'shooting star',
   },
   {
     char: '🌌',
-    name: 'milky way'
+    name: 'milky way',
   },
   {
     char: '⛅',
-    name: 'sun behind cloud'
+    name: 'sun behind cloud',
   },
   {
     char: '⛈️',
-    name: 'cloud with lightning and rain'
+    name: 'cloud with lightning and rain',
   },
   {
     char: '🌤️',
-    name: 'sun behind small cloud'
+    name: 'sun behind small cloud',
   },
   {
     char: '🌥️',
-    name: 'sun behind large cloud'
+    name: 'sun behind large cloud',
   },
   {
     char: '🌦️',
-    name: 'sun behind rain cloud'
+    name: 'sun behind rain cloud',
   },
   {
     char: '🌧️',
-    name: 'cloud with rain'
+    name: 'cloud with rain',
   },
   {
     char: '🌨️',
-    name: 'cloud with snow'
+    name: 'cloud with snow',
   },
   {
     char: '🌩️',
-    name: 'cloud with lightning'
+    name: 'cloud with lightning',
   },
   {
     char: '🌪️',
-    name: 'tornado'
+    name: 'tornado',
   },
   {
     char: '🌫️',
-    name: 'fog'
+    name: 'fog',
   },
   {
     char: '🌬️',
-    name: 'wind face'
+    name: 'wind face',
   },
   {
     char: '🌀',
-    name: 'cyclone'
+    name: 'cyclone',
   },
   {
     char: '🌈',
-    name: 'rainbow'
+    name: 'rainbow',
   },
   {
     char: '🌂',
-    name: 'closed umbrella'
+    name: 'closed umbrella',
   },
   {
     char: '⛱️',
-    name: 'umbrella on ground'
+    name: 'umbrella on ground',
   },
   {
     char: '⛄',
-    name: 'snowman without snow'
+    name: 'snowman without snow',
   },
   {
     char: '☄️',
-    name: 'comet'
+    name: 'comet',
   },
   {
     char: '🔥',
-    name: 'fire'
+    name: 'fire',
   },
   {
     char: '💧',
-    name: 'droplet'
+    name: 'droplet',
   },
   {
     char: '🌊',
-    name: 'water wave'
+    name: 'water wave',
   },
   {
     char: '🎃',
-    name: 'jack-o-lantern'
+    name: 'jack-o-lantern',
   },
   {
     char: '🎄',
-    name: 'Christmas tree'
+    name: 'Christmas tree',
   },
   {
     char: '🎆',
-    name: 'fireworks'
+    name: 'fireworks',
   },
   {
     char: '🎇',
-    name: 'sparkler'
+    name: 'sparkler',
   },
   {
     char: '🧨',
-    name: 'firecracker'
+    name: 'firecracker',
   },
   {
     char: '✨',
-    name: 'sparkles'
+    name: 'sparkles',
   },
   {
     char: '🎈',
-    name: 'balloon'
+    name: 'balloon',
   },
   {
     char: '🎉',
-    name: 'party popper'
+    name: 'party popper',
   },
   {
     char: '🎊',
-    name: 'confetti ball'
+    name: 'confetti ball',
   },
   {
     char: '🎋',
-    name: 'tanabata tree'
+    name: 'tanabata tree',
   },
   {
     char: '🎍',
-    name: 'pine decoration'
+    name: 'pine decoration',
   },
   {
     char: '🎎',
-    name: 'Japanese dolls'
+    name: 'Japanese dolls',
   },
   {
     char: '🎏',
-    name: 'carp streamer'
+    name: 'carp streamer',
   },
   {
     char: '🎐',
-    name: 'wind chime'
+    name: 'wind chime',
   },
   {
     char: '🎑',
-    name: 'moon viewing ceremony'
+    name: 'moon viewing ceremony',
   },
   {
     char: '🧧',
-    name: 'red envelope'
+    name: 'red envelope',
   },
   {
     char: '🎀',
-    name: 'ribbon'
+    name: 'ribbon',
   },
   {
     char: '🎁',
-    name: 'wrapped gift'
+    name: 'wrapped gift',
   },
   {
     char: '🎗️',
-    name: 'reminder ribbon'
+    name: 'reminder ribbon',
   },
   {
     char: '🎟️',
-    name: 'admission tickets'
+    name: 'admission tickets',
   },
   {
     char: '🎫',
-    name: 'ticket'
+    name: 'ticket',
   },
   {
     char: '🎖️',
-    name: 'military medal'
+    name: 'military medal',
   },
   {
     char: '🏆',
-    name: 'trophy'
+    name: 'trophy',
   },
   {
     char: '🏅',
-    name: 'sports medal'
+    name: 'sports medal',
   },
   {
     char: '🥇',
-    name: '1st place medal'
+    name: '1st place medal',
   },
   {
     char: '🥈',
-    name: '2nd place medal'
+    name: '2nd place medal',
   },
   {
     char: '🥉',
-    name: '3rd place medal'
+    name: '3rd place medal',
   },
   {
     char: '⚽',
-    name: 'soccer ball'
+    name: 'soccer ball',
   },
   {
     char: '⚾',
-    name: 'baseball'
+    name: 'baseball',
   },
   {
     char: '🥎',
-    name: 'softball'
+    name: 'softball',
   },
   {
     char: '🏀',
-    name: 'basketball'
+    name: 'basketball',
   },
   {
     char: '🏐',
-    name: 'volleyball'
+    name: 'volleyball',
   },
   {
     char: '🏈',
-    name: 'american football'
+    name: 'american football',
   },
   {
     char: '🏉',
-    name: 'rugby football'
+    name: 'rugby football',
   },
   {
     char: '🎾',
-    name: 'tennis'
+    name: 'tennis',
   },
   {
     char: '🥏',
-    name: 'flying disc'
+    name: 'flying disc',
   },
   {
     char: '🎳',
-    name: 'bowling'
+    name: 'bowling',
   },
   {
     char: '🏏',
-    name: 'cricket game'
+    name: 'cricket game',
   },
   {
     char: '🏑',
-    name: 'field hockey'
+    name: 'field hockey',
   },
   {
     char: '🏒',
-    name: 'ice hockey'
+    name: 'ice hockey',
   },
   {
     char: '🥍',
-    name: 'lacrosse'
+    name: 'lacrosse',
   },
   {
     char: '🏓',
-    name: 'ping pong'
+    name: 'ping pong',
   },
   {
     char: '🏸',
-    name: 'badminton'
+    name: 'badminton',
   },
   {
     char: '🥊',
-    name: 'boxing glove'
+    name: 'boxing glove',
   },
   {
     char: '🥋',
-    name: 'martial arts uniform'
+    name: 'martial arts uniform',
   },
   {
     char: '🥅',
-    name: 'goal net'
+    name: 'goal net',
   },
   {
     char: '⛳',
-    name: 'flag in hole'
+    name: 'flag in hole',
   },
   {
     char: '⛸️',
-    name: 'ice skate'
+    name: 'ice skate',
   },
   {
     char: '🎣',
-    name: 'fishing pole'
+    name: 'fishing pole',
   },
   {
     char: '🤿',
-    name: 'diving mask'
+    name: 'diving mask',
   },
   {
     char: '🎽',
-    name: 'running shirt'
+    name: 'running shirt',
   },
   {
     char: '🎿',
-    name: 'skis'
+    name: 'skis',
   },
   {
     char: '🛷',
-    name: 'sled'
+    name: 'sled',
   },
   {
     char: '🥌',
-    name: 'curling stone'
+    name: 'curling stone',
   },
   {
     char: '🎯',
-    name: 'bullseye'
+    name: 'bullseye',
   },
   {
     char: '🪀',
-    name: 'yo-yo'
+    name: 'yo-yo',
   },
   {
     char: '🪁',
-    name: 'kite'
+    name: 'kite',
   },
   {
     char: '🎱',
-    name: 'pool 8 ball'
+    name: 'pool 8 ball',
   },
   {
     char: '🔮',
-    name: 'crystal ball'
+    name: 'crystal ball',
   },
   {
     char: '🪄',
-    name: 'magic wand'
+    name: 'magic wand',
   },
   {
     char: '🧿',
-    name: 'nazar amulet'
+    name: 'nazar amulet',
   },
   {
     char: '🎮',
-    name: 'video game'
+    name: 'video game',
   },
   {
     char: '🕹️',
-    name: 'joystick'
+    name: 'joystick',
   },
   {
     char: '🎰',
-    name: 'slot machine'
+    name: 'slot machine',
   },
   {
     char: '🎲',
-    name: 'game die'
+    name: 'game die',
   },
   {
     char: '🧩',
-    name: 'puzzle piece'
+    name: 'puzzle piece',
   },
   {
     char: '🧸',
-    name: 'teddy bear'
+    name: 'teddy bear',
   },
   {
     char: '🃏',
-    name: 'joker'
+    name: 'joker',
   },
   {
     char: '🀄',
-    name: 'mahjong red dragon'
+    name: 'mahjong red dragon',
   },
   {
     char: '🎴',
-    name: 'flower playing cards'
+    name: 'flower playing cards',
   },
   {
     char: '🎭',
-    name: 'performing arts'
+    name: 'performing arts',
   },
   {
     char: '🖼️',
-    name: 'framed picture'
+    name: 'framed picture',
   },
   {
     char: '🧵',
-    name: 'thread'
+    name: 'thread',
   },
   {
     char: '🪡',
-    name: 'sewing needle'
+    name: 'sewing needle',
   },
   {
     char: '🧶',
-    name: 'yarn'
+    name: 'yarn',
   },
   {
     char: '🪢',
-    name: 'knot'
+    name: 'knot',
   },
   {
     char: '👓',
-    name: 'glasses'
+    name: 'glasses',
   },
   {
     char: '🕶️',
-    name: 'sunglasses'
+    name: 'sunglasses',
   },
   {
     char: '🥽',
-    name: 'goggles'
+    name: 'goggles',
   },
   {
     char: '🥼',
-    name: 'lab coat'
+    name: 'lab coat',
   },
   {
     char: '🦺',
-    name: 'safety vest'
+    name: 'safety vest',
   },
   {
     char: '👔',
-    name: 'necktie'
+    name: 'necktie',
   },
   {
     char: '👕',
-    name: 't-shirt'
+    name: 't-shirt',
   },
   {
     char: '👖',
-    name: 'jeans'
+    name: 'jeans',
   },
   {
     char: '🧣',
-    name: 'scarf'
+    name: 'scarf',
   },
   {
     char: '🧤',
-    name: 'gloves'
+    name: 'gloves',
   },
   {
     char: '🧥',
-    name: 'coat'
+    name: 'coat',
   },
   {
     char: '🧦',
-    name: 'socks'
+    name: 'socks',
   },
   {
     char: '👗',
-    name: 'dress'
+    name: 'dress',
   },
   {
     char: '👘',
-    name: 'kimono'
+    name: 'kimono',
   },
   {
     char: '🥻',
-    name: 'sari'
+    name: 'sari',
   },
   {
     char: '🩱',
-    name: 'one-piece swimsuit'
+    name: 'one-piece swimsuit',
   },
   {
     char: '🩲',
-    name: 'briefs'
+    name: 'briefs',
   },
   {
     char: '🩳',
-    name: 'shorts'
+    name: 'shorts',
   },
   {
     char: '👙',
-    name: 'bikini'
+    name: 'bikini',
   },
   {
     char: '👚',
-    name: 'woman’s clothes'
+    name: 'woman’s clothes',
   },
   {
     char: '👛',
-    name: 'purse'
+    name: 'purse',
   },
   {
     char: '👜',
-    name: 'handbag'
+    name: 'handbag',
   },
   {
     char: '👝',
-    name: 'clutch bag'
+    name: 'clutch bag',
   },
   {
     char: '🛍️',
-    name: 'shopping bags'
+    name: 'shopping bags',
   },
   {
     char: '🎒',
-    name: 'backpack'
+    name: 'backpack',
   },
   {
     char: '🩴',
-    name: 'thong sandal'
+    name: 'thong sandal',
   },
   {
     char: '👞',
-    name: 'man’s shoe'
+    name: 'man’s shoe',
   },
   {
     char: '👟',
-    name: 'running shoe'
+    name: 'running shoe',
   },
   {
     char: '🥾',
-    name: 'hiking boot'
+    name: 'hiking boot',
   },
   {
     char: '🥿',
-    name: 'flat shoe'
+    name: 'flat shoe',
   },
   {
     char: '👠',
-    name: 'high-heeled shoe'
+    name: 'high-heeled shoe',
   },
   {
     char: '👡',
-    name: 'woman’s sandal'
+    name: 'woman’s sandal',
   },
   {
     char: '🩰',
-    name: 'ballet shoes'
+    name: 'ballet shoes',
   },
   {
     char: '👢',
-    name: 'woman’s boot'
+    name: 'woman’s boot',
   },
   {
     char: '👑',
-    name: 'crown'
+    name: 'crown',
   },
   {
     char: '👒',
-    name: 'woman’s hat'
+    name: 'woman’s hat',
   },
   {
     char: '🎩',
-    name: 'top hat'
+    name: 'top hat',
   },
   {
     char: '🧢',
-    name: 'billed cap'
+    name: 'billed cap',
   },
   {
     char: '⛑️',
-    name: 'rescue worker’s helmet'
+    name: 'rescue worker’s helmet',
   },
   {
     char: '📿',
-    name: 'prayer beads'
+    name: 'prayer beads',
   },
   {
     char: '💄',
-    name: 'lipstick'
+    name: 'lipstick',
   },
   {
     char: '💍',
-    name: 'ring'
+    name: 'ring',
   },
   {
     char: '💎',
-    name: 'gem stone'
+    name: 'gem stone',
   },
   {
     char: '🔇',
-    name: 'muted speaker'
+    name: 'muted speaker',
   },
   {
     char: '🔈',
-    name: 'speaker low volume'
+    name: 'speaker low volume',
   },
   {
     char: '🔉',
-    name: 'speaker medium volume'
+    name: 'speaker medium volume',
   },
   {
     char: '🔊',
-    name: 'speaker high volume'
+    name: 'speaker high volume',
   },
   {
     char: '📢',
-    name: 'loudspeaker'
+    name: 'loudspeaker',
   },
   {
     char: '📣',
-    name: 'megaphone'
+    name: 'megaphone',
   },
   {
     char: '📯',
-    name: 'postal horn'
+    name: 'postal horn',
   },
   {
     char: '🔔',
-    name: 'bell'
+    name: 'bell',
   },
   {
     char: '🔕',
-    name: 'bell with slash'
+    name: 'bell with slash',
   },
   {
     char: '🎼',
-    name: 'musical score'
+    name: 'musical score',
   },
   {
     char: '🎵',
-    name: 'musical note'
+    name: 'musical note',
   },
   {
     char: '🎶',
-    name: 'musical notes'
+    name: 'musical notes',
   },
   {
     char: '🎙️',
-    name: 'studio microphone'
+    name: 'studio microphone',
   },
   {
     char: '🎚️',
-    name: 'level slider'
+    name: 'level slider',
   },
   {
     char: '🎛️',
-    name: 'control knobs'
+    name: 'control knobs',
   },
   {
     char: '🎧',
-    name: 'headphone'
+    name: 'headphone',
   },
   {
     char: '📻',
-    name: 'radio'
+    name: 'radio',
   },
   {
     char: '🎷',
-    name: 'saxophone'
+    name: 'saxophone',
   },
   {
     char: '🪗',
-    name: 'accordion'
+    name: 'accordion',
   },
   {
     char: '🎸',
-    name: 'guitar'
+    name: 'guitar',
   },
   {
     char: '🎹',
-    name: 'musical keyboard'
+    name: 'musical keyboard',
   },
   {
     char: '🎺',
-    name: 'trumpet'
+    name: 'trumpet',
   },
   {
     char: '🎻',
-    name: 'violin'
+    name: 'violin',
   },
   {
     char: '🪕',
-    name: 'banjo'
+    name: 'banjo',
   },
   {
     char: '🥁',
-    name: 'drum'
+    name: 'drum',
   },
   {
     char: '📱',
-    name: 'mobile phone'
+    name: 'mobile phone',
   },
   {
     char: '📲',
-    name: 'mobile phone with arrow'
+    name: 'mobile phone with arrow',
   },
   {
     char: '☎️',
-    name: 'telephone'
+    name: 'telephone',
   },
   {
     char: '📞',
-    name: 'telephone receiver'
+    name: 'telephone receiver',
   },
   {
     char: '📟',
-    name: 'pager'
+    name: 'pager',
   },
   {
     char: '📠',
-    name: 'fax machine'
+    name: 'fax machine',
   },
   {
     char: '🔋',
-    name: 'battery'
+    name: 'battery',
   },
   {
     char: '🔌',
-    name: 'electric plug'
+    name: 'electric plug',
   },
   {
     char: '🖥️',
-    name: 'desktop computer'
+    name: 'desktop computer',
   },
   {
     char: '🖨️',
-    name: 'printer'
+    name: 'printer',
   },
   {
     char: '⌨️',
-    name: 'keyboard'
+    name: 'keyboard',
   },
   {
     char: '🖱️',
-    name: 'computer mouse'
+    name: 'computer mouse',
   },
   {
     char: '🖲️',
-    name: 'trackball'
+    name: 'trackball',
   },
   {
     char: '💽',
-    name: 'computer disk'
+    name: 'computer disk',
   },
   {
     char: '💾',
-    name: 'floppy disk'
+    name: 'floppy disk',
   },
   {
     char: '💿',
-    name: 'optical disk'
+    name: 'optical disk',
   },
   {
     char: '📀',
-    name: 'dvd'
+    name: 'dvd',
   },
   {
     char: '🧮',
-    name: 'abacus'
+    name: 'abacus',
   },
   {
     char: '🎥',
-    name: 'movie camera'
+    name: 'movie camera',
   },
   {
     char: '🎞️',
-    name: 'film frames'
+    name: 'film frames',
   },
   {
     char: '📽️',
-    name: 'film projector'
+    name: 'film projector',
   },
   {
     char: '🎬',
-    name: 'clapper board'
+    name: 'clapper board',
   },
   {
     char: '📺',
-    name: 'television'
+    name: 'television',
   },
   {
     char: '📷',
-    name: 'camera'
+    name: 'camera',
   },
   {
     char: '📸',
-    name: 'camera with flash'
+    name: 'camera with flash',
   },
   {
     char: '📹',
-    name: 'video camera'
+    name: 'video camera',
   },
   {
     char: '📼',
-    name: 'videocassette'
+    name: 'videocassette',
   },
   {
     char: '🔍',
-    name: 'magnifying glass tilted left'
+    name: 'magnifying glass tilted left',
   },
   {
     char: '🔎',
-    name: 'magnifying glass tilted right'
+    name: 'magnifying glass tilted right',
   },
   {
     char: '🕯️',
-    name: 'candle'
+    name: 'candle',
   },
   {
     char: '💡',
-    name: 'light bulb'
+    name: 'light bulb',
   },
   {
     char: '🔦',
-    name: 'flashlight'
+    name: 'flashlight',
   },
   {
     char: '🏮',
-    name: 'red paper lantern'
+    name: 'red paper lantern',
   },
   {
     char: '🪔',
-    name: 'diya lamp'
+    name: 'diya lamp',
   },
   {
     char: '📔',
-    name: 'notebook with decorative cover'
+    name: 'notebook with decorative cover',
   },
   {
     char: '📕',
-    name: 'closed book'
+    name: 'closed book',
   },
   {
     char: '📖',
-    name: 'open book'
+    name: 'open book',
   },
   {
     char: '📗',
-    name: 'green book'
+    name: 'green book',
   },
   {
     char: '📘',
-    name: 'blue book'
+    name: 'blue book',
   },
   {
     char: '📙',
-    name: 'orange book'
+    name: 'orange book',
   },
   {
     char: '📚',
-    name: 'books'
+    name: 'books',
   },
   {
     char: '📓',
-    name: 'notebook'
+    name: 'notebook',
   },
   {
     char: '📒',
-    name: 'ledger'
+    name: 'ledger',
   },
   {
     char: '📃',
-    name: 'page with curl'
+    name: 'page with curl',
   },
   {
     char: '📜',
-    name: 'scroll'
+    name: 'scroll',
   },
   {
     char: '📄',
-    name: 'page facing up'
+    name: 'page facing up',
   },
   {
     char: '📰',
-    name: 'newspaper'
+    name: 'newspaper',
   },
   {
     char: '🗞️',
-    name: 'rolled-up newspaper'
+    name: 'rolled-up newspaper',
   },
   {
     char: '📑',
-    name: 'bookmark tabs'
+    name: 'bookmark tabs',
   },
   {
     char: '🔖',
-    name: 'bookmark'
+    name: 'bookmark',
   },
   {
     char: '🏷️',
-    name: 'label'
+    name: 'label',
   },
   {
     char: '💰',
-    name: 'money bag'
+    name: 'money bag',
   },
   {
     char: '💴',
-    name: 'yen banknote'
+    name: 'yen banknote',
   },
   {
     char: '💵',
-    name: 'dollar banknote'
+    name: 'dollar banknote',
   },
   {
     char: '💶',
-    name: 'euro banknote'
+    name: 'euro banknote',
   },
   {
     char: '💷',
-    name: 'pound banknote'
+    name: 'pound banknote',
   },
   {
     char: '💸',
-    name: 'money with wings'
+    name: 'money with wings',
   },
   {
     char: '💳',
-    name: 'credit card'
+    name: 'credit card',
   },
   {
     char: '🧾',
-    name: 'receipt'
+    name: 'receipt',
   },
   {
     char: '💹',
-    name: 'chart increasing with yen'
+    name: 'chart increasing with yen',
   },
   {
     char: '✉️',
-    name: 'envelope'
+    name: 'envelope',
   },
   {
     char: '📧',
-    name: 'e-mail'
+    name: 'e-mail',
   },
   {
     char: '📨',
-    name: 'incoming envelope'
+    name: 'incoming envelope',
   },
   {
     char: '📩',
-    name: 'envelope with arrow'
+    name: 'envelope with arrow',
   },
   {
     char: '📤',
-    name: 'outbox tray'
+    name: 'outbox tray',
   },
   {
     char: '📥',
-    name: 'inbox tray'
+    name: 'inbox tray',
   },
   {
     char: '📦',
-    name: 'package'
+    name: 'package',
   },
   {
     char: '📫',
-    name: 'closed mailbox with raised flag'
+    name: 'closed mailbox with raised flag',
   },
   {
     char: '📪',
-    name: 'closed mailbox with lowered flag'
+    name: 'closed mailbox with lowered flag',
   },
   {
     char: '📬',
-    name: 'open mailbox with raised flag'
+    name: 'open mailbox with raised flag',
   },
   {
     char: '📭',
-    name: 'open mailbox with lowered flag'
+    name: 'open mailbox with lowered flag',
   },
   {
     char: '📮',
-    name: 'postbox'
+    name: 'postbox',
   },
   {
     char: '🗳️',
-    name: 'ballot box with ballot'
+    name: 'ballot box with ballot',
   },
   {
     char: '🖋️',
-    name: 'fountain pen'
+    name: 'fountain pen',
   },
   {
     char: '🖊️',
-    name: 'pen'
+    name: 'pen',
   },
   {
     char: '🖌️',
-    name: 'paintbrush'
+    name: 'paintbrush',
   },
   {
     char: '🖍️',
-    name: 'crayon'
+    name: 'crayon',
   },
   {
     char: '📝',
-    name: 'memo'
+    name: 'memo',
   },
   {
     char: '📁',
-    name: 'file folder'
+    name: 'file folder',
   },
   {
     char: '📂',
-    name: 'open file folder'
+    name: 'open file folder',
   },
   {
     char: '🗂️',
-    name: 'card index dividers'
+    name: 'card index dividers',
   },
   {
     char: '📅',
-    name: 'calendar'
+    name: 'calendar',
   },
   {
     char: '📆',
-    name: 'tear-off calendar'
+    name: 'tear-off calendar',
   },
   {
     char: '🗒️',
-    name: 'spiral notepad'
+    name: 'spiral notepad',
   },
   {
     char: '🗓️',
-    name: 'spiral calendar'
+    name: 'spiral calendar',
   },
   {
     char: '📇',
-    name: 'card index'
+    name: 'card index',
   },
   {
     char: '📈',
-    name: 'chart increasing'
+    name: 'chart increasing',
   },
   {
     char: '📉',
-    name: 'chart decreasing'
+    name: 'chart decreasing',
   },
   {
     char: '📊',
-    name: 'bar chart'
+    name: 'bar chart',
   },
   {
     char: '📋',
-    name: 'clipboard'
+    name: 'clipboard',
   },
   {
     char: '📌',
-    name: 'pushpin'
+    name: 'pushpin',
   },
   {
     char: '📍',
-    name: 'round pushpin'
+    name: 'round pushpin',
   },
   {
     char: '📎',
-    name: 'paperclip'
+    name: 'paperclip',
   },
   {
     char: '🖇️',
-    name: 'linked paperclips'
+    name: 'linked paperclips',
   },
   {
     char: '📏',
-    name: 'straight ruler'
+    name: 'straight ruler',
   },
   {
     char: '📐',
-    name: 'triangular ruler'
+    name: 'triangular ruler',
   },
   {
     char: '🗃️',
-    name: 'card file box'
+    name: 'card file box',
   },
   {
     char: '🗄️',
-    name: 'file cabinet'
+    name: 'file cabinet',
   },
   {
     char: '🗑️',
-    name: 'wastebasket'
+    name: 'wastebasket',
   },
   {
     char: '🔒',
-    name: 'locked'
+    name: 'locked',
   },
   {
     char: '🔓',
-    name: 'unlocked'
+    name: 'unlocked',
   },
   {
     char: '🔏',
-    name: 'locked with pen'
+    name: 'locked with pen',
   },
   {
     char: '🔐',
-    name: 'locked with key'
+    name: 'locked with key',
   },
   {
     char: '🔑',
-    name: 'key'
+    name: 'key',
   },
   {
     char: '🗝️',
-    name: 'old key'
+    name: 'old key',
   },
   {
     char: '🔨',
-    name: 'hammer'
+    name: 'hammer',
   },
   {
     char: '🪓',
-    name: 'axe'
+    name: 'axe',
   },
   {
     char: '⛏️',
-    name: 'pick'
+    name: 'pick',
   },
   {
     char: '⚒️',
-    name: 'hammer and pick'
+    name: 'hammer and pick',
   },
   {
     char: '🛠️',
-    name: 'hammer and wrench'
+    name: 'hammer and wrench',
   },
   {
     char: '🗡️',
-    name: 'dagger'
+    name: 'dagger',
   },
   {
     char: '⚔️',
-    name: 'crossed swords'
+    name: 'crossed swords',
   },
   {
     char: '🔫',
-    name: 'water pistol'
+    name: 'water pistol',
   },
   {
     char: '🪃',
-    name: 'boomerang'
+    name: 'boomerang',
   },
   {
     char: '🏹',
-    name: 'bow and arrow'
+    name: 'bow and arrow',
   },
   {
     char: '🛡️',
-    name: 'shield'
+    name: 'shield',
   },
   {
     char: '🔩',
-    name: 'nut and bolt'
+    name: 'nut and bolt',
   },
   {
     char: '⚙',
-    name: 'gear'
+    name: 'gear',
   },
   {
     char: '🗜️',
-    name: 'clamp'
+    name: 'clamp',
   },
   {
     char: '🦯',
-    name: 'white cane'
+    name: 'white cane',
   },
   {
     char: '🔗',
-    name: 'link'
+    name: 'link',
   },
   {
     char: '⛓️',
-    name: 'chains'
+    name: 'chains',
   },
   {
     char: '🧰',
-    name: 'toolbox'
+    name: 'toolbox',
   },
   {
     char: '🧲',
-    name: 'magnet'
+    name: 'magnet',
   },
   {
     char: '🧪',
-    name: 'test tube'
+    name: 'test tube',
   },
   {
     char: '🧫',
-    name: 'petri dish'
+    name: 'petri dish',
   },
   {
     char: '🧬',
-    name: 'dna'
+    name: 'dna',
   },
   {
     char: '🔭',
-    name: 'telescope'
+    name: 'telescope',
   },
   {
     char: '📡',
-    name: 'satellite antenna'
+    name: 'satellite antenna',
   },
   {
     char: '💉',
-    name: 'syringe'
+    name: 'syringe',
   },
   {
     char: '🩸',
-    name: 'drop of blood'
+    name: 'drop of blood',
   },
   {
     char: '💊',
-    name: 'pill'
+    name: 'pill',
   },
   {
     char: '🩹',
-    name: 'adhesive bandage'
+    name: 'adhesive bandage',
   },
   {
     char: '🩺',
-    name: 'stethoscope'
+    name: 'stethoscope',
   },
   {
     char: '🚪',
-    name: 'door'
+    name: 'door',
   },
   {
     char: '🛏️',
-    name: 'bed'
+    name: 'bed',
   },
   {
     char: '🛋️',
-    name: 'couch and lamp'
+    name: 'couch and lamp',
   },
   {
     char: '🪑',
-    name: 'chair'
+    name: 'chair',
   },
   {
     char: '🚽',
-    name: 'toilet'
+    name: 'toilet',
   },
   {
     char: '🚿',
-    name: 'shower'
+    name: 'shower',
   },
   {
     char: '🛁',
-    name: 'bathtub'
+    name: 'bathtub',
   },
   {
     char: '🪤',
-    name: 'mouse trap'
+    name: 'mouse trap',
   },
   {
     char: '🪒',
-    name: 'razor'
+    name: 'razor',
   },
   {
     char: '🧴',
-    name: 'lotion bottle'
+    name: 'lotion bottle',
   },
   {
     char: '🧷',
-    name: 'safety pin'
+    name: 'safety pin',
   },
   {
     char: '🧹',
-    name: 'broom'
+    name: 'broom',
   },
   {
     char: '🧺',
-    name: 'basket'
+    name: 'basket',
   },
   {
     char: '🧻',
-    name: 'roll of paper'
+    name: 'roll of paper',
   },
   {
     char: '🪣',
-    name: 'bucket'
+    name: 'bucket',
   },
   {
     char: '🧼',
-    name: 'soap'
+    name: 'soap',
   },
   {
     char: '🧽',
-    name: 'sponge'
+    name: 'sponge',
   },
   {
     char: '🧯',
-    name: 'fire extinguisher'
+    name: 'fire extinguisher',
   },
   {
     char: '🛒',
-    name: 'shopping cart'
+    name: 'shopping cart',
   },
   {
     char: '🚬',
-    name: 'cigarette'
+    name: 'cigarette',
   },
   {
     char: '🗿',
-    name: 'moai'
+    name: 'moai',
   },
   {
     char: '🏧',
-    name: 'ATM sign'
+    name: 'ATM sign',
   },
   {
     char: '🚮',
-    name: 'litter in bin sign'
+    name: 'litter in bin sign',
   },
   {
     char: '🚰',
-    name: 'potable water'
+    name: 'potable water',
   },
   {
     char: '♿',
-    name: 'wheelchair symbol'
+    name: 'wheelchair symbol',
   },
   {
     char: '🚹',
-    name: 'men’s room'
+    name: 'men’s room',
   },
   {
     char: '🚺',
-    name: 'women’s room'
+    name: 'women’s room',
   },
   {
     char: '🚻',
-    name: 'restroom'
+    name: 'restroom',
   },
   {
     char: '🚼',
-    name: 'baby symbol'
+    name: 'baby symbol',
   },
   {
     char: '🚾',
-    name: 'water closet'
+    name: 'water closet',
   },
   {
     char: '🛂',
-    name: 'passport control'
+    name: 'passport control',
   },
   {
     char: '🛃',
-    name: 'customs'
+    name: 'customs',
   },
   {
     char: '🛄',
-    name: 'baggage claim'
+    name: 'baggage claim',
   },
   {
     char: '🛅',
-    name: 'left luggage'
+    name: 'left luggage',
   },
   {
     char: '🚸',
-    name: 'children crossing'
+    name: 'children crossing',
   },
   {
     char: '⛔',
-    name: 'no entry'
+    name: 'no entry',
   },
   {
     char: '🚫',
-    name: 'prohibited'
+    name: 'prohibited',
   },
   {
     char: '🚳',
-    name: 'no bicycles'
+    name: 'no bicycles',
   },
   {
     char: '🚭',
-    name: 'no smoking'
+    name: 'no smoking',
   },
   {
     char: '🚯',
-    name: 'no littering'
+    name: 'no littering',
   },
   {
     char: '🚱',
-    name: 'non-potable water'
+    name: 'non-potable water',
   },
   {
     char: '🚷',
-    name: 'no pedestrians'
+    name: 'no pedestrians',
   },
   {
     char: '📵',
-    name: 'no mobile phones'
+    name: 'no mobile phones',
   },
   {
     char: '🔞',
-    name: 'no one under eighteen'
+    name: 'no one under eighteen',
   },
   {
     char: '⬆️',
-    name: 'up arrow'
+    name: 'up arrow',
   },
   {
     char: '⬇️',
-    name: 'down arrow'
+    name: 'down arrow',
   },
   {
     char: '⬅️',
-    name: 'left arrow'
+    name: 'left arrow',
   },
   {
     char: '⤴️',
-    name: 'right arrow curving up'
+    name: 'right arrow curving up',
   },
   {
     char: '⤵️',
-    name: 'right arrow curving down'
+    name: 'right arrow curving down',
   },
   {
     char: '🔃',
-    name: 'clockwise vertical arrows'
+    name: 'clockwise vertical arrows',
   },
   {
     char: '🔄',
-    name: 'counterclockwise arrows button'
+    name: 'counterclockwise arrows button',
   },
   {
     char: '🔙',
-    name: 'BACK arrow'
+    name: 'BACK arrow',
   },
   {
     char: '🔚',
-    name: 'END arrow'
+    name: 'END arrow',
   },
   {
     char: '🔛',
-    name: 'ON! arrow'
+    name: 'ON! arrow',
   },
   {
     char: '🔜',
-    name: 'SOON arrow'
+    name: 'SOON arrow',
   },
   {
     char: '🔝',
-    name: 'TOP arrow'
+    name: 'TOP arrow',
   },
   {
     char: '🛐',
-    name: 'place of worship'
+    name: 'place of worship',
   },
   {
     char: '🕉️',
-    name: 'om'
+    name: 'om',
   },
   {
     char: '🕎',
-    name: 'menorah'
+    name: 'menorah',
   },
   {
     char: '🔯',
-    name: 'dotted six-pointed star'
+    name: 'dotted six-pointed star',
   },
   {
     char: '⛎',
-    name: 'Ophiuchus'
+    name: 'Ophiuchus',
   },
   {
     char: '🔀',
-    name: 'shuffle tracks button'
+    name: 'shuffle tracks button',
   },
   {
     char: '🔁',
-    name: 'repeat button'
+    name: 'repeat button',
   },
   {
     char: '🔂',
-    name: 'repeat single button'
+    name: 'repeat single button',
   },
   {
     char: '⏩',
-    name: 'fast-forward button'
+    name: 'fast-forward button',
   },
   {
     char: '⏭️',
-    name: 'next track button'
+    name: 'next track button',
   },
   {
     char: '⏯️',
-    name: 'play or pause button'
+    name: 'play or pause button',
   },
   {
     char: '⏪',
-    name: 'fast reverse button'
+    name: 'fast reverse button',
   },
   {
     char: '⏮️',
-    name: 'last track button'
+    name: 'last track button',
   },
   {
     char: '🔼',
-    name: 'upwards button'
+    name: 'upwards button',
   },
   {
     char: '⏫',
-    name: 'fast up button'
+    name: 'fast up button',
   },
   {
     char: '🔽',
-    name: 'downwards button'
+    name: 'downwards button',
   },
   {
     char: '⏬',
-    name: 'fast down button'
+    name: 'fast down button',
   },
   {
     char: '⏸️',
-    name: 'pause button'
+    name: 'pause button',
   },
   {
     char: '⏹️',
-    name: 'stop button'
+    name: 'stop button',
   },
   {
     char: '⏺️',
-    name: 'record button'
+    name: 'record button',
   },
   {
     char: '🎦',
-    name: 'cinema'
+    name: 'cinema',
   },
   {
     char: '🔅',
-    name: 'dim button'
+    name: 'dim button',
   },
   {
     char: '🔆',
-    name: 'bright button'
+    name: 'bright button',
   },
   {
     char: '📶',
-    name: 'antenna bars'
+    name: 'antenna bars',
   },
   {
     char: '📳',
-    name: 'vibration mode'
+    name: 'vibration mode',
   },
   {
     char: '📴',
-    name: 'mobile phone off'
+    name: 'mobile phone off',
   },
   {
     char: '➕',
-    name: 'plus'
+    name: 'plus',
   },
   {
     char: '➖',
-    name: 'minus'
+    name: 'minus',
   },
   {
     char: '❓',
-    name: 'red question mark'
+    name: 'red question mark',
   },
   {
     char: '❔',
-    name: 'white question mark'
+    name: 'white question mark',
   },
   {
     char: '❕',
-    name: 'white exclamation mark'
+    name: 'white exclamation mark',
   },
   {
     char: '❗',
-    name: 'red exclamation mark'
+    name: 'red exclamation mark',
   },
   {
     char: '〰️',
-    name: 'wavy dash'
+    name: 'wavy dash',
   },
   {
     char: '💱',
-    name: 'currency exchange'
+    name: 'currency exchange',
   },
   {
     char: '💲',
-    name: 'heavy dollar sign'
+    name: 'heavy dollar sign',
   },
   {
     char: '🔱',
-    name: 'trident emblem'
+    name: 'trident emblem',
   },
   {
     char: '📛',
-    name: 'name badge'
+    name: 'name badge',
   },
   {
     char: '🔰',
-    name: 'Japanese symbol for beginner'
+    name: 'Japanese symbol for beginner',
   },
   {
     char: '⭕',
-    name: 'hollow red circle'
+    name: 'hollow red circle',
   },
   {
     char: '✅',
-    name: 'check mark button'
+    name: 'check mark button',
   },
   {
     char: '❌',
-    name: 'cross mark'
+    name: 'cross mark',
   },
   {
     char: '❎',
-    name: 'cross mark button'
+    name: 'cross mark button',
   },
   {
     char: '➰',
-    name: 'curly loop'
+    name: 'curly loop',
   },
   {
     char: '➿',
-    name: 'double curly loop'
+    name: 'double curly loop',
   },
   {
     char: '〽️',
-    name: 'part alternation mark'
+    name: 'part alternation mark',
   },
   {
     char: '#️⃣',
-    name: 'keycap: #'
+    name: 'keycap: #',
   },
   {
     char: '*️⃣',
-    name: 'keycap: *'
+    name: 'keycap: *',
   },
   {
     char: '0️⃣',
-    name: 'keycap: 0'
+    name: 'keycap: 0',
   },
   {
     char: '1️⃣',
-    name: 'keycap: 1'
+    name: 'keycap: 1',
   },
   {
     char: '2️⃣',
-    name: 'keycap: 2'
+    name: 'keycap: 2',
   },
   {
     char: '3️⃣',
-    name: 'keycap: 3'
+    name: 'keycap: 3',
   },
   {
     char: '4️⃣',
-    name: 'keycap: 4'
+    name: 'keycap: 4',
   },
   {
     char: '5️⃣',
-    name: 'keycap: 5'
+    name: 'keycap: 5',
   },
   {
     char: '6️⃣',
-    name: 'keycap: 6'
+    name: 'keycap: 6',
   },
   {
     char: '7️⃣',
-    name: 'keycap: 7'
+    name: 'keycap: 7',
   },
   {
     char: '8️⃣',
-    name: 'keycap: 8'
+    name: 'keycap: 8',
   },
   {
     char: '9️⃣',
-    name: 'keycap: 9'
+    name: 'keycap: 9',
   },
   {
     char: '🔟',
-    name: 'keycap: 10'
+    name: 'keycap: 10',
   },
   {
     char: '🔠',
-    name: 'input latin uppercase'
+    name: 'input latin uppercase',
   },
   {
     char: '🔡',
-    name: 'input latin lowercase'
+    name: 'input latin lowercase',
   },
   {
     char: '🔢',
-    name: 'input numbers'
+    name: 'input numbers',
   },
   {
     char: '🔣',
-    name: 'input symbols'
+    name: 'input symbols',
   },
   {
     char: '🔤',
-    name: 'input latin letters'
+    name: 'input latin letters',
   },
   {
     char: '🅰️',
-    name: 'A button (blood type)'
+    name: 'A button (blood type)',
   },
   {
     char: '🆎',
-    name: 'AB button (blood type)'
+    name: 'AB button (blood type)',
   },
   {
     char: '🅱️',
-    name: 'B button (blood type)'
+    name: 'B button (blood type)',
   },
   {
     char: '🆑',
-    name: 'CL button'
+    name: 'CL button',
   },
   {
     char: '🆒',
-    name: 'COOL button'
+    name: 'COOL button',
   },
   {
     char: '🆓',
-    name: 'FREE button'
+    name: 'FREE button',
   },
   {
     char: 'ℹ️',
-    name: 'information'
+    name: 'information',
   },
   {
     char: '🆔',
-    name: 'ID button'
+    name: 'ID button',
   },
   {
     char: 'Ⓜ️',
-    name: 'circled M'
+    name: 'circled M',
   },
   {
     char: '🆕',
-    name: 'NEW button'
+    name: 'NEW button',
   },
   {
     char: '🆖',
-    name: 'NG button'
+    name: 'NG button',
   },
   {
     char: '🅾️',
-    name: 'O button (blood type)'
+    name: 'O button (blood type)',
   },
   {
     char: '🆗',
-    name: 'OK button'
+    name: 'OK button',
   },
   {
     char: '🅿️',
-    name: 'P button'
+    name: 'P button',
   },
   {
     char: '🆘',
-    name: 'SOS button'
+    name: 'SOS button',
   },
   {
     char: '🆙',
-    name: 'UP! button'
+    name: 'UP! button',
   },
   {
     char: '🆚',
-    name: 'VS button'
+    name: 'VS button',
   },
   {
     char: '🈁',
-    name: 'Japanese “here” button'
+    name: 'Japanese “here” button',
   },
   {
     char: '🈂️',
-    name: 'Japanese “service charge” button'
+    name: 'Japanese “service charge” button',
   },
   {
     char: '🈷️',
-    name: 'Japanese “monthly amount” button'
+    name: 'Japanese “monthly amount” button',
   },
   {
     char: '🈶',
-    name: 'Japanese “not free of charge” button'
+    name: 'Japanese “not free of charge” button',
   },
   {
     char: '🈯',
-    name: 'Japanese “reserved” button'
+    name: 'Japanese “reserved” button',
   },
   {
     char: '🉐',
-    name: 'Japanese “bargain” button'
+    name: 'Japanese “bargain” button',
   },
   {
     char: '🈹',
-    name: 'Japanese “discount” button'
+    name: 'Japanese “discount” button',
   },
   {
     char: '🈚',
-    name: 'Japanese “free of charge” button'
+    name: 'Japanese “free of charge” button',
   },
   {
     char: '🈲',
-    name: 'Japanese “prohibited” button'
+    name: 'Japanese “prohibited” button',
   },
   {
     char: '🉑',
-    name: 'Japanese “acceptable” button'
+    name: 'Japanese “acceptable” button',
   },
   {
     char: '🈸',
-    name: 'Japanese “application” button'
+    name: 'Japanese “application” button',
   },
   {
     char: '🈴',
-    name: 'Japanese “passing grade” button'
+    name: 'Japanese “passing grade” button',
   },
   {
     char: '🈳',
-    name: 'Japanese “vacancy” button'
+    name: 'Japanese “vacancy” button',
   },
   {
     char: '㊗️',
-    name: 'Japanese “congratulations” button'
+    name: 'Japanese “congratulations” button',
   },
   {
     char: '㊙️',
-    name: 'Japanese “secret” button'
+    name: 'Japanese “secret” button',
   },
   {
     char: '🈺',
-    name: 'Japanese “open for business” button'
+    name: 'Japanese “open for business” button',
   },
   {
     char: '🈵',
-    name: 'Japanese “no vacancy” button'
+    name: 'Japanese “no vacancy” button',
   },
   {
     char: '🔴',
-    name: 'red circle'
+    name: 'red circle',
   },
   {
     char: '🟠',
-    name: 'orange circle'
+    name: 'orange circle',
   },
   {
     char: '🟡',
-    name: 'yellow circle'
+    name: 'yellow circle',
   },
   {
     char: '🟢',
-    name: 'green circle'
+    name: 'green circle',
   },
   {
     char: '🔵',
-    name: 'blue circle'
+    name: 'blue circle',
   },
   {
     char: '🟣',
-    name: 'purple circle'
+    name: 'purple circle',
   },
   {
     char: '🟤',
-    name: 'brown circle'
+    name: 'brown circle',
   },
   {
     char: '⚫',
-    name: 'black circle'
+    name: 'black circle',
   },
   {
     char: '⚪',
-    name: 'white circle'
+    name: 'white circle',
   },
   {
     char: '🟥',
-    name: 'red square'
+    name: 'red square',
   },
   {
     char: '🟧',
-    name: 'orange square'
+    name: 'orange square',
   },
   {
     char: '🟨',
-    name: 'yellow square'
+    name: 'yellow square',
   },
   {
     char: '🟩',
-    name: 'green square'
+    name: 'green square',
   },
   {
     char: '🟦',
-    name: 'blue square'
+    name: 'blue square',
   },
   {
     char: '🟪',
-    name: 'purple square'
+    name: 'purple square',
   },
   {
     char: '🟫',
-    name: 'brown square'
+    name: 'brown square',
   },
   {
     char: '⬛',
-    name: 'black large square'
+    name: 'black large square',
   },
   {
     char: '⬜',
-    name: 'white large square'
+    name: 'white large square',
   },
   {
     char: '🔶',
-    name: 'large orange diamond'
+    name: 'large orange diamond',
   },
   {
     char: '🔷',
-    name: 'large blue diamond'
+    name: 'large blue diamond',
   },
   {
     char: '🔸',
-    name: 'small orange diamond'
+    name: 'small orange diamond',
   },
   {
     char: '🔹',
-    name: 'small blue diamond'
+    name: 'small blue diamond',
   },
   {
     char: '🔺',
-    name: 'red triangle pointed up'
+    name: 'red triangle pointed up',
   },
   {
     char: '🔻',
-    name: 'red triangle pointed down'
+    name: 'red triangle pointed down',
   },
   {
     char: '💠',
-    name: 'diamond with a dot'
+    name: 'diamond with a dot',
   },
   {
     char: '🔘',
-    name: 'radio button'
+    name: 'radio button',
   },
   {
     char: '🔳',
-    name: 'white square button'
+    name: 'white square button',
   },
   {
     char: '🔲',
-    name: 'black square button'
+    name: 'black square button',
   },
   {
     char: '🏁',
-    name: 'chequered flag'
+    name: 'chequered flag',
   },
   {
     char: '🚩',
-    name: 'triangular flag'
+    name: 'triangular flag',
   },
   {
     char: '🎌',
-    name: 'crossed flags'
+    name: 'crossed flags',
   },
   {
     char: '🏴',
-    name: 'black flag'
+    name: 'black flag',
   },
   {
     char: '🏳️',
-    name: 'white flag'
+    name: 'white flag',
   },
   {
     char: '🇦🇨',
-    name: 'flag: Ascension Island'
+    name: 'flag: Ascension Island',
   },
   {
     char: '🇦🇩',
-    name: 'flag: Andorra'
+    name: 'flag: Andorra',
   },
   {
     char: '🇦🇪',
-    name: 'flag: United Arab Emirates'
+    name: 'flag: United Arab Emirates',
   },
   {
     char: '🇦🇫',
-    name: 'flag: Afghanistan'
+    name: 'flag: Afghanistan',
   },
   {
     char: '🇦🇬',
-    name: 'flag: Antigua & Barbuda'
+    name: 'flag: Antigua & Barbuda',
   },
   {
     char: '🇦🇮',
-    name: 'flag: Anguilla'
+    name: 'flag: Anguilla',
   },
   {
     char: '🇦🇱',
-    name: 'flag: Albania'
+    name: 'flag: Albania',
   },
   {
     char: '🇦🇲',
-    name: 'flag: Armenia'
+    name: 'flag: Armenia',
   },
   {
     char: '🇦🇴',
-    name: 'flag: Angola'
+    name: 'flag: Angola',
   },
   {
     char: '🇦🇶',
-    name: 'flag: Antarctica'
+    name: 'flag: Antarctica',
   },
   {
     char: '🇦🇷',
-    name: 'flag: Argentina'
+    name: 'flag: Argentina',
   },
   {
     char: '🇦🇸',
-    name: 'flag: American Samoa'
+    name: 'flag: American Samoa',
   },
   {
     char: '🇦🇹',
-    name: 'flag: Austria'
+    name: 'flag: Austria',
   },
   {
     char: '🇦🇺',
-    name: 'flag: Australia'
+    name: 'flag: Australia',
   },
   {
     char: '🇦🇼',
-    name: 'flag: Aruba'
+    name: 'flag: Aruba',
   },
   {
     char: '🇦🇽',
-    name: 'flag: Åland Islands'
+    name: 'flag: Åland Islands',
   },
   {
     char: '🇦🇿',
-    name: 'flag: Azerbaijan'
+    name: 'flag: Azerbaijan',
   },
   {
     char: '🇧🇦',
-    name: 'flag: Bosnia & Herzegovina'
+    name: 'flag: Bosnia & Herzegovina',
   },
   {
     char: '🇧🇧',
-    name: 'flag: Barbados'
+    name: 'flag: Barbados',
   },
   {
     char: '🇧🇩',
-    name: 'flag: Bangladesh'
+    name: 'flag: Bangladesh',
   },
   {
     char: '🇧🇪',
-    name: 'flag: Belgium'
+    name: 'flag: Belgium',
   },
   {
     char: '🇧🇫',
-    name: 'flag: Burkina Faso'
+    name: 'flag: Burkina Faso',
   },
   {
     char: '🇧🇬',
-    name: 'flag: Bulgaria'
+    name: 'flag: Bulgaria',
   },
   {
     char: '🇧🇭',
-    name: 'flag: Bahrain'
+    name: 'flag: Bahrain',
   },
   {
     char: '🇧🇮',
-    name: 'flag: Burundi'
+    name: 'flag: Burundi',
   },
   {
     char: '🇧🇯',
-    name: 'flag: Benin'
+    name: 'flag: Benin',
   },
   {
     char: '🇧🇱',
-    name: 'flag: St. Barthélemy'
+    name: 'flag: St. Barthélemy',
   },
   {
     char: '🇧🇲',
-    name: 'flag: Bermuda'
+    name: 'flag: Bermuda',
   },
   {
     char: '🇧🇳',
-    name: 'flag: Brunei'
+    name: 'flag: Brunei',
   },
   {
     char: '🇧🇴',
-    name: 'flag: Bolivia'
+    name: 'flag: Bolivia',
   },
   {
     char: '🇧🇶',
-    name: 'flag: Caribbean Netherlands'
+    name: 'flag: Caribbean Netherlands',
   },
   {
     char: '🇧🇷',
-    name: 'flag: Brazil'
+    name: 'flag: Brazil',
   },
   {
     char: '🇧🇸',
-    name: 'flag: Bahamas'
+    name: 'flag: Bahamas',
   },
   {
     char: '🇧🇹',
-    name: 'flag: Bhutan'
+    name: 'flag: Bhutan',
   },
   {
     char: '🇧🇻',
-    name: 'flag: Bouvet Island'
+    name: 'flag: Bouvet Island',
   },
   {
     char: '🇧🇼',
-    name: 'flag: Botswana'
+    name: 'flag: Botswana',
   },
   {
     char: '🇧🇾',
-    name: 'flag: Belarus'
+    name: 'flag: Belarus',
   },
   {
     char: '🇧🇿',
-    name: 'flag: Belize'
+    name: 'flag: Belize',
   },
   {
     char: '🇨🇦',
-    name: 'flag: Canada'
+    name: 'flag: Canada',
   },
   {
     char: '🇨🇨',
-    name: 'flag: Cocos (Keeling) Islands'
+    name: 'flag: Cocos (Keeling) Islands',
   },
   {
     char: '🇨🇩',
-    name: 'flag: Congo - Kinshasa'
+    name: 'flag: Congo - Kinshasa',
   },
   {
     char: '🇨🇫',
-    name: 'flag: Central African Republic'
+    name: 'flag: Central African Republic',
   },
   {
     char: '🇨🇬',
-    name: 'flag: Congo - Brazzaville'
+    name: 'flag: Congo - Brazzaville',
   },
   {
     char: '🇨🇭',
-    name: 'flag: Switzerland'
+    name: 'flag: Switzerland',
   },
   {
     char: '🇨🇮',
-    name: 'flag: Côte d’Ivoire'
+    name: 'flag: Côte d’Ivoire',
   },
   {
     char: '🇨🇰',
-    name: 'flag: Cook Islands'
+    name: 'flag: Cook Islands',
   },
   {
     char: '🇨🇱',
-    name: 'flag: Chile'
+    name: 'flag: Chile',
   },
   {
     char: '🇨🇲',
-    name: 'flag: Cameroon'
+    name: 'flag: Cameroon',
   },
   {
     char: '🇨🇳',
-    name: 'flag: China'
+    name: 'flag: China',
   },
   {
     char: '🇨🇴',
-    name: 'flag: Colombia'
+    name: 'flag: Colombia',
   },
   {
     char: '🇨🇵',
-    name: 'flag: Clipperton Island'
+    name: 'flag: Clipperton Island',
   },
   {
     char: '🇨🇷',
-    name: 'flag: Costa Rica'
+    name: 'flag: Costa Rica',
   },
   {
     char: '🇨🇺',
-    name: 'flag: Cuba'
+    name: 'flag: Cuba',
   },
   {
     char: '🇨🇻',
-    name: 'flag: Cape Verde'
+    name: 'flag: Cape Verde',
   },
   {
     char: '🇨🇼',
-    name: 'flag: Curaçao'
+    name: 'flag: Curaçao',
   },
   {
     char: '🇨🇽',
-    name: 'flag: Christmas Island'
+    name: 'flag: Christmas Island',
   },
   {
     char: '🇨🇾',
-    name: 'flag: Cyprus'
+    name: 'flag: Cyprus',
   },
   {
     char: '🇨🇿',
-    name: 'flag: Czechia'
+    name: 'flag: Czechia',
   },
   {
     char: '🇩🇪',
-    name: 'flag: Germany'
+    name: 'flag: Germany',
   },
   {
     char: '🇩🇬',
-    name: 'flag: Diego Garcia'
+    name: 'flag: Diego Garcia',
   },
   {
     char: '🇩🇯',
-    name: 'flag: Djibouti'
+    name: 'flag: Djibouti',
   },
   {
     char: '🇩🇰',
-    name: 'flag: Denmark'
+    name: 'flag: Denmark',
   },
   {
     char: '🇩🇲',
-    name: 'flag: Dominica'
+    name: 'flag: Dominica',
   },
   {
     char: '🇩🇴',
-    name: 'flag: Dominican Republic'
+    name: 'flag: Dominican Republic',
   },
   {
     char: '🇩🇿',
-    name: 'flag: Algeria'
+    name: 'flag: Algeria',
   },
   {
     char: '🇪🇦',
-    name: 'flag: Ceuta & Melilla'
+    name: 'flag: Ceuta & Melilla',
   },
   {
     char: '🇪🇨',
-    name: 'flag: Ecuador'
+    name: 'flag: Ecuador',
   },
   {
     char: '🇪🇪',
-    name: 'flag: Estonia'
+    name: 'flag: Estonia',
   },
   {
     char: '🇪🇬',
-    name: 'flag: Egypt'
+    name: 'flag: Egypt',
   },
   {
     char: '🇪🇭',
-    name: 'flag: Western Sahara'
+    name: 'flag: Western Sahara',
   },
   {
     char: '🇪🇷',
-    name: 'flag: Eritrea'
+    name: 'flag: Eritrea',
   },
   {
     char: '🇪🇸',
-    name: 'flag: Spain'
+    name: 'flag: Spain',
   },
   {
     char: '🇪🇹',
-    name: 'flag: Ethiopia'
+    name: 'flag: Ethiopia',
   },
   {
     char: '🇪🇺',
-    name: 'flag: European Union'
+    name: 'flag: European Union',
   },
   {
     char: '🇫🇮',
-    name: 'flag: Finland'
+    name: 'flag: Finland',
   },
   {
     char: '🇫🇯',
-    name: 'flag: Fiji'
+    name: 'flag: Fiji',
   },
   {
     char: '🇫🇰',
-    name: 'flag: Falkland Islands'
+    name: 'flag: Falkland Islands',
   },
   {
     char: '🇫🇲',
-    name: 'flag: Micronesia'
+    name: 'flag: Micronesia',
   },
   {
     char: '🇫🇴',
-    name: 'flag: Faroe Islands'
+    name: 'flag: Faroe Islands',
   },
   {
     char: '🇫🇷',
-    name: 'flag: France'
+    name: 'flag: France',
   },
   {
     char: '🇬🇦',
-    name: 'flag: Gabon'
+    name: 'flag: Gabon',
   },
   {
     char: '🇬🇧',
-    name: 'flag: United Kingdom'
+    name: 'flag: United Kingdom',
   },
   {
     char: '🇬🇩',
-    name: 'flag: Grenada'
+    name: 'flag: Grenada',
   },
   {
     char: '🇬🇪',
-    name: 'flag: Georgia'
+    name: 'flag: Georgia',
   },
   {
     char: '🇬🇫',
-    name: 'flag: French Guiana'
+    name: 'flag: French Guiana',
   },
   {
     char: '🇬🇬',
-    name: 'flag: Guernsey'
+    name: 'flag: Guernsey',
   },
   {
     char: '🇬🇭',
-    name: 'flag: Ghana'
+    name: 'flag: Ghana',
   },
   {
     char: '🇬🇮',
-    name: 'flag: Gibraltar'
+    name: 'flag: Gibraltar',
   },
   {
     char: '🇬🇱',
-    name: 'flag: Greenland'
+    name: 'flag: Greenland',
   },
   {
     char: '🇬🇲',
-    name: 'flag: Gambia'
+    name: 'flag: Gambia',
   },
   {
     char: '🇬🇳',
-    name: 'flag: Guinea'
+    name: 'flag: Guinea',
   },
   {
     char: '🇬🇵',
-    name: 'flag: Guadeloupe'
+    name: 'flag: Guadeloupe',
   },
   {
     char: '🇬🇶',
-    name: 'flag: Equatorial Guinea'
+    name: 'flag: Equatorial Guinea',
   },
   {
     char: '🇬🇷',
-    name: 'flag: Greece'
+    name: 'flag: Greece',
   },
   {
     char: '🇬🇸',
-    name: 'flag: South Georgia & South Sandwich Islands'
+    name: 'flag: South Georgia & South Sandwich Islands',
   },
   {
     char: '🇬🇹',
-    name: 'flag: Guatemala'
+    name: 'flag: Guatemala',
   },
   {
     char: '🇬🇺',
-    name: 'flag: Guam'
+    name: 'flag: Guam',
   },
   {
     char: '🇬🇼',
-    name: 'flag: Guinea-Bissau'
+    name: 'flag: Guinea-Bissau',
   },
   {
     char: '🇬🇾',
-    name: 'flag: Guyana'
+    name: 'flag: Guyana',
   },
   {
     char: '🇭🇰',
-    name: 'flag: Hong Kong SAR China'
+    name: 'flag: Hong Kong SAR China',
   },
   {
     char: '🇭🇲',
-    name: 'flag: Heard & McDonald Islands'
+    name: 'flag: Heard & McDonald Islands',
   },
   {
     char: '🇭🇳',
-    name: 'flag: Honduras'
+    name: 'flag: Honduras',
   },
   {
     char: '🇭🇷',
-    name: 'flag: Croatia'
+    name: 'flag: Croatia',
   },
   {
     char: '🇭🇹',
-    name: 'flag: Haiti'
+    name: 'flag: Haiti',
   },
   {
     char: '🇭🇺',
-    name: 'flag: Hungary'
+    name: 'flag: Hungary',
   },
   {
     char: '🇮🇨',
-    name: 'flag: Canary Islands'
+    name: 'flag: Canary Islands',
   },
   {
     char: '🇮🇩',
-    name: 'flag: Indonesia'
+    name: 'flag: Indonesia',
   },
   {
     char: '🇮🇪',
-    name: 'flag: Ireland'
+    name: 'flag: Ireland',
   },
   {
     char: '🇮🇱',
-    name: 'flag: Israel'
+    name: 'flag: Israel',
   },
   {
     char: '🇮🇲',
-    name: 'flag: Isle of Man'
+    name: 'flag: Isle of Man',
   },
   {
     char: '🇮🇳',
-    name: 'flag: India'
+    name: 'flag: India',
   },
   {
     char: '🇮🇴',
-    name: 'flag: British Indian Ocean Territory'
+    name: 'flag: British Indian Ocean Territory',
   },
   {
     char: '🇮🇶',
-    name: 'flag: Iraq'
+    name: 'flag: Iraq',
   },
   {
     char: '🇮🇷',
-    name: 'flag: Iran'
+    name: 'flag: Iran',
   },
   {
     char: '🇮🇸',
-    name: 'flag: Iceland'
+    name: 'flag: Iceland',
   },
   {
     char: '🇮🇹',
-    name: 'flag: Italy'
+    name: 'flag: Italy',
   },
   {
     char: '🇯🇪',
-    name: 'flag: Jersey'
+    name: 'flag: Jersey',
   },
   {
     char: '🇯🇲',
-    name: 'flag: Jamaica'
+    name: 'flag: Jamaica',
   },
   {
     char: '🇯🇴',
-    name: 'flag: Jordan'
+    name: 'flag: Jordan',
   },
   {
     char: '🇯🇵',
-    name: 'flag: Japan'
+    name: 'flag: Japan',
   },
   {
     char: '🇰🇪',
-    name: 'flag: Kenya'
+    name: 'flag: Kenya',
   },
   {
     char: '🇰🇬',
-    name: 'flag: Kyrgyzstan'
+    name: 'flag: Kyrgyzstan',
   },
   {
     char: '🇰🇭',
-    name: 'flag: Cambodia'
+    name: 'flag: Cambodia',
   },
   {
     char: '🇰🇮',
-    name: 'flag: Kiribati'
+    name: 'flag: Kiribati',
   },
   {
     char: '🇰🇲',
-    name: 'flag: Comoros'
+    name: 'flag: Comoros',
   },
   {
     char: '🇰🇳',
-    name: 'flag: St. Kitts & Nevis'
+    name: 'flag: St. Kitts & Nevis',
   },
   {
     char: '🇰🇵',
-    name: 'flag: North Korea'
+    name: 'flag: North Korea',
   },
   {
     char: '🇰🇷',
-    name: 'flag: South Korea'
+    name: 'flag: South Korea',
   },
   {
     char: '🇰🇼',
-    name: 'flag: Kuwait'
+    name: 'flag: Kuwait',
   },
   {
     char: '🇰🇾',
-    name: 'flag: Cayman Islands'
+    name: 'flag: Cayman Islands',
   },
   {
     char: '🇰🇿',
-    name: 'flag: Kazakhstan'
+    name: 'flag: Kazakhstan',
   },
   {
     char: '🇱🇦',
-    name: 'flag: Laos'
+    name: 'flag: Laos',
   },
   {
     char: '🇱🇧',
-    name: 'flag: Lebanon'
+    name: 'flag: Lebanon',
   },
   {
     char: '🇱🇨',
-    name: 'flag: St. Lucia'
+    name: 'flag: St. Lucia',
   },
   {
     char: '🇱🇮',
-    name: 'flag: Liechtenstein'
+    name: 'flag: Liechtenstein',
   },
   {
     char: '🇱🇰',
-    name: 'flag: Sri Lanka'
+    name: 'flag: Sri Lanka',
   },
   {
     char: '🇱🇷',
-    name: 'flag: Liberia'
+    name: 'flag: Liberia',
   },
   {
     char: '🇱🇸',
-    name: 'flag: Lesotho'
+    name: 'flag: Lesotho',
   },
   {
     char: '🇱🇹',
-    name: 'flag: Lithuania'
+    name: 'flag: Lithuania',
   },
   {
     char: '🇱🇺',
-    name: 'flag: Luxembourg'
+    name: 'flag: Luxembourg',
   },
   {
     char: '🇱🇻',
-    name: 'flag: Latvia'
+    name: 'flag: Latvia',
   },
   {
     char: '🇱🇾',
-    name: 'flag: Libya'
+    name: 'flag: Libya',
   },
   {
     char: '🇲🇦',
-    name: 'flag: Morocco'
+    name: 'flag: Morocco',
   },
   {
     char: '🇲🇨',
-    name: 'flag: Monaco'
+    name: 'flag: Monaco',
   },
   {
     char: '🇲🇩',
-    name: 'flag: Moldova'
+    name: 'flag: Moldova',
   },
   {
     char: '🇲🇪',
-    name: 'flag: Montenegro'
+    name: 'flag: Montenegro',
   },
   {
     char: '🇲🇫',
-    name: 'flag: St. Martin'
+    name: 'flag: St. Martin',
   },
   {
     char: '🇲🇬',
-    name: 'flag: Madagascar'
+    name: 'flag: Madagascar',
   },
   {
     char: '🇲🇭',
-    name: 'flag: Marshall Islands'
+    name: 'flag: Marshall Islands',
   },
   {
     char: '🇲🇰',
-    name: 'flag: North Macedonia'
+    name: 'flag: North Macedonia',
   },
   {
     char: '🇲🇱',
-    name: 'flag: Mali'
+    name: 'flag: Mali',
   },
   {
     char: '🇲🇲',
-    name: 'flag: Myanmar (Burma)'
+    name: 'flag: Myanmar (Burma)',
   },
   {
     char: '🇲🇳',
-    name: 'flag: Mongolia'
+    name: 'flag: Mongolia',
   },
   {
     char: '🇲🇴',
-    name: 'flag: Macao SAR China'
+    name: 'flag: Macao SAR China',
   },
   {
     char: '🇲🇵',
-    name: 'flag: Northern Mariana Islands'
+    name: 'flag: Northern Mariana Islands',
   },
   {
     char: '🇲🇶',
-    name: 'flag: Martinique'
+    name: 'flag: Martinique',
   },
   {
     char: '🇲🇷',
-    name: 'flag: Mauritania'
+    name: 'flag: Mauritania',
   },
   {
     char: '🇲🇸',
-    name: 'flag: Montserrat'
+    name: 'flag: Montserrat',
   },
   {
     char: '🇲🇹',
-    name: 'flag: Malta'
+    name: 'flag: Malta',
   },
   {
     char: '🇲🇺',
-    name: 'flag: Mauritius'
+    name: 'flag: Mauritius',
   },
   {
     char: '🇲🇻',
-    name: 'flag: Maldives'
+    name: 'flag: Maldives',
   },
   {
     char: '🇲🇼',
-    name: 'flag: Malawi'
+    name: 'flag: Malawi',
   },
   {
     char: '🇲🇽',
-    name: 'flag: Mexico'
+    name: 'flag: Mexico',
   },
   {
     char: '🇲🇾',
-    name: 'flag: Malaysia'
+    name: 'flag: Malaysia',
   },
   {
     char: '🇲🇿',
-    name: 'flag: Mozambique'
+    name: 'flag: Mozambique',
   },
   {
     char: '🇳🇦',
-    name: 'flag: Namibia'
+    name: 'flag: Namibia',
   },
   {
     char: '🇳🇨',
-    name: 'flag: New Caledonia'
+    name: 'flag: New Caledonia',
   },
   {
     char: '🇳🇪',
-    name: 'flag: Niger'
+    name: 'flag: Niger',
   },
   {
     char: '🇳🇫',
-    name: 'flag: Norfolk Island'
+    name: 'flag: Norfolk Island',
   },
   {
     char: '🇳🇬',
-    name: 'flag: Nigeria'
+    name: 'flag: Nigeria',
   },
   {
     char: '🇳🇮',
-    name: 'flag: Nicaragua'
+    name: 'flag: Nicaragua',
   },
   {
     char: '🇳🇱',
-    name: 'flag: Netherlands'
+    name: 'flag: Netherlands',
   },
   {
     char: '🇳🇴',
-    name: 'flag: Norway'
+    name: 'flag: Norway',
   },
   {
     char: '🇳🇵',
-    name: 'flag: Nepal'
+    name: 'flag: Nepal',
   },
   {
     char: '🇳🇷',
-    name: 'flag: Nauru'
+    name: 'flag: Nauru',
   },
   {
     char: '🇳🇺',
-    name: 'flag: Niue'
+    name: 'flag: Niue',
   },
   {
     char: '🇳🇿',
-    name: 'flag: New Zealand'
+    name: 'flag: New Zealand',
   },
   {
     char: '🇴🇲',
-    name: 'flag: Oman'
+    name: 'flag: Oman',
   },
   {
     char: '🇵🇦',
-    name: 'flag: Panama'
+    name: 'flag: Panama',
   },
   {
     char: '🇵🇪',
-    name: 'flag: Peru'
+    name: 'flag: Peru',
   },
   {
     char: '🇵🇫',
-    name: 'flag: French Polynesia'
+    name: 'flag: French Polynesia',
   },
   {
     char: '🇵🇬',
-    name: 'flag: Papua New Guinea'
+    name: 'flag: Papua New Guinea',
   },
   {
     char: '🇵🇭',
-    name: 'flag: Philippines'
+    name: 'flag: Philippines',
   },
   {
     char: '🇵🇰',
-    name: 'flag: Pakistan'
+    name: 'flag: Pakistan',
   },
   {
     char: '🇵🇱',
-    name: 'flag: Poland'
+    name: 'flag: Poland',
   },
   {
     char: '🇵🇲',
-    name: 'flag: St. Pierre & Miquelon'
+    name: 'flag: St. Pierre & Miquelon',
   },
   {
     char: '🇵🇳',
-    name: 'flag: Pitcairn Islands'
+    name: 'flag: Pitcairn Islands',
   },
   {
     char: '🇵🇷',
-    name: 'flag: Puerto Rico'
+    name: 'flag: Puerto Rico',
   },
   {
     char: '🇵🇸',
-    name: 'flag: Palestinian Territories'
+    name: 'flag: Palestinian Territories',
   },
   {
     char: '🇵🇹',
-    name: 'flag: Portugal'
+    name: 'flag: Portugal',
   },
   {
     char: '🇵🇼',
-    name: 'flag: Palau'
+    name: 'flag: Palau',
   },
   {
     char: '🇵🇾',
-    name: 'flag: Paraguay'
+    name: 'flag: Paraguay',
   },
   {
     char: '🇶🇦',
-    name: 'flag: Qatar'
+    name: 'flag: Qatar',
   },
   {
     char: '🇷🇪',
-    name: 'flag: Réunion'
+    name: 'flag: Réunion',
   },
   {
     char: '🇷🇴',
-    name: 'flag: Romania'
+    name: 'flag: Romania',
   },
   {
     char: '🇷🇸',
-    name: 'flag: Serbia'
+    name: 'flag: Serbia',
   },
   {
     char: '🇷🇺',
-    name: 'flag: Russia'
+    name: 'flag: Russia',
   },
   {
     char: '🇷🇼',
-    name: 'flag: Rwanda'
+    name: 'flag: Rwanda',
   },
   {
     char: '🇸🇦',
-    name: 'flag: Saudi Arabia'
+    name: 'flag: Saudi Arabia',
   },
   {
     char: '🇸🇧',
-    name: 'flag: Solomon Islands'
+    name: 'flag: Solomon Islands',
   },
   {
     char: '🇸🇨',
-    name: 'flag: Seychelles'
+    name: 'flag: Seychelles',
   },
   {
     char: '🇸🇩',
-    name: 'flag: Sudan'
+    name: 'flag: Sudan',
   },
   {
     char: '🇸🇪',
-    name: 'flag: Sweden'
+    name: 'flag: Sweden',
   },
   {
     char: '🇸🇬',
-    name: 'flag: Singapore'
+    name: 'flag: Singapore',
   },
   {
     char: '🇸🇭',
-    name: 'flag: St. Helena'
+    name: 'flag: St. Helena',
   },
   {
     char: '🇸🇮',
-    name: 'flag: Slovenia'
+    name: 'flag: Slovenia',
   },
   {
     char: '🇸🇯',
-    name: 'flag: Svalbard & Jan Mayen'
+    name: 'flag: Svalbard & Jan Mayen',
   },
   {
     char: '🇸🇰',
-    name: 'flag: Slovakia'
+    name: 'flag: Slovakia',
   },
   {
     char: '🇸🇱',
-    name: 'flag: Sierra Leone'
+    name: 'flag: Sierra Leone',
   },
   {
     char: '🇸🇲',
-    name: 'flag: San Marino'
+    name: 'flag: San Marino',
   },
   {
     char: '🇸🇳',
-    name: 'flag: Senegal'
+    name: 'flag: Senegal',
   },
   {
     char: '🇸🇴',
-    name: 'flag: Somalia'
+    name: 'flag: Somalia',
   },
   {
     char: '🇸🇷',
-    name: 'flag: Suriname'
+    name: 'flag: Suriname',
   },
   {
     char: '🇸🇸',
-    name: 'flag: South Sudan'
+    name: 'flag: South Sudan',
   },
   {
     char: '🇸🇹',
-    name: 'flag: São Tomé & Príncipe'
+    name: 'flag: São Tomé & Príncipe',
   },
   {
     char: '🇸🇻',
-    name: 'flag: El Salvador'
+    name: 'flag: El Salvador',
   },
   {
     char: '🇸🇽',
-    name: 'flag: Sint Maarten'
+    name: 'flag: Sint Maarten',
   },
   {
     char: '🇸🇾',
-    name: 'flag: Syria'
+    name: 'flag: Syria',
   },
   {
     char: '🇸🇿',
-    name: 'flag: Eswatini'
+    name: 'flag: Eswatini',
   },
   {
     char: '🇹🇦',
-    name: 'flag: Tristan da Cunha'
+    name: 'flag: Tristan da Cunha',
   },
   {
     char: '🇹🇨',
-    name: 'flag: Turks & Caicos Islands'
+    name: 'flag: Turks & Caicos Islands',
   },
   {
     char: '🇹🇩',
-    name: 'flag: Chad'
+    name: 'flag: Chad',
   },
   {
     char: '🇹🇫',
-    name: 'flag: French Southern Territories'
+    name: 'flag: French Southern Territories',
   },
   {
     char: '🇹🇬',
-    name: 'flag: Togo'
+    name: 'flag: Togo',
   },
   {
     char: '🇹🇭',
-    name: 'flag: Thailand'
+    name: 'flag: Thailand',
   },
   {
     char: '🇹🇯',
-    name: 'flag: Tajikistan'
+    name: 'flag: Tajikistan',
   },
   {
     char: '🇹🇰',
-    name: 'flag: Tokelau'
+    name: 'flag: Tokelau',
   },
   {
     char: '🇹🇱',
-    name: 'flag: Timor-Leste'
+    name: 'flag: Timor-Leste',
   },
   {
     char: '🇹🇲',
-    name: 'flag: Turkmenistan'
+    name: 'flag: Turkmenistan',
   },
   {
     char: '🇹🇳',
-    name: 'flag: Tunisia'
+    name: 'flag: Tunisia',
   },
   {
     char: '🇹🇴',
-    name: 'flag: Tonga'
+    name: 'flag: Tonga',
   },
   {
     char: '🇹🇷',
-    name: 'flag: Turkey'
+    name: 'flag: Turkey',
   },
   {
     char: '🇹🇹',
-    name: 'flag: Trinidad & Tobago'
+    name: 'flag: Trinidad & Tobago',
   },
   {
     char: '🇹🇻',
-    name: 'flag: Tuvalu'
+    name: 'flag: Tuvalu',
   },
   {
     char: '🇹🇼',
-    name: 'flag: Taiwan'
+    name: 'flag: Taiwan',
   },
   {
     char: '🇹🇿',
-    name: 'flag: Tanzania'
+    name: 'flag: Tanzania',
   },
   {
     char: '🇺🇦',
-    name: 'flag: Ukraine'
+    name: 'flag: Ukraine',
   },
   {
     char: '🇺🇬',
-    name: 'flag: Uganda'
+    name: 'flag: Uganda',
   },
   {
     char: '🇺🇲',
-    name: 'flag: U.S. Outlying Islands'
+    name: 'flag: U.S. Outlying Islands',
   },
   {
     char: '🇺🇳',
-    name: 'flag: United Nations'
+    name: 'flag: United Nations',
   },
   {
     char: '🇺🇸',
-    name: 'flag: United States'
+    name: 'flag: United States',
   },
   {
     char: '🇺🇾',
-    name: 'flag: Uruguay'
+    name: 'flag: Uruguay',
   },
   {
     char: '🇺🇿',
-    name: 'flag: Uzbekistan'
+    name: 'flag: Uzbekistan',
   },
   {
     char: '🇻🇦',
-    name: 'flag: Vatican City'
+    name: 'flag: Vatican City',
   },
   {
     char: '🇻🇨',
-    name: 'flag: St. Vincent & Grenadines'
+    name: 'flag: St. Vincent & Grenadines',
   },
   {
     char: '🇻🇪',
-    name: 'flag: Venezuela'
+    name: 'flag: Venezuela',
   },
   {
     char: '🇻🇬',
-    name: 'flag: British Virgin Islands'
+    name: 'flag: British Virgin Islands',
   },
   {
     char: '🇻🇮',
-    name: 'flag: U.S. Virgin Islands'
+    name: 'flag: U.S. Virgin Islands',
   },
   {
     char: '🇻🇳',
-    name: 'flag: Vietnam'
+    name: 'flag: Vietnam',
   },
   {
     char: '🇻🇺',
-    name: 'flag: Vanuatu'
+    name: 'flag: Vanuatu',
   },
   {
     char: '🇼🇫',
-    name: 'flag: Wallis & Futuna'
+    name: 'flag: Wallis & Futuna',
   },
   {
     char: '🇼🇸',
-    name: 'flag: Samoa'
+    name: 'flag: Samoa',
   },
   {
     char: '🇽🇰',
-    name: 'flag: Kosovo'
+    name: 'flag: Kosovo',
   },
   {
     char: '🇾🇪',
-    name: 'flag: Yemen'
+    name: 'flag: Yemen',
   },
   {
     char: '🇾🇹',
-    name: 'flag: Mayotte'
+    name: 'flag: Mayotte',
   },
   {
     char: '🇿🇦',
-    name: 'flag: South Africa'
+    name: 'flag: South Africa',
   },
   {
     char: '🇿🇲',
-    name: 'flag: Zambia'
+    name: 'flag: Zambia',
   },
   {
     char: '🇿🇼',
-    name: 'flag: Zimbabwe'
+    name: 'flag: Zimbabwe',
   },
   {
     char: '🏴󠁧󠁢󠁥󠁮󠁧󠁿',
-    name: 'flag: England'
+    name: 'flag: England',
   },
   {
     char: '🏴󠁧󠁢󠁳󠁣󠁴󠁿',
-    name: 'flag: Scotland'
+    name: 'flag: Scotland',
   },
   {
     char: '🏴󠁧󠁢󠁷󠁬󠁳󠁿',
-    name: 'flag: Wales'
-  }
-]
-export default emoji
+    name: 'flag: Wales',
+  },
+];
+export default EMOJI;
